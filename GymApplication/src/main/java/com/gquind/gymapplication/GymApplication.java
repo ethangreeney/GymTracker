@@ -2,7 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  */
 
-package com.gquind.gymapplication;
+package GymApplication.src.main.java.com.gquind.gymapplication;
 
 /**
  *
