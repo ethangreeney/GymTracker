@@ -2,8 +2,6 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  */
 
-package GymApplication.src.main.java.com.gquind.gymapplication;
-
 /**
  *
  * @author daniel
