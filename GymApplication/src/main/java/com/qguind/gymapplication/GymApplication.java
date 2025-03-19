@@ -7,6 +7,8 @@
  * @author daniel
  */
 
+package com.qguind.gymapplication;
+
 public class GymApplication {
 
     public static void main(String[] args) {
