@@ -7,8 +7,6 @@
  * @author daniel
  */
 
-
-
 import java.util.Scanner;
 
 public class GymApplication {
