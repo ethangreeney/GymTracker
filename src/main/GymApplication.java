@@ -7,7 +7,7 @@
  * @author daniel
  */
 
-package com.qguind.gymapplication;
+package src.main;
 
 import java.util.Scanner;
 
@@ -34,5 +34,15 @@ public class GymApplication {
         System.out.println("1: Login");
         System.out.println("2: Register");
 
+        String userInput = scan.nextLine();
+
+        while (!userInput.equals("1") && !userInput.equals("2")) {
+            System.out.println("Invalid input, please enter either '1', or '2'");
+            userInput = scan.nextLine();
+        }
+
+        int userChoice = Integer.parseInt(userInput);
+
+        scan.close();
     }
 }
