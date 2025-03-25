@@ -2,9 +2,9 @@ import java.util.Scanner;
 
 public class GymApplication implements Page {
 
-    public void display() {
+    private Scanner scan = new Scanner(System.in);
 
-        Scanner scan = new Scanner(System.in);
+    public void display() {
 
         String asciiArt = """
                   _____                _____                _
@@ -23,6 +23,11 @@ public class GymApplication implements Page {
         System.out.println("1: Login");
         System.out.println("2: Register");
 
+        handleInput();
+    }
+
+    public void handleInput() {
+
         String userInput = scan.nextLine();
 
         while (!userInput.equals("1") && !userInput.equals("2")) {
@@ -30,14 +35,11 @@ public class GymApplication implements Page {
             userInput = scan.nextLine();
         }
 
-        handleInput(Integer.parseInt(userInput));
+        int userInputInt = Integer.parseInt(userInput);
 
         scan.close();
 
-    }
-
-    public void handleInput(int userInput) {
-        if (userInput == 1) {
+        if (userInputInt == 1) {
             PageManager.display(Login.class);
         } else {
             PageManager.display(Register.class);
