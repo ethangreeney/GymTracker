@@ -1,9 +1,11 @@
+import java.util.HashMap;
+
 public class PageManager {
 
-    private static PageManager singleton;
+    public static HashMap<Class<? extends Page>, Page> pageInstanceMap = new HashMap<>();
 
-    public PageManager getInstance() {
-        return singleton == null ? singleton = new PageManager() : singleton;
+    public void display(Class<? extends Page> pageType) {
+
     }
 
 }
