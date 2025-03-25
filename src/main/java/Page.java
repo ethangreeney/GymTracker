@@ -1,6 +1,6 @@
 public interface Page {
 
-    public void disply();
+    public void display();
 
     public void handleInput();
 
