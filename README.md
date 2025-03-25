@@ -1,3 +1,6 @@
+# This is my beautiful gym tracking application
+
+
 ```mermaid
 classDiagram
     GymApplication --> UserManager
