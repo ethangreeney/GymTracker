@@ -1,4 +1,4 @@
-# This is my beautiful gym tracking application
+# Gym tracking application
 
 
 ```mermaid
