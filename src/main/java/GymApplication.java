@@ -48,8 +48,8 @@ public class GymApplication implements Page {
 
     public static void main(String[] args) {
 
-        var mainApp = new PageManager();
-        mainApp.display(GymApplication.class);
+        var mainApp = new GymApplication();
+        mainApp.display();
 
     }
 
