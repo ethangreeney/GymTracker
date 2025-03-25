@@ -1,8 +1,8 @@
 import java.util.Scanner;
 
-public class GymApplication {
+public class GymApplication implements Page {
 
-    public static void main(String[] args) {
+    public void display() {
 
         Scanner scan = new Scanner(System.in);
 
@@ -30,8 +30,25 @@ public class GymApplication {
             userInput = scan.nextLine();
         }
 
-        int userChoice = Integer.parseInt(userInput);
+        handleInput(Integer.parseInt(userInput));
 
         scan.close();
+
     }
+
+    public void handleInput(int userInput) {
+        if (userInput == 1) {
+            PageManager.display(Login.class);
+        } else {
+            PageManager.display(Register.class);
+        }
+    }
+
+    public static void main(String[] args) {
+
+        var mainApp = new PageManager();
+        mainApp.display(GymApplication.class);
+
+    }
+
 }
