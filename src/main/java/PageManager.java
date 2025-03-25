@@ -5,9 +5,9 @@ public class PageManager {
 
     public static HashMap<Class<? extends Page>, Page> pageInstanceMap = new HashMap<>();
 
-    public void display(Class<? extends Page> pageType) {
+    public static void display(Class<? extends Page> pageType) {
 
-        var targetPage = pageInstanceMap.computeIfAbsent(pageType, newKey -> {
+        Page targetPage = pageInstanceMap.computeIfAbsent(pageType, newKey -> {
             try {
                 return newKey.getDeclaredConstructor().newInstance();
             } catch (InstantiationException | IllegalAccessException | IllegalArgumentException
@@ -16,6 +16,8 @@ public class PageManager {
                 return null;
             }
         });
+
+        targetPage.display();
 
     }
 
