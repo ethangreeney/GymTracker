@@ -1,11 +1,11 @@
 import java.io.File;
 import java.io.FileReader;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
-import org.json.simple.JSONArray;
-import org.json.simple.JSONObject;
-import org.json.simple.parser.JSONParser;
+import com.google.gson.Gson;
+import com.google.gson.reflect.TypeToken;
 
 public class UserManager {
 
@@ -23,28 +23,15 @@ public class UserManager {
             return;
         }
 
-        JSONParser parser = new JSONParser();
-
         try (FileReader reader = new FileReader(filePath)) {
 
-            JSONArray userArray = (JSONArray) parser.parse(reader);
+            var userListType = new TypeToken<ArrayList<User>>() {
+            }.getType();
 
-            for (var userFromArray : userArray) {
+            ArrayList<User> userList = new Gson().fromJson(reader, userListType);
 
-                JSONObject userFromFile = (JSONObject) userFromArray;
-
-                User user = new User();
-
-                user.setUsername((String) userFromFile.get("username"));
-                user.setPassword((String) userFromFile.get("password"));
-
-                user.setAge((int) userFromFile.get("age"));
-                user.setHeight((int) userFromFile.get("height"));
-                user.setName((String) userFromFile.get("name"));
-                user.setWeight((int) userFromFile.get("weight"));
-
+            for (User user : userList) {
                 users.put(user.getName(), user);
-
             }
 
         } catch (Exception e) {
