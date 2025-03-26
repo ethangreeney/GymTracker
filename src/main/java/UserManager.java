@@ -2,7 +2,10 @@ import java.io.File;
 import java.util.HashMap;
 import java.util.Map;
 
+import org.json.simple.JSONArray;
+import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
+import org.json.simple.parser.ParseException;
 
 public class UserManager {
 
@@ -20,7 +23,7 @@ public class UserManager {
             return;
         }
 
-        JSONPa‹rser parser = new JSONParser();
+        JSONParser parser = new JSONParser();
     }
 
     public static void saveUsers() {
