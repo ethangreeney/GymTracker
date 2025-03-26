@@ -2,6 +2,9 @@ public class Register implements Page {
 
     @Override
     public void display() {
+
+        System.out.println("=====Log In=====");
+
         // before registering, check if a user with that name already exists, if it does
         // tell the user that an account with that username already exists,
         // and ask them to please return to the previous page and log in

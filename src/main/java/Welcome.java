@@ -31,7 +31,7 @@ public class Welcome implements Page {
             userInput = GymApplication.scan.nextLine();
         }
 
-        if (userInput == "1") {
+        if (userInput.equals("1")) {
             PageManager.navigate(Login.class);
         } else {
             PageManager.navigate(Register.class);
