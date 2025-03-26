@@ -35,11 +35,7 @@ public class GymApplication implements Page {
             userInput = scan.nextLine();
         }
 
-        int userInputInt = Integer.parseInt(userInput);
-
-        scan.close();
-
-        if (userInputInt == 1) {
+        if (userInput == "1") {
             PageManager.navigate(Login.class);
         } else {
             PageManager.navigate(Register.class);
@@ -50,6 +46,8 @@ public class GymApplication implements Page {
 
         var mainApp = new GymApplication();
         mainApp.display();
+
+        scan.close();
 
     }
 
