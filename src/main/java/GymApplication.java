@@ -47,8 +47,6 @@ public class GymApplication implements Page {
         var mainApp = new GymApplication();
         mainApp.display();
 
-        scan.close();
-
     }
 
 }
