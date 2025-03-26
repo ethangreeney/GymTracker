@@ -40,9 +40,9 @@ public class GymApplication implements Page {
         scan.close();
 
         if (userInputInt == 1) {
-            PageManager.display(Login.class);
+            PageManager.navigate(Login.class);
         } else {
-            PageManager.display(Register.class);
+            PageManager.navigate(Register.class);
         }
     }
 

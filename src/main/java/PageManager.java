@@ -5,7 +5,7 @@ public class PageManager {
 
     public static HashMap<Class<? extends Page>, Page> pageInstanceMap = new HashMap<>();
 
-    public static void display(Class<? extends Page> pageType) {
+    public static void navigate(Class<? extends Page> pageType) {
 
         Page targetPage = pageInstanceMap.computeIfAbsent(pageType, newKey -> {
             try {
