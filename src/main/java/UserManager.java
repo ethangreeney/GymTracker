@@ -4,7 +4,6 @@ import java.io.FileWriter;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 
 import com.google.gson.Gson;
@@ -57,11 +56,23 @@ public class UserManager {
 
     }
 
-    public static void login() {
+    public static boolean login(String usermname, String Password) {
+
+        if (users.containsKey(usermname) && users.get(usermname).getPassword().equals(Password)) {
+
+            currentUser = users.get(usermname);
+
+            return true;
+
+        }
+
+        return false;
 
     }
 
     public static void register() {
+
+        users.put(currentUser.getUsername(), currentUser);
 
     }
 

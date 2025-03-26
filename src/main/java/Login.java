@@ -2,14 +2,14 @@ public class Login implements Page {
 
     @Override
     public void display() {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'display'");
+
+        // if userManager.login returns true then print this
+        System.out.println("Successful login. Welcome back " + UserManager.currentUser.getName() + "!");
+
     }
 
     @Override
     public void handleInput() {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'handleInput'");
     }
 
 }
