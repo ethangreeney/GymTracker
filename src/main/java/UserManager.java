@@ -1,11 +1,11 @@
 import java.io.File;
+import java.io.FileReader;
 import java.util.HashMap;
 import java.util.Map;
 
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
-import org.json.simple.parser.ParseException;
 
 public class UserManager {
 
@@ -24,6 +24,32 @@ public class UserManager {
         }
 
         JSONParser parser = new JSONParser();
+
+        try (FileReader reader = new FileReader(filePath)) {
+
+            JSONArray userArray = (JSONArray) parser.parse(reader);
+
+            for (var userFromArray : userArray) {
+
+                JSONObject userFromFile = (JSONObject) userFromArray;
+
+                User user = new User();
+
+                user.setUsername((String) userFromFile.get("username"));
+                user.setPassword((String) userFromFile.get("password"));
+
+                user.setAge((int) userFromFile.get("age"));
+                user.setHeight((int) userFromFile.get("height"));
+                user.setName((String) userFromFile.get("name"));
+                user.setWeight((int) userFromFile.get("weight"));
+
+                users.put(user.getName(), user);
+
+            }
+
+        } catch (Exception e) {
+            System.out.println("Error Reading File");
+        }
     }
 
     public static void saveUsers() {
