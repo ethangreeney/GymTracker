@@ -6,7 +6,9 @@ public class GymApplication {
 
     public static void main(String[] args) {
 
+        UserManager.loadUsers();
         PageManager.navigate(Welcome.class);
+
         scan.close();
     }
 
