@@ -11,6 +11,10 @@ public class Workout {
 
     private List<Exercise> exerciseInfo;
 
+    Workout() {
+        setStart(LocalDateTime.now());
+    }
+    
     public void showExercises(){
         for(Exercise exercise : exerciseInfo){
             System.out.println(exercise);
@@ -20,9 +24,10 @@ public class Workout {
     public LocalDateTime getStart() {
         return start;
     }
-
-    public void setStart(LocalDateTime start) {
-        this.start = start;
+    
+    
+    private void setStart(LocalDateTime now) {
+        this.start = now;
     }
 
     public LocalDateTime getEnd() {

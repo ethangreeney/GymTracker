@@ -1,3 +1,7 @@
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+
 public class User {
 
     private String username;
@@ -8,7 +12,57 @@ public class User {
     private int age;
     private int weight;
 
+    private List<String> exercisesList;
+
+    private List<Workout> workoutHistory;
+
     
+
+    public List<String> getExercisesList(){
+        if(this.exercisesList == null){
+            exercisesList = new ArrayList<>(Arrays.asList(
+                "Bench Press",
+                "Incline Dumbell Press",
+                "Push Up",
+                "Overhead Press",
+
+                "Dip",
+                "Cable Tricep Extension",
+                "Skull Crushers",
+                "Overhead Cable Tricep Extension",
+
+                "Dumbell Side Delts",
+                "Cable Side Delts",
+
+                "Bicep Curls",
+                "Preacher Curls",
+                "Cable Curls",
+
+                "Pull Up",
+                "Pull Downs",
+                "Dumbbell Row",
+                "Barbell Row",
+
+                "Squat",
+                "Deadlift",
+                "Lunge",
+                "Leg Press"
+            ));
+        } 
+        return exercisesList;
+    }
+
+   
+
+
+     public List<Workout> getWorkoutHistory() {
+        if(this.workoutHistory == null){
+            workoutHistory = new ArrayList<>();
+        } 
+        return workoutHistory;
+    }
+
+
 
     public String getUsername() {
         return username;
