@@ -8,6 +8,8 @@ public class User {
     private int age;
     private int weight;
 
+    
+
     public String getUsername() {
         return username;
     }
