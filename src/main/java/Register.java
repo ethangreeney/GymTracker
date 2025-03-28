@@ -42,13 +42,13 @@ public class Register implements Page {
         UserManager.currentUser.setName(input);
         System.out.println("Please enter age: ");
         input = GymApplication.scan.nextLine();
-        UserManager.currentUser.setName(input);
+        UserManager.currentUser.setAge(GymApplication.stringToInt(input));
         System.out.println("Please enter height: (cm)");
         input = GymApplication.scan.nextLine();
-        UserManager.currentUser.setName(input);
+        UserManager.currentUser.setHeight(GymApplication.stringToInt(input));
         System.out.println("Please enter weight: (kg)");
         input = GymApplication.scan.nextLine();
-        UserManager.currentUser.setName(input);
+        UserManager.currentUser.setWeight(GymApplication.stringToInt(input));
 
         PageManager.navigate(Home.class);
 
