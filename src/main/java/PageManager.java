@@ -7,6 +7,8 @@ public class PageManager {
 
     public static void navigate(Class<? extends Page> pageType) {
 
+        System.out.println();
+
         Page targetPage = pageInstanceMap.computeIfAbsent(pageType, newKey -> {
             try {
                 return newKey.getDeclaredConstructor().newInstance();

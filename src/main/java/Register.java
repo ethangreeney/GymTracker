@@ -18,8 +18,6 @@ public class Register implements Page {
 
         System.out.println("Please enter username: ");
         username = GymApplication.scan.nextLine();
-        System.out.println("Please enter password: ");
-        password = GymApplication.scan.nextLine();
 
         while (UserManager.getUsers().containsKey(username)) {
 
@@ -35,6 +33,9 @@ public class Register implements Page {
         UserManager.currentUser = new User();
 
         UserManager.currentUser.setUsername(username);
+
+        System.out.println("Please enter password: ");
+        password = GymApplication.scan.nextLine();
         UserManager.currentUser.setPassword(password);
 
         System.out.println("Please enter name: ");
