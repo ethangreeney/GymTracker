@@ -18,6 +18,7 @@ public class Welcome implements Page {
         System.out.println("Welcome to this excersise tracking application! Would you like to:");
         System.out.println("1: Login");
         System.out.println("2: Register");
+        System.out.println("3: Exit");
 
         handleInput();
     }
@@ -26,15 +27,17 @@ public class Welcome implements Page {
 
         String userInput = GymApplication.scan.nextLine();
 
-        while (!userInput.equals("1") && !userInput.equals("2")) {
-            System.out.println("Invalid input, please enter either '1', or '2'");
+        while (!userInput.equals("1") && !userInput.equals("2") && !userInput.equals("3")) {
+            System.out.println("Invalid input, please enter either '1', '2', or '3'");
             userInput = GymApplication.scan.nextLine();
         }
 
         if (userInput.equals("1")) {
             PageManager.navigate(Login.class);
-        } else {
+        } else if (userInput.equals("2")) {
             PageManager.navigate(Register.class);
+        } else {
+            return;
         }
     }
 

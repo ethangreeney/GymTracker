@@ -21,12 +21,12 @@ public class Register implements Page {
 
         while (UserManager.getUsers().containsKey(username)) {
 
+            System.out.println("User already exists in the database, please enter username again (x to go back)");
+            username = GymApplication.scan.nextLine();
+
             if (username.equals("x")) {
                 PageManager.navigate(Welcome.class);
             }
-
-            System.out.println("User already exists in the database, please enter username again (x to go back)");
-            username = GymApplication.scan.nextLine();
 
         }
 
