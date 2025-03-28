@@ -1,49 +1,25 @@
-import java.time.LocalDateTime;
+import java.util.Date;
 import java.util.List;
 
 public class Workout {
-    
-    private LocalDateTime start;
-    private LocalDateTime end;
-    private LocalDateTime date;
-    
+
     private String name;
+    private Date workoutDate;
 
     private List<Exercise> exerciseInfo;
 
     Workout() {
-        setStart(LocalDateTime.now());
+        workoutDate = new Date();
     }
-    
-    public void showExercises(){
-        for(Exercise exercise : exerciseInfo){
+
+    public void showExercises() {
+        for (Exercise exercise : exerciseInfo) {
             System.out.println(exercise);
         }
     }
 
-    public LocalDateTime getStart() {
-        return start;
-    }
-    
-    
-    private void setStart(LocalDateTime now) {
-        this.start = now;
-    }
-
-    public LocalDateTime getEnd() {
-        return end;
-    }
-
-    public void setEnd(LocalDateTime end) {
-        this.end = end;
-    }
-
-    public LocalDateTime getDate() {
-        return date;
-    }
-
-    public void setDate(LocalDateTime date) {
-        this.date = date;
+    public Date getWorkoutDate() {
+        return workoutDate;
     }
 
     public String getName() {
@@ -61,6 +37,5 @@ public class Workout {
     public void setExerciseInfo(List<Exercise> exerciseInfo) {
         this.exerciseInfo = exerciseInfo;
     }
-    
-    
+
 }

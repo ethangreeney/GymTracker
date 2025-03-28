@@ -59,6 +59,7 @@ public class UserManager {
             gson.toJson(userList, writer);
         } catch (Exception e) {
             System.out.println("File Writing Failed");
+            e.printStackTrace();
         }
 
     }

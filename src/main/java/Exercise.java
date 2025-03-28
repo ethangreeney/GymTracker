@@ -4,26 +4,25 @@ import java.util.List;
 public class Exercise {
 
     private String name;
-    private List <setInfo> sets;
+    private List<SetInfo> sets;
 
-    public Exercise(String n){
+    public Exercise(String n) {
         this.name = n;
     }
 
-  
     public String getName() {
         return name;
     }
-   
-    public List<setInfo> getSets() {
-        if(this.sets == null){
+
+    public List<SetInfo> getSets() {
+        if (this.sets == null) {
             sets = new ArrayList<>();
-        } 
+        }
         return sets;
     }
 
-    public void addSet(int w, int r){
-        this.getSets().add(new setInfo(w, r));
+    public void addSet(int w, int r) {
+        this.getSets().add(new SetInfo(w, r));
     }
 
     @Override
@@ -33,12 +32,13 @@ public class Exercise {
 
         int count = 1;
 
-        for(setInfo set: sets){
-            returnInformation += "\n   Set " + count++ + ": [Weight: " + set.getWeight() + " kg] [Reps: " + set.getReps() + "]";
+        for (SetInfo set : sets) {
+            returnInformation += "\n   Set " + count++ + ": [Weight: " + set.getWeight() + " kg] [Reps: "
+                    + set.getReps() + "]";
         }
 
         return returnInformation;
-       
+
     }
 
 }
