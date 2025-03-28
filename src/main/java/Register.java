@@ -25,6 +25,7 @@ public class Register implements Page {
             username = GymApplication.scan.nextLine();
 
             if (username.equals("x")) {
+                UserManager.currentUser = null;
                 PageManager.navigate(Welcome.class);
             }
 
