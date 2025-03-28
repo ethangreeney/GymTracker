@@ -49,11 +49,12 @@ public class UserManager {
     }
 
     public static void saveUsers() {
-
-        if (users.containsKey(currentUser.getUsername())) {
-            users.replace(currentUser.getUsername(), currentUser);
-        } else {
-            users.put(currentUser.getUsername(), currentUser);
+        if (currentUser != null) {
+            if (users.containsKey(currentUser.getUsername())) {
+                users.replace(currentUser.getUsername(), currentUser);
+            } else {
+                users.put(currentUser.getUsername(), currentUser);
+            }
         }
 
         Gson gson = new GsonBuilder().setPrettyPrinting().create();
