@@ -11,6 +11,30 @@
     <artifactId>gson</artifactId>
     <version>2.10.1</version>
 </dependency>
+
+<!-- theese three dependancies are imported to do my unit test that AI created-->
+<dependency>
+    <groupId>org.junit.jupiter</groupId>
+    <artifactId>junit-jupiter-api</artifactId>
+    <version>5.10.0</version>
+    <scope>test</scope>
+</dependency>
+<dependency>
+    <groupId>org.junit.jupiter</groupId>
+    <artifactId>junit-jupiter-engine</artifactId>
+    <version>5.10.0</version>
+    <scope>test</scope>
+</dependency>
+<dependency>
+    <groupId>org.mockito</groupId>
+    <artifactId>mockito-core</artifactId>
+    <version>5.6.0</version>
+    <scope>test</scope>
+</dependency>
+<!-- end of Ai-->
+
+
+
     </dependencies>
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
