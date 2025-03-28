@@ -35,7 +35,7 @@ public class UserManager {
             ArrayList<User> userList = new Gson().fromJson(reader, userListType);
 
             for (User user : userList) {
-                users.put(user.getName(), user);
+                users.put(user.getUsername(), user);
             }
 
         } catch (Exception e) {
