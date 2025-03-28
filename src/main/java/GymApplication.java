@@ -6,6 +6,11 @@ public class GymApplication {
 
     public static void main(String[] args) {
 
+        Runtime.getRuntime().addShutdownHook(new Thread(() -> {
+            System.out.println("Saving user data before shutting down...");
+            UserManager.saveUsers();
+        }));
+
         UserManager.loadUsers();
         PageManager.navigate(Welcome.class);
 
