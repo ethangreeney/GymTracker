@@ -50,7 +50,7 @@ public class UserManager {
 
     public static void saveUsers() {
 
-        users.put(currentUser.getName(), currentUser);
+        users.put(currentUser.getUsername(), currentUser);
 
         Gson gson = new GsonBuilder().setPrettyPrinting().create();
         Collection<User> userList = users.values();
