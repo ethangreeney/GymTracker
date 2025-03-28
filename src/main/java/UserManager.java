@@ -14,6 +14,7 @@ public class UserManager {
 
     public static User currentUser;
     private static Map<String, User> users = new HashMap<>();
+
     private static String filePath = "resources/userInfo.json";
 
     public static void loadUsers() {
@@ -41,6 +42,10 @@ public class UserManager {
             System.out.println("Error Reading File");
         }
 
+    }
+
+    public static Map<String, User> getUsers() {
+        return users;
     }
 
     public static void saveUsers() {
