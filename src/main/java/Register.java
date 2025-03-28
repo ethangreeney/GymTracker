@@ -7,13 +7,6 @@ public class Register implements Page {
 
         handleInput();
 
-        // before registering, check if a user with that name already exists, if it does
-        // tell the user that an account with that username already exists,
-        // and ask them to please return to the previous page and log in
-
-        // as the user is registering, if no account with that username exists,
-        // start setting the variables: UserManager.currentUser.setAge
-
     }
 
     @Override
@@ -21,6 +14,7 @@ public class Register implements Page {
 
         String username;
         String password;
+        String input;
 
         System.out.println("Please enter username: ");
         username = GymApplication.scan.nextLine();
@@ -37,6 +31,26 @@ public class Register implements Page {
             username = GymApplication.scan.nextLine();
 
         }
+
+        UserManager.currentUser = new User();
+
+        UserManager.currentUser.setUsername(username);
+        UserManager.currentUser.setPassword(password);
+
+        System.out.println("Please enter name: ");
+        input = GymApplication.scan.nextLine();
+        UserManager.currentUser.setName(input);
+        System.out.println("Please enter age: ");
+        input = GymApplication.scan.nextLine();
+        UserManager.currentUser.setName(input);
+        System.out.println("Please enter height: (cm)");
+        input = GymApplication.scan.nextLine();
+        UserManager.currentUser.setName(input);
+        System.out.println("Please enter weight: (kg)");
+        input = GymApplication.scan.nextLine();
+        UserManager.currentUser.setName(input);
+
+        PageManager.navigate(Home.class);
 
     }
 
