@@ -130,4 +130,5 @@ mvn test
 
 ## Contributors
 
-- Your Name - Initial work
+- Ethan Greene
+- Daniel Huang
