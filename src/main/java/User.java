@@ -16,6 +16,12 @@ public class User {
 
     private List<Workout> workoutHistory;
 
+    private List<Goals> userGoals;
+
+    
+
+
+
     
 
     public List<String> getExercisesList(){

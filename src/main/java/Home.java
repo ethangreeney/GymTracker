@@ -2,19 +2,52 @@ public class Home implements Page {
 
     @Override
     public void display() {
+
         System.out.println("""
                 1. Start Workout
-                2. Veiw workout History
-                3. Set and Veiw Goals
+                2. View workout History
+                3. Set and View Goals
                 4. User Info
                 5. Save Info and Log Out
                 """);
+
+                handleInput();
     }
 
     @Override
     public void handleInput() {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'handleInput'");
+
+        String input = GymApplication.scan.nextLine();
+
+        int pageNum = GymApplication.stringToInt(input);
+
+        switch (pageNum) {
+            case 1:
+                PageManager.navigate(WorkoutStart.class);
+                break;
+            case 2:
+                PageManager.navigate(WorkoutHistory.class);
+                break;
+
+            case 3:
+                PageManager.navigate(Goals.class);
+                break;
+
+            case 4:
+                PageManager.navigate(UserInfo.class);
+                break;
+
+            case 5:
+                PageManager.navigate(Shutdown.class);
+                break;
+
+            default:
+                System.out.println("Invalid Input");
+                PageManager.navigate(Home.class);
+                break;
+
+        }
+
     }
 
 }
