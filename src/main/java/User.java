@@ -18,7 +18,14 @@ public class User {
 
     private List<Goals> userGoals;
 
-    
+    public List<Goals> getUserGoals(){
+        if(this.userGoals == null){
+            userGoals = new ArrayList<Goals>();
+        }
+
+        return userGoals;
+    }
+
 
 
 
@@ -37,7 +44,7 @@ public class User {
                 "Skull Crushers",
                 "Overhead Cable Tricep Extension",
 
-                "Dumbell Side Delts",
+                "Dumbbell Side Delts",
                 "Cable Side Delts",
 
                 "Bicep Curls",

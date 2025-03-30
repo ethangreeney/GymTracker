@@ -5,7 +5,7 @@ public class Home implements Page {
 
         System.out.println("""
                 1. Start Workout
-                2. View workout History
+                2. View Workout History
                 3. Set and View Goals
                 4. User Info
                 5. Save Info and Log Out
