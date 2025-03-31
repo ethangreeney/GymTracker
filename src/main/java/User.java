@@ -18,64 +18,53 @@ public class User {
 
     private List<Goals> userGoals;
 
-    public List<Goals> getUserGoals(){
-        if(this.userGoals == null){
+    public List<Goals> getUserGoals() {
+        if (this.userGoals == null) {
             userGoals = new ArrayList<Goals>();
         }
 
         return userGoals;
     }
 
-
-
-
-    
-
-    public List<String> getExercisesList(){
-        if(this.exercisesList == null){
+    public List<String> getExercisesList() {
+        if (this.exercisesList == null) {
             exercisesList = new ArrayList<>(Arrays.asList(
-                "Bench Press",
-                "Incline Dumbell Press",
-                "Push Up",
-                "Overhead Press",
+                    "Bench Press",
+                    "Incline Dumbell Press",
+                    "Push Up",
+                    "Overhead Press",
 
-                "Dip",
-                "Cable Tricep Extension",
-                "Skull Crushers",
-                "Overhead Cable Tricep Extension",
+                    "Dip",
+                    "Cable Tricep Extension",
+                    "Skull Crushers",
+                    "Overhead Cable Tricep Extension",
 
-                "Dumbbell Side Delts",
-                "Cable Side Delts",
+                    "Dumbbell Side Delts",
+                    "Cable Side Delts",
 
-                "Bicep Curls",
-                "Preacher Curls",
-                "Cable Curls",
+                    "Bicep Curls",
+                    "Preacher Curls",
+                    "Cable Curls",
 
-                "Pull Up",
-                "Pull Downs",
-                "Dumbbell Row",
-                "Barbell Row",
+                    "Pull Up",
+                    "Pull Downs",
+                    "Dumbbell Row",
+                    "Barbell Row",
 
-                "Squat",
-                "Deadlift",
-                "Lunge",
-                "Leg Press"
-            ));
-        } 
+                    "Squat",
+                    "Deadlift",
+                    "Lunge",
+                    "Leg Press"));
+        }
         return exercisesList;
     }
 
-   
-
-
-     public List<Workout> getWorkoutHistory() {
-        if(this.workoutHistory == null){
+    public List<Workout> getWorkoutHistory() {
+        if (this.workoutHistory == null) {
             workoutHistory = new ArrayList<>();
-        } 
+        }
         return workoutHistory;
     }
-
-
 
     public String getUsername() {
         return username;
