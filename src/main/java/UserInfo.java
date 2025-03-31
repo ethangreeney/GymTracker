@@ -5,9 +5,10 @@ public class UserInfo implements Page {
 
         System.out.println("Name: " + UserManager.currentUser.getName());
         System.out.println("Age: " + UserManager.currentUser.getAge());
-        System.out.println("Height (CM): " + UserManager.currentUser.getHeight());
-        System.out.println("Weight (KG): " + UserManager.currentUser.getWeight());
-        System.out.println();
+        System.out.println("Height: " + UserManager.currentUser.getHeight() + "cm");
+        System.out.println("Weight: " + UserManager.currentUser.getWeight() + "kg");
+        System.out.printf("BMI: " + "%.1f" + " (" + bmiClassification() + ")", calculateBMI());
+        System.out.println("\n");
 
         System.out.println("1: Change User Info");
         System.out.println("2: Main Menu");
@@ -47,6 +48,29 @@ public class UserInfo implements Page {
                 System.out.println("Unknown input, returning to home page");
                 PageManager.navigate(Home.class);
                 break;
+        }
+
+    }
+
+    private double calculateBMI() {
+
+        double heightMeters = UserManager.currentUser.getHeight() / 100.0;
+        return UserManager.currentUser.getWeight() / Math.pow(heightMeters, 2);
+
+    }
+
+    private String bmiClassification() {
+
+        double userBMI = calculateBMI();
+
+        if (userBMI < 18.5) {
+            return "Underweight";
+        } else if (userBMI < 25) {
+            return "Healthy Weight";
+        } else if (userBMI < 30) {
+            return "Overweight";
+        } else {
+            return "Obese";
         }
 
     }
