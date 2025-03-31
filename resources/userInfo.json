@@ -3,9 +3,10 @@
     "username": "ethan",
     "password": "greene",
     "name": "Ethan",
-    "height": 80,
+    "height": 185,
     "age": 19,
-    "weight": 80
+    "weight": 80,
+    "userGoals": []
   },
   {
     "username": "GIQU",
