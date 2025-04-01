@@ -125,4 +125,8 @@ public class User {
         return this.exercisesList.get(index - 1);
     }
 
+    public void addCustomExercise(String userInput) {
+        this.exercisesList.add(userInput);
+    }
+
 }

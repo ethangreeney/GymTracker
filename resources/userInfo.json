@@ -84,12 +84,28 @@
       "Squat",
       "Deadlift",
       "Lunge",
-      "Leg Press"
+      "Leg Press",
+      "Super Cardio"
     ],
     "workoutHistory": [
       {
         "name": "SUPER CARDIO",
         "workoutDate": "Apr 2, 2025, 11:01:08 AM"
+      },
+      {
+        "name": "ee",
+        "workoutDate": "Apr 2, 2025, 12:13:35 PM",
+        "exerciseInfo": [
+          {
+            "name": "Super Cardio",
+            "sets": [
+              {
+                "weight": 1,
+                "reps": 1
+              }
+            ]
+          }
+        ]
       }
     ]
   }

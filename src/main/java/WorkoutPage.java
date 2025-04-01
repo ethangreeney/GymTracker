@@ -31,6 +31,8 @@ public class WorkoutPage implements Page {
                 count++;
             }
 
+            System.out.println(count + ": " + "Add Custom Excercise");
+
             userInput = GymApplication.scan.nextLine();
 
             if (userInput.toLowerCase().equals("x")) {
@@ -38,6 +40,13 @@ public class WorkoutPage implements Page {
             }
 
             int userExcerciseSelection = GymApplication.stringToInt(userInput);
+
+            if (userExcerciseSelection == count) {
+                String exerciseName = GymApplication.scan.nextLine();
+                UserManager.currentUser.addCustomExercise(exerciseName);
+                System.out.println("Successfully added " + exerciseName);
+
+            }
 
             Exercise currentExercise = new Exercise(UserManager.currentUser.getExerciseAtIndex(userExcerciseSelection));
 
