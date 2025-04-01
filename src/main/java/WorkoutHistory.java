@@ -1,9 +1,8 @@
-public class WorkoutHistory implements Page{
+public class WorkoutHistory implements Page {
 
     @Override
     public void display() {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'display'");
+        System.out.println("=====Workout History=====");
     }
 
     @Override
@@ -11,6 +10,5 @@ public class WorkoutHistory implements Page{
         // TODO Auto-generated method stub
         throw new UnsupportedOperationException("Unimplemented method 'handleInput'");
     }
-
 
 }

@@ -3,6 +3,7 @@ public class Home implements Page {
     @Override
     public void display() {
 
+        System.out.println("=====Home=====");
         System.out.println("""
                 1. Start Workout
                 2. View Workout History
@@ -11,7 +12,7 @@ public class Home implements Page {
                 5. Save Info and Log Out
                 """);
 
-                handleInput();
+        handleInput();
     }
 
     @Override

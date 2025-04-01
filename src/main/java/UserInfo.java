@@ -3,6 +3,7 @@ public class UserInfo implements Page {
     @Override
     public void display() {
 
+        System.out.println("=====User Info=====");
         System.out.println("Name:   " + UserManager.currentUser.getName());
         System.out.println("Age:    " + UserManager.currentUser.getAge());
         System.out.println("Height: " + UserManager.currentUser.getHeight() + "cm");
@@ -82,26 +83,26 @@ public class UserInfo implements Page {
                 break;
 
             case 2:
-            System.out.println("Please enter height: (cm)");
-            input = GymApplication.scan.nextLine();
-            UserManager.currentUser.setHeight(GymApplication.stringToInt(input));
-            break;
-            
+                System.out.println("Please enter height: (cm)");
+                input = GymApplication.scan.nextLine();
+                UserManager.currentUser.setHeight(GymApplication.stringToInt(input));
+                break;
+
             case 3:
-            System.out.println("Please enter weight: (kg)");
-            input = GymApplication.scan.nextLine();
-            UserManager.currentUser.setWeight(GymApplication.stringToInt(input));
-            break;
-            
+                System.out.println("Please enter weight: (kg)");
+                input = GymApplication.scan.nextLine();
+                UserManager.currentUser.setWeight(GymApplication.stringToInt(input));
+                break;
+
             case 4:
-            System.out.println("Please enter age: ");
-            input = GymApplication.scan.nextLine();
-            UserManager.currentUser.setAge(GymApplication.stringToInt(input));
-            break;
-            
+                System.out.println("Please enter age: ");
+                input = GymApplication.scan.nextLine();
+                UserManager.currentUser.setAge(GymApplication.stringToInt(input));
+                break;
+
             default:
-            System.out.println("Incorrect input, please select 1 to 4");
-            changeUserInfo();
+                System.out.println("Incorrect input, please select 1 to 4");
+                changeUserInfo();
         }
 
         PageManager.navigate(UserInfo.class);
