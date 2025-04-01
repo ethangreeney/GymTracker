@@ -1,19 +1,36 @@
-public class Goals implements Page {
+import java.util.Calendar;
+import java.util.Date;
 
-    @Override
-    public void display() {
-        System.out.println(UserManager.currentUser.getUserGoals());
-        
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'display'");
+public class Goals {
+
+    String goalDescription;
+    Date startDate;
+    Date endDate;
+    Date timeToComplete;
+
+    Goals(String description) {
+        goalDescription = description;
+        startDate = new Date();
     }
 
-    @Override
-    public void handleInput() {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'handleInput'");
+    public void completeGoal() {
+        endDate = new Date();
     }
 
+    public String toString() {
 
+        StringBuilder goalString = new StringBuilder();
 
+        if (endDate == null) {
+            goalString.append("Goal description: \n" + goalDescription);
+            goalString.append("Start date: " + startDate);
+            goalString.append("End date: not yet completed");
+        } else {
+            goalString.append("Goal description: \n" + goalDescription);
+            goalString.append("Start date: " + startDate);
+            goalString.append("End date: " + endDate);
+        }
+
+        return goalString.toString();
+    }
 }

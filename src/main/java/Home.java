@@ -31,7 +31,7 @@ public class Home implements Page {
                 break;
 
             case 3:
-                PageManager.navigate(Goals.class);
+                PageManager.navigate(GoalsPage.class);
                 break;
 
             case 4:
