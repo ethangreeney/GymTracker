@@ -99,6 +99,39 @@
             ]
           }
         ]
+      },
+      {
+        "name": "benccccc",
+        "workoutDate": "Apr 2, 2025, 12:34:57 PM",
+        "exerciseInfo": [
+          {
+            "name": "Bench Press",
+            "sets": [
+              {
+                "weight": 1,
+                "reps": 1
+              }
+            ]
+          },
+          {
+            "name": "Incline Dumbell Press",
+            "sets": [
+              {
+                "weight": 1,
+                "reps": 1
+              }
+            ]
+          },
+          {
+            "name": "Overhead Press",
+            "sets": [
+              {
+                "weight": 1,
+                "reps": 1
+              }
+            ]
+          }
+        ]
       }
     ],
     "userGoals": []
