@@ -24,7 +24,7 @@ public class Home implements Page {
 
         switch (pageNum) {
             case 1:
-                PageManager.navigate(WorkoutStart.class);
+                PageManager.navigate(WorkoutPage.class);
                 break;
             case 2:
                 PageManager.navigate(WorkoutHistory.class);

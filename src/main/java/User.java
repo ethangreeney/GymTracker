@@ -114,4 +114,8 @@ public class User {
         this.weight = weight;
     }
 
+    public String getExerciseAtIndex(int index) {
+        return this.exercisesList.get(index);
+    }
+
 }

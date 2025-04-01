@@ -16,7 +16,7 @@ public class Exercise {
 
     public List<SetInfo> getSets() {
         if (this.sets == null) {
-            sets = new ArrayList<>();
+            sets = new ArrayList<SetInfo>();
         }
         return sets;
     }
