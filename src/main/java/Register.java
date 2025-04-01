@@ -3,7 +3,7 @@ public class Register implements Page {
     @Override
     public void display() {
 
-        System.out.println("=====User Sign Up=====");
+        System.out.println("======= User Sign Up =======\n");
 
         handleInput();
 

@@ -3,7 +3,7 @@ public class UserInfo implements Page {
     @Override
     public void display() {
 
-        System.out.println("=====User Info=====");
+        System.out.println("======= User Info =======\n");
         System.out.println("Name:   " + UserManager.currentUser.getName());
         System.out.println("Age:    " + UserManager.currentUser.getAge());
         System.out.println("Height: " + UserManager.currentUser.getHeight() + "cm");

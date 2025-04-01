@@ -3,7 +3,7 @@ public class Login implements Page {
     @Override
     public void display() {
 
-        System.out.println("=====Log In=====");
+        System.out.println("======= Log In =======\n");
         handleInput();
 
     }
@@ -21,14 +21,14 @@ public class Login implements Page {
             System.out.println("Please enter password: ");
             password = GymApplication.scan.nextLine();
 
+            if (username.toLowerCase().equals("x")) {
+                PageManager.navigate(Welcome.class);
+            }
+
             UserManager.login(username, password);
 
             if (UserManager.currentUser == null) {
-                System.out.println("Username or password was incorrect, please enter username again (x to go back)");
-                username = GymApplication.scan.nextLine();
-                if (username.toLowerCase().equals("x")) {
-                    PageManager.navigate(Welcome.class);
-                }
+                System.out.println("Username or password was incorrect, (x to go back)\n");
             }
 
         }

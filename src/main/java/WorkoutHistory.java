@@ -2,7 +2,7 @@ public class WorkoutHistory implements Page {
 
     @Override
     public void display() {
-        System.out.println("=====Workout History=====");
+        System.out.println("======= Workout History =======\n");
     }
 
     @Override

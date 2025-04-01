@@ -3,7 +3,7 @@ public class Home implements Page {
     @Override
     public void display() {
 
-        System.out.println("=====Home=====");
+        System.out.println("======= Home =======\n");
         System.out.println("""
                 1. Start Workout
                 2. View Workout History
