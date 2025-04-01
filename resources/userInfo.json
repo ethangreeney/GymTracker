@@ -27,7 +27,9 @@
       "Squat",
       "Deadlift",
       "Lunge",
-      "Leg Press"
+      "Leg Press",
+      "Cusstme asdfasdf",
+      "benchy"
     ],
     "workoutHistory": [
       {
@@ -48,6 +50,51 @@
               {
                 "weight": 1,
                 "reps": 3
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "ddd",
+        "workoutDate": "Apr 2, 2025, 12:21:42 PM",
+        "exerciseInfo": [
+          {
+            "name": "Cusstme asdfasdf",
+            "sets": [
+              {
+                "weight": 1,
+                "reps": 1
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "ethan",
+        "workoutDate": "Apr 2, 2025, 12:22:39 PM",
+        "exerciseInfo": [
+          {
+            "name": "benchy",
+            "sets": [
+              {
+                "weight": 1,
+                "reps": 1
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "ethan",
+        "workoutDate": "Apr 2, 2025, 12:24:11 PM",
+        "exerciseInfo": [
+          {
+            "name": "Push Up",
+            "sets": [
+              {
+                "weight": 1,
+                "reps": 1
               }
             ]
           }

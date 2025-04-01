@@ -31,13 +31,13 @@ public class User {
             exercisesList = new ArrayList<>(Arrays.asList(
                     "Bench Press",
                     "Incline Dumbell Press",
-                    "Push Up",
+                    "Push Ups",
                     "Overhead Press",
 
-                    "Dip",
-                    "Cable Tricep Extension",
+                    "Dips",
+                    "Cable Tricep Extensios",
                     "Skull Crushers",
-                    "Overhead Cable Tricep Extension",
+                    "Overhead Cable Tricep Extensions",
 
                     "Dumbbell Side Delts",
                     "Cable Side Delts",
@@ -46,14 +46,14 @@ public class User {
                     "Preacher Curls",
                     "Cable Curls",
 
-                    "Pull Up",
+                    "Pull Ups",
                     "Pull Downs",
-                    "Dumbbell Row",
-                    "Barbell Row",
+                    "Dumbbell Rows",
+                    "Barbell Rows",
 
-                    "Squat",
-                    "Deadlift",
-                    "Lunge",
+                    "Squats",
+                    "Deadlifts",
+                    "Lunges",
                     "Leg Press"));
         }
         return exercisesList;
