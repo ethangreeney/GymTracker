@@ -37,7 +37,7 @@ public class Welcome implements Page {
         } else if (userInput.equals("2")) {
             PageManager.navigate(Register.class);
         } else {
-            System.exit(0);
+            PageManager.navigate(Shutdown.class);
         }
     }
 
