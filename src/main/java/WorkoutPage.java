@@ -21,16 +21,51 @@ public class WorkoutPage implements Page {
 
         currentWorkout.setName(input);
 
-        System.out.println("Select an Exercise: ");
+        String userInput = "";
+        while (!userInput.toLowerCase().equals("x")) {
+            System.out.println("\nSelect an Exercise: (x to finish workout)");
 
-        int count = 1;
-        for (String preset : UserManager.currentUser.getExercisesList()) {
-            System.out.println(count + ": " + preset);
+            int count = 1;
+            for (String preset : UserManager.currentUser.getExercisesList()) {
+                System.out.println(count + ": " + preset);
+                count++;
+            }
+
+            userInput = GymApplication.scan.nextLine();
+
+            if (userInput.toLowerCase().equals("x")) {
+                break;
+            }
+
+            int userExcerciseSelection = GymApplication.stringToInt(userInput);
+
+            Exercise currentExercise = new Exercise(UserManager.currentUser.getExerciseAtIndex(userExcerciseSelection));
+
+            System.out.println("How many sets of " + currentExercise.getName() + " will you do?");
+            int numberOfSets = GymApplication.stringToInt(GymApplication.scan.nextLine());
+
+            int weightSelection;
+            int repsSelection;
+
+            for (int i = 1; i <= numberOfSets; i++) {
+
+                System.out.println("Input weight (KG) for set " + i + ":");
+                weightSelection = GymApplication.stringToInt(GymApplication.scan.nextLine());
+
+                System.out.println("Input number of reps for set " + i + ":");
+                repsSelection = GymApplication.stringToInt(GymApplication.scan.nextLine());
+
+                currentExercise.addSet(weightSelection, repsSelection);
+
+            }
+
+            currentWorkout.addExercise(currentExercise);
+
         }
 
-        int userExcerciseSelection = GymApplication.stringToInt(GymApplication.scan.nextLine());
-
-        Exercise currentExercise = new Exercise(UserManager.currentUser.getExerciseAtIndex(userExcerciseSelection));
+        UserManager.currentUser.addWorkout(currentWorkout);
+        System.out.println("Workout " + currentWorkout.getName() + " completed, returning to home page");
+        PageManager.navigate(Home.class);
 
     }
 

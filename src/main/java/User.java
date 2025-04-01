@@ -66,6 +66,13 @@ public class User {
         return workoutHistory;
     }
 
+    public void addWorkout(Workout currenWorkout) {
+        if (this.workoutHistory == null) {
+            workoutHistory = new ArrayList<Workout>();
+        }
+        workoutHistory.add(currenWorkout);
+    }
+
     public String getUsername() {
         return username;
     }
@@ -115,7 +122,7 @@ public class User {
     }
 
     public String getExerciseAtIndex(int index) {
-        return this.exercisesList.get(index);
+        return this.exercisesList.get(index - 1);
     }
 
 }

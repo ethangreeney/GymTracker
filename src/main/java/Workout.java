@@ -1,3 +1,4 @@
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -34,8 +35,22 @@ public class Workout {
         return exerciseInfo;
     }
 
-    public void setExerciseInfo(List<Exercise> exerciseInfo) {
-        this.exerciseInfo = exerciseInfo;
+    public void addExercise(Exercise currentExercise) {
+        if (this.exerciseInfo == null) {
+            this.exerciseInfo = new ArrayList<Exercise>();
+        }
+
+        exerciseInfo.add(currentExercise);
+    }
+
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+        sb.append("Workout: " + name + "\nDate: " + workoutDate + "\n\n");
+        for (Exercise exercise : exerciseInfo) {
+            sb.append(exercise + "\n");
+        }
+
+        return sb.toString();
     }
 
 }

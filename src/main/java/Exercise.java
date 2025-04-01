@@ -33,7 +33,7 @@ public class Exercise {
         int count = 1;
 
         for (SetInfo set : sets) {
-            returnInformation += "\n   Set " + count++ + ": [Weight: " + set.getWeight() + " kg] [Reps: "
+            returnInformation += "\n   Set " + count++ + ": [Weight: " + set.getWeight() + " KG] [Reps: "
                     + set.getReps() + "]";
         }
 

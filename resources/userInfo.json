@@ -6,6 +6,54 @@
     "height": 185,
     "age": 19,
     "weight": 80,
+    "exercisesList": [
+      "Bench Press",
+      "Incline Dumbell Press",
+      "Push Up",
+      "Overhead Press",
+      "Dip",
+      "Cable Tricep Extension",
+      "Skull Crushers",
+      "Overhead Cable Tricep Extension",
+      "Dumbbell Side Delts",
+      "Cable Side Delts",
+      "Bicep Curls",
+      "Preacher Curls",
+      "Cable Curls",
+      "Pull Up",
+      "Pull Downs",
+      "Dumbbell Row",
+      "Barbell Row",
+      "Squat",
+      "Deadlift",
+      "Lunge",
+      "Leg Press"
+    ],
+    "workoutHistory": [
+      {
+        "name": "ethan greene",
+        "workoutDate": "Apr 2, 2025, 11:05:44 AM",
+        "exerciseInfo": [
+          {
+            "name": "Bench Press",
+            "sets": [
+              {
+                "weight": 1,
+                "reps": 3
+              },
+              {
+                "weight": 1,
+                "reps": 3
+              },
+              {
+                "weight": 1,
+                "reps": 3
+              }
+            ]
+          }
+        ]
+      }
+    ],
     "userGoals": []
   },
   {
@@ -14,6 +62,35 @@
     "name": "gianni",
     "height": 152,
     "age": 18,
-    "weight": 212
+    "weight": 212,
+    "exercisesList": [
+      "Bench Press",
+      "Incline Dumbell Press",
+      "Push Up",
+      "Overhead Press",
+      "Dip",
+      "Cable Tricep Extension",
+      "Skull Crushers",
+      "Overhead Cable Tricep Extension",
+      "Dumbbell Side Delts",
+      "Cable Side Delts",
+      "Bicep Curls",
+      "Preacher Curls",
+      "Cable Curls",
+      "Pull Up",
+      "Pull Downs",
+      "Dumbbell Row",
+      "Barbell Row",
+      "Squat",
+      "Deadlift",
+      "Lunge",
+      "Leg Press"
+    ],
+    "workoutHistory": [
+      {
+        "name": "SUPER CARDIO",
+        "workoutDate": "Apr 2, 2025, 11:01:08 AM"
+      }
+    ]
   }
 ]
