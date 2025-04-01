@@ -7,12 +7,25 @@ public class WorkoutHistory implements Page {
         for (Workout workout : UserManager.currentUser.getWorkoutHistory()) {
             System.out.println(workout.toString());
         }
+
+        handleInput();
+
     }
 
     @Override
     public void handleInput() {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'handleInput'");
+
+        String userInput = "";
+
+        do {
+
+            System.out.println("Input 'x' to return");
+            userInput = GymApplication.scan.nextLine();
+
+        } while (!userInput.equals("x"));
+
+        PageManager.navigate(Home.class);
+
     }
 
 }

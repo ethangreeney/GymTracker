@@ -12,7 +12,7 @@ public class UserInfo implements Page {
         System.out.println("\n");
 
         System.out.println("1: Change User Info");
-        System.out.println("2: Main Menu");
+        System.out.println("2: Return");
 
         handleInput();
 
