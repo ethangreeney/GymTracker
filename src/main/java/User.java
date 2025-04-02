@@ -16,14 +16,18 @@ public class User {
 
     private List<Workout> workoutHistory;
 
-    private List<GoalsPage> userGoals;
+    private List<Goal> userGoals;
 
-    public List<GoalsPage> getUserGoals() {
+    public List<Goal> getUserGoals() {
         if (this.userGoals == null) {
-            userGoals = new ArrayList<GoalsPage>();
+            userGoals = new ArrayList<Goal>();
         }
 
         return userGoals;
+    }
+
+    public void addGoal(String goalDescription) {
+        userGoals.add(new Goal(goalDescription));
     }
 
     public List<String> getExercisesList() {

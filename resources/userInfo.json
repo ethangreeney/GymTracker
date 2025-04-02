@@ -134,7 +134,13 @@
         ]
       }
     ],
-    "userGoals": []
+    "userGoals": [
+      {
+        "goalDescription": "Bench 100 kh",
+        "startDate": "Apr 2, 2025, 1:12:25 PM",
+        "endDate": "Apr 2, 2025, 1:17:26 PM"
+      }
+    ]
   },
   {
     "username": "GIQU",

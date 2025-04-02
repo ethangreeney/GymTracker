@@ -1,13 +1,13 @@
 import java.util.Date;
 
-public class Goals {
+public class Goal {
 
     String goalDescription;
     Date startDate;
     Date endDate;
     Date timeToComplete;
 
-    Goals(String description) {
+    Goal(String description) {
         goalDescription = description;
         startDate = new Date();
     }
@@ -22,12 +22,12 @@ public class Goals {
 
         if (endDate == null) {
             goalString.append("Goal description: \n" + goalDescription);
-            goalString.append("Start date: " + startDate);
-            goalString.append("End date: not yet completed");
+            goalString.append("\nStart date: " + startDate);
+            goalString.append("\nEnd date: not yet completed");
         } else {
-            goalString.append("Goal description: \n" + goalDescription);
-            goalString.append("Start date: " + startDate);
-            goalString.append("End date: " + endDate);
+            goalString.append("\nGoal description: \n" + goalDescription);
+            goalString.append("\nStart date: " + startDate);
+            goalString.append("\nEnd date: " + endDate);
         }
 
         return goalString.toString();
