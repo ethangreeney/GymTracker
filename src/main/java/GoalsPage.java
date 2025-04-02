@@ -28,7 +28,10 @@ public class GoalsPage implements Page {
         int noOfGoals = UserManager.currentUser.getUserGoals().size();
 
         if (intUserInput > 0 && intUserInput <= noOfGoals) {
-            UserManager.currentUser.getUserGoals().get(intUserInput - 1).completeGoal();
+            Goal selectedGoal = UserManager.currentUser.getUserGoals().get(intUserInput - 1);
+            if (selectedGoal.endDate == null) {
+                selectedGoal.completeGoal();
+            }
         } else if (intUserInput == UserManager.currentUser.getUserGoals().size() + 1) {
             System.out.println("Enter description of Goal: ");
             String goalDescription = GymApplication.scan.nextLine();
