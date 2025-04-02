@@ -2,6 +2,8 @@ public class GoalsPage implements Page {
 
     @Override
     public void display() {
+
+        System.out.println("===== Goals =====\n");
         int count = 1;
         for (Goal goal : UserManager.currentUser.getUserGoals()) {
             System.out.println("Goal " + count++ + ": ");
