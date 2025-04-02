@@ -203,6 +203,13 @@
           }
         ]
       }
+    ],
+    "userGoals": [
+      {
+        "goalDescription": "DO SUPER CARDIO",
+        "startDate": "Apr 2, 2025, 1:40:56 PM",
+        "endDate": "Apr 2, 2025, 1:41:50 PM"
+      }
     ]
   }
 ]

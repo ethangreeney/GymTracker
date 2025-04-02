@@ -11,7 +11,7 @@ public class GoalsPage implements Page {
             System.out.println();
         }
 
-        System.out.println(count++ + ": Set new goal");
+        System.out.println(count++ + ": Set new goal\n");
         System.out.println("Enter goal number to complete goal, or x to return: ");
 
         handleInput();
