@@ -45,11 +45,13 @@ public class Workout {
 
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append("Workout: " + name + "\nDate: " + workoutDate + "\n\n");
-        for (Exercise exercise : exerciseInfo) {
-            sb.append(exercise + "\n");
+        if (exerciseInfo == null) {
+        } else {
+            sb.append("Workout: " + name + "\nDate: " + workoutDate + "\n\n");
+            for (Exercise exercise : exerciseInfo) {
+                sb.append(exercise + "\n");
+            }
         }
-
         return sb.toString();
     }
 

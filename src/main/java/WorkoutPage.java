@@ -18,6 +18,7 @@ public class WorkoutPage implements Page {
 
         if (input.toLowerCase().equals("x")) {
             PageManager.navigate(Home.class);
+            return;
         }
 
         currentWorkout.setName(input);

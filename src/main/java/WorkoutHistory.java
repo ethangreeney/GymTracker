@@ -4,9 +4,11 @@ public class WorkoutHistory implements Page {
     public void display() {
         System.out.println("======= Workout History =======\n");
 
-        for (Workout workout : UserManager.currentUser.getWorkoutHistory()) {
-            System.out.println(workout.toString());
-        }
+        if (UserManager.currentUser.getWorkoutHistory() != null)
+
+            for (Workout workout : UserManager.currentUser.getWorkoutHistory()) {
+                System.out.println(workout.toString());
+            }
 
         handleInput();
 

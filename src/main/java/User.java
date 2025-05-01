@@ -70,11 +70,11 @@ public class User {
         return workoutHistory;
     }
 
-    public void addWorkout(Workout currenWorkout) {
+    public void addWorkout(Workout currentWorkout) {
         if (this.workoutHistory == null) {
             workoutHistory = new ArrayList<Workout>();
         }
-        workoutHistory.add(currenWorkout);
+        workoutHistory.add(currentWorkout);
     }
 
     public String getUsername() {

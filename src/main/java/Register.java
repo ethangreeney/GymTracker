@@ -32,11 +32,9 @@ public class Register implements Page {
         }
 
         UserManager.currentUser = new User();
-
         UserManager.currentUser.setUsername(username);
-
         System.out.println("Please enter password: ");
-        password = GymApplication.scan.nextLine();
+        password = passwordCheck();
         UserManager.currentUser.setPassword(password);
 
         System.out.println("Please enter name: ");
@@ -54,6 +52,18 @@ public class Register implements Page {
 
         PageManager.navigate(Home.class);
 
+    }
+
+    public String passwordCheck() {
+        String password = GymApplication.scan.nextLine();
+        if (password.equals("x")) {
+            System.out.println("Invalid password: your password cannot be 'x'");
+            System.out.println("Please enter a new password: ");
+            passwordCheck();
+        } else {
+            return password;
+        }
+        return password;
     }
 
 }

@@ -16,19 +16,26 @@ public class Login implements Page {
 
         while (UserManager.currentUser == null) {
 
-            System.out.println("Please enter username: ");
+            System.out.println("Please enter username: (input 'x' to return to login)");
             username = GymApplication.scan.nextLine();
-            System.out.println("Please enter password: ");
-            password = GymApplication.scan.nextLine();
 
             if (username.toLowerCase().equals("x")) {
+                System.out.println("User inputted : 'x' returning to login page");
+                PageManager.navigate(Welcome.class);
+            }
+
+            System.out.println("Please enter password: (input 'x' to return to login)");
+            password = GymApplication.scan.nextLine();
+
+            if (password.toLowerCase().equals("x")) {
+                System.out.println("User inputted : 'x' returning to login page");
                 PageManager.navigate(Welcome.class);
             }
 
             UserManager.login(username, password);
 
             if (UserManager.currentUser == null) {
-                System.out.println("Username or password was incorrect, (x to go back)\n");
+                System.out.println("\nUsername or password was incorrect, please try again\n");
             }
 
         }
