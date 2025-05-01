@@ -57,6 +57,14 @@
     ]
   },
   {
+    "username": "",
+    "password": "",
+    "name": "",
+    "height": 185,
+    "age": 19,
+    "weight": 80
+  },
+  {
     "username": "superq",
     "password": "x",
     "name": "qugu",
