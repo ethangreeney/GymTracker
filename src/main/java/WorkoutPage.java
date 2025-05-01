@@ -42,17 +42,17 @@ public class WorkoutPage implements Page {
                 break;
             }
 
-            int userExcerciseSelection = GymApplication.stringToInt(userInput);
+            int userExerciseSelection = GymApplication.stringToInt(userInput);
 
-            while (userExcerciseSelection > count || userExcerciseSelection < 1) {
+            while (userExerciseSelection > count || userExerciseSelection < 1) {
 
                 System.out.println("Please enter a whole number between 1 and " + count + ": (x to finish workout)");
                 userInput = GymApplication.scan.nextLine();
-                userExcerciseSelection = GymApplication.stringToInt(userInput);
+                userExerciseSelection = GymApplication.stringToInt(userInput);
 
             }
 
-            if (userExcerciseSelection == count) {
+            if (userExerciseSelection == count) {
                 System.out.println("Please enter name of custom exercise: ");
                 String exerciseName = GymApplication.scan.nextLine();
                 UserManager.currentUser.addCustomExercise(exerciseName);
@@ -60,7 +60,7 @@ public class WorkoutPage implements Page {
 
             }
 
-            Exercise currentExercise = new Exercise(UserManager.currentUser.getExerciseAtIndex(userExcerciseSelection));
+            Exercise currentExercise = new Exercise(UserManager.currentUser.getExerciseAtIndex(userExerciseSelection));
 
             System.out.println("How many sets of " + currentExercise.getName() + " will you do?");
             int numberOfSets = GymApplication.stringToInt(GymApplication.scan.nextLine());

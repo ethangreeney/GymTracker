@@ -69,11 +69,11 @@ public class UserManager {
 
     }
 
-    public static boolean login(String usermname, String Password) {
+    public static boolean login(String username, String Password) {
 
-        if (users.containsKey(usermname) && users.get(usermname).getPassword().equals(Password)) {
+        if (users.containsKey(username) && users.get(username).getPassword().equals(Password)) {
 
-            currentUser = users.get(usermname);
+            currentUser = users.get(username);
 
             return true;
 

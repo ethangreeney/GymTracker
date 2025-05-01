@@ -34,12 +34,12 @@ public class User {
         if (this.exercisesList == null) {
             exercisesList = new ArrayList<>(Arrays.asList(
                     "Bench Press",
-                    "Incline Dumbell Press",
+                    "Incline Dumbbell Press",
                     "Push Ups",
                     "Overhead Press",
 
                     "Dips",
-                    "Cable Tricep Extensios",
+                    "Cable Tricep Extensions",
                     "Skull Crushers",
                     "Overhead Cable Tricep Extensions",
 
