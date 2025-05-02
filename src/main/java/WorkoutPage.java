@@ -12,7 +12,7 @@ public class WorkoutPage implements Page {
     public void handleInput() {
 
         Workout currentWorkout = new Workout();
-        System.out.println("input name for this workout session (x to return)");
+        System.out.println("input name for this workout session or enter 'x' to return");
         String input = GymApplication.scan.nextLine();
         System.out.println();
 
@@ -34,7 +34,7 @@ public class WorkoutPage implements Page {
 
             System.out.println(count + ": Custom Exercise");
 
-            System.out.println("\nSelect an Exercise: (x to finish workout)");
+            System.out.println("\nSelect an Exercise: 'x' to finish workout");
 
             userInput = GymApplication.scan.nextLine();
 

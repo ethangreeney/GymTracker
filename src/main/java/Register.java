@@ -21,7 +21,7 @@ public class Register implements Page {
 
         while (UserManager.getUsers().containsKey(username)) {
 
-            System.out.println("User already exists in the database, please enter username again (x to go back)");
+            System.out.println("User already exists in the database, please enter username again 'x' to go back");
             username = GymApplication.scan.nextLine();
 
             if (username.equals("x")) {
@@ -72,7 +72,7 @@ public class Register implements Page {
 
             if (password.equals("") || password.contains(" ")) {
 
-                System.out.println("password may not contain a space, or be empty");
+                System.out.println("Password may not contain a space, or be empty");
                 System.out.println("Please enter a new password: ");
 
                 password = GymApplication.scan.nextLine();

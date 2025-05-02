@@ -12,7 +12,7 @@ public class UserInfo implements Page {
         System.out.println("\n");
 
         System.out.println("1: Change User Info");
-        System.out.println("2: Return");
+        System.out.println("Enter 'x' to Return");
 
         handleInput();
 
@@ -21,14 +21,17 @@ public class UserInfo implements Page {
     @Override
     public void handleInput() {
 
-        int userChoice = GymApplication.stringToInt(GymApplication.scan.nextLine());
+        String userChoice = GymApplication.scan.nextLine();
 
-        switch (userChoice) {
+        if (userChoice.equalsIgnoreCase("x")) {
+            PageManager.navigate(Home.class);
+        }
+
+        int intUserChoice = GymApplication.stringToInt(userChoice);
+
+        switch (intUserChoice) {
             case 1:
                 changeUserInfo();
-                break;
-            case 2:
-                PageManager.navigate(Home.class);
                 break;
             default:
                 System.out.println("Unknown input, returning to home page");
