@@ -87,12 +87,25 @@ public class Register implements Page {
 
         String username = GymApplication.scan.nextLine();
 
-        while (username.equals("") || username.contains(" ")) {
+        while (username.equals("x") || username.equals("") || username.contains(" ")) {
 
-            System.out.println("Username may not contain a space, or be empty");
-            System.out.println("Please enter a new username: ");
+            if (username.equals("x")) {
 
-            username = GymApplication.scan.nextLine();
+                System.out.println("Invalid username: your username cannot be 'x'");
+                System.out.println("Please enter a new username: ");
+
+                username = GymApplication.scan.nextLine();
+
+            }
+
+            if (username.equals("") || username.contains(" ")) {
+
+                System.out.println("username may not contain a space, or be empty");
+                System.out.println("Please enter a new username: ");
+
+                username = GymApplication.scan.nextLine();
+
+            }
 
         }
 
