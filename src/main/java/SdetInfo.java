@@ -1,8 +1,8 @@
-public class SetInfo {
+public class SdetInfo {
     private int weight;
     private int reps;
 
-    public SetInfo(int w, int r) {
+    public SdetInfo(int w, int r) {
         this.weight = w;
         this.reps = r;
     }

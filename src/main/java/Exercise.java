@@ -4,7 +4,7 @@ import java.util.List;
 public class Exercise {
 
     private String name;
-    private List<SetInfo> sets;
+    private List<SdetInfo> sets;
 
     public Exercise(String n) {
         this.name = n;
@@ -14,15 +14,15 @@ public class Exercise {
         return name;
     }
 
-    public List<SetInfo> getSets() {
+    public List<SdetInfo> getSets() {
         if (this.sets == null) {
-            sets = new ArrayList<SetInfo>();
+            sets = new ArrayList<SdetInfo>();
         }
         return sets;
     }
 
     public void addSet(int w, int r) {
-        this.getSets().add(new SetInfo(w, r));
+        this.getSets().add(new SdetInfo(w, r));
     }
 
     @Override
@@ -32,7 +32,7 @@ public class Exercise {
 
         int count = 1;
 
-        for (SetInfo set : sets) {
+        for (SdetInfo set : sets) {
             returnInformation += "\n   Set " + count++ + ": [Weight: " + set.getWeight() + " KG] [Reps: "
                     + set.getReps() + "]";
         }
