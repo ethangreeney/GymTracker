@@ -1,132 +1,23 @@
 [
   {
-    "username": "gurt",
-    "password": "123",
-    "name": "gurt",
-    "height": 178,
-    "age": 18,
-    "weight": 74,
-    "exercisesList": [
-      "Bench Press",
-      "Incline Dumbell Press",
-      "Push Ups",
-      "Overhead Press",
-      "Dips",
-      "Cable Tricep Extensios",
-      "Skull Crushers",
-      "Overhead Cable Tricep Extensions",
-      "Dumbbell Side Delts",
-      "Cable Side Delts",
-      "Bicep Curls",
-      "Preacher Curls",
-      "Cable Curls",
-      "Pull Ups",
-      "Pull Downs",
-      "Dumbbell Rows",
-      "Barbell Rows",
-      "Squats",
-      "Deadlifts",
-      "Lunges",
-      "Leg Press",
-      "Dancing"
-    ],
-    "workoutHistory": [
-      {
-        "name": "a",
-        "workoutDate": "May 1, 2025, 2:22:12 PM"
-      },
-      {
-        "name": "Yo qu",
-        "workoutDate": "May 1, 2025, 2:30:19 PM"
-      },
-      {
-        "name": "yoQu",
-        "workoutDate": "May 1, 2025, 2:30:27 PM",
-        "exerciseInfo": [
-          {
-            "name": "Dancing",
-            "sets": [
-              {
-                "weight": 0,
-                "reps": 0
-              }
-            ]
-          }
-        ]
-      }
-    ]
+    "username": "re",
+    "height": 0,
+    "age": 0,
+    "weight": 0
   },
   {
-    "username": "",
-    "password": "",
-    "name": "",
-    "height": 185,
-    "age": 19,
-    "weight": 80
+    "username": "d",
+    "password": "3",
+    "height": 0,
+    "age": 0,
+    "weight": 0
   },
   {
-    "username": "superq",
+    "username": "er",
     "password": "x",
-    "name": "qugu",
-    "height": 180,
-    "age": 18,
-    "weight": 100
-  },
-  {
-    "username": "gq",
-    "password": "123",
-    "name": "gqu",
-    "height": 180,
-    "age": 18,
-    "weight": 70,
-    "exercisesList": [
-      "Bench Press",
-      "Incline Dumbell Press",
-      "Push Ups",
-      "Overhead Press",
-      "Dips",
-      "Cable Tricep Extensios",
-      "Skull Crushers",
-      "Overhead Cable Tricep Extensions",
-      "Dumbbell Side Delts",
-      "Cable Side Delts",
-      "Bicep Curls",
-      "Preacher Curls",
-      "Cable Curls",
-      "Pull Ups",
-      "Pull Downs",
-      "Dumbbell Rows",
-      "Barbell Rows",
-      "Squats",
-      "Deadlifts",
-      "Lunges",
-      "Leg Press",
-      "Hey"
-    ],
-    "workoutHistory": [
-      {
-        "name": "YUuur",
-        "workoutDate": "May 1, 2025, 1:58:19 PM",
-        "exerciseInfo": [
-          {
-            "name": "Pull Downs",
-            "sets": [
-              {
-                "weight": 12,
-                "reps": 8
-              },
-              {
-                "weight": 10,
-                "reps": 8
-              },
-              {
-                "weight": 10,
-                "reps": 8
-              }
-            ]
-          }
-        ]
-      }
-    ]
+    "name": "x",
+    "height": 0,
+    "age": 0,
+    "weight": 0
   }
 ]

@@ -17,7 +17,7 @@ public class Register implements Page {
         String input;
 
         System.out.println("Please enter username: ");
-        username = GymApplication.scan.nextLine();
+        username = getValidUsername();
 
         while (UserManager.getUsers().containsKey(username)) {
 
@@ -34,7 +34,8 @@ public class Register implements Page {
         UserManager.currentUser = new User();
         UserManager.currentUser.setUsername(username);
         System.out.println("Please enter password: ");
-        password = passwordCheck();
+        password = getValidPassword();
+
         UserManager.currentUser.setPassword(password);
 
         System.out.println("Please enter name: ");
@@ -54,16 +55,48 @@ public class Register implements Page {
 
     }
 
-    public String passwordCheck() {
+    public String getValidPassword() {
+
         String password = GymApplication.scan.nextLine();
-        if (password.equals("x")) {
-            System.out.println("Invalid password: your password cannot be 'x'");
-            System.out.println("Please enter a new password: ");
-            passwordCheck();
-        } else {
-            return password;
+
+        while (password.equals("x") || password.equals("") || password.contains(" ")) {
+
+            if (password.equals("x")) {
+
+                System.out.println("Invalid password: your password cannot be 'x'");
+                System.out.println("Please enter a new password: ");
+
+                password = GymApplication.scan.nextLine();
+
+            }
+
+            if (password.equals("") || password.contains(" ")) {
+
+                System.out.println("password may not contain a space, or be empty");
+                System.out.println("Please enter a new password: ");
+
+                password = GymApplication.scan.nextLine();
+
+            }
+
         }
         return password;
+    }
+
+    public String getValidUsername() {
+
+        String username = GymApplication.scan.nextLine();
+
+        while (username.equals("") || username.contains(" ")) {
+
+            System.out.println("Username may not contain a space, or be empty");
+            System.out.println("Please enter a new username: ");
+
+            username = GymApplication.scan.nextLine();
+
+        }
+
+        return username;
     }
 
 }
