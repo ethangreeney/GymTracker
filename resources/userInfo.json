@@ -1,23 +1,44 @@
 [
   {
-    "username": "re",
-    "height": 0,
-    "age": 0,
-    "weight": 0
-  },
-  {
-    "username": "d",
-    "password": "3",
-    "height": 0,
-    "age": 0,
-    "weight": 0
-  },
-  {
-    "username": "er",
-    "password": "x",
-    "name": "x",
-    "height": 0,
-    "age": 0,
-    "weight": 0
+    "username": "ethan",
+    "password": "greene",
+    "name": "ethan",
+    "height": 185,
+    "age": 19,
+    "weight": 80,
+    "exercisesList": [
+      "Bench Press",
+      "Incline Dumbbell Press",
+      "Push Ups",
+      "Overhead Press",
+      "Dips",
+      "Cable Tricep Extensions",
+      "Skull Crushers",
+      "Overhead Cable Tricep Extensions",
+      "Dumbbell Side Delts",
+      "Cable Side Delts",
+      "Bicep Curls",
+      "Preacher Curls",
+      "Cable Curls",
+      "Pull Ups",
+      "Pull Downs",
+      "Dumbbell Rows",
+      "Barbell Rows",
+      "Squats",
+      "Deadlifts",
+      "Lunges",
+      "Leg Press"
+    ],
+    "workoutHistory": [
+      {
+        "name": "ethan",
+        "workoutDate": "May 2, 2025, 12:09:23 PM",
+        "exerciseInfo": [
+          {
+            "name": "Push Ups"
+          }
+        ]
+      }
+    ]
   }
 ]

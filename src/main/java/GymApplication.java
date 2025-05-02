@@ -5,6 +5,7 @@ public class GymApplication {
     public static Scanner scan = new Scanner(System.in);
 
     public static int stringToInt(String input) {
+
         int intInput = Integer.MAX_VALUE;
 
         while (intInput == Integer.MAX_VALUE) {

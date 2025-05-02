@@ -44,9 +44,13 @@ public class WorkoutPage implements Page {
 
             int userExerciseSelection = GymApplication.stringToInt(userInput);
 
+            if (userExerciseSelection == Integer.MIN_VALUE) {
+                break;
+            }
+
             while (userExerciseSelection > count || userExerciseSelection < 1) {
 
-                System.out.println("Please enter a whole number between 1 and " + count + ": (x to finish workout)");
+                System.out.println("Please enter a whole number between 1 and " + count);
                 userInput = GymApplication.scan.nextLine();
                 userExerciseSelection = GymApplication.stringToInt(userInput);
 
