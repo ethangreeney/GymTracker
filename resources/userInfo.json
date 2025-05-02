@@ -29,11 +29,6 @@
       "Lunges",
       "Leg Press"
     ],
-    "workoutHistory": [
-      {
-        "name": "ethan",
-        "workoutDate": "May 2, 2025, 1:29:39 PM"
-      }
-    ]
+    "workoutHistory": []
   }
 ]

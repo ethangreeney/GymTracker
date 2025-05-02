@@ -1,4 +1,3 @@
-import java.lang.reflect.InvocationTargetException;
 import java.util.HashMap;
 
 public class PageManager {
@@ -12,11 +11,11 @@ public class PageManager {
         Page targetPage = pageInstanceMap.computeIfAbsent(pageType, newKey -> {
             try {
                 return newKey.getDeclaredConstructor().newInstance();
-            } catch (InstantiationException | IllegalAccessException | IllegalArgumentException
-                    | InvocationTargetException | NoSuchMethodException | SecurityException e) {
+            } catch (Exception e) {
                 System.out.println("Error occured when creating new instance of page");
-                return null;
+                PageManager.navigate(Shutdown.class);
             }
+            return null;
         });
 
         targetPage.display();

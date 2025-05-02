@@ -88,6 +88,10 @@ public class WorkoutPage implements Page {
 
         }
 
+        if (currentWorkout.getExerciseInfo() == null) {
+            PageManager.navigate(Home.class);
+        }
+
         UserManager.currentUser.addWorkout(currentWorkout);
         System.out.println("Workout " + currentWorkout.getName() + " completed, returning to home page");
         PageManager.navigate(Home.class);

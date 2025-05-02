@@ -25,6 +25,7 @@ public class GymApplication {
 
         Runtime.getRuntime().addShutdownHook(new Thread(() -> {
             System.out.println("Saving user data before shutting down...");
+            scan.close();
             UserManager.saveUsers();
         }));
 
