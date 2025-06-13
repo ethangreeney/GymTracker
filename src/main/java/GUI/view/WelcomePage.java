@@ -4,6 +4,7 @@ import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Component;
 import java.awt.Dimension;
+import java.awt.event.ActionListener;
 
 import javax.swing.Box;
 import javax.swing.BoxLayout;
@@ -21,19 +22,24 @@ public class WelcomePage extends JPanel {
 
     private Dimension buttonSize = new Dimension(200, 60);
 
-    public final String asciiArt = """
-              _____                _____                _
-             / ____|              |_   _|              | |
-            | |  __ _   _ _ __ ___  | |  _ __ __ _  ___| | _____ _ __
-            | | |_ | | | | '_ ` _ \\ | | | '__/ _` |/ __| |/ / _ \\ '__|
-            | |__| | |_| | | | | | || |_| | | (_| | (__|   <  __/ |
-             \\_____|\\___, |_| |_| |_|_____|_|  \\__,_|\\___|_|\\_\\___|_|
-                     __/ |
-                    |___/
+    private String asciiArt = """
+
+
+             ██████╗██╗   ██╗███╗   ███╗
+            ██╔════╝╚██╗ ██╔╝████╗ ████║
+            ██║  ███╗╚████╔╝ ██╔████╔██║
+            ██║   ██║ ╚██╔╝  ██║╚██╔╝██║
+            ╚██████╔╝  ██║   ██║ ╚═╝ ██║
+             ╚═════╝   ╚═╝   ╚═╝     ╚═╝
+
+
+
             """;
 
     public WelcomePage() {
-        String htmlFormattedArt = "<html><pre><font face='Monospaced'>" + asciiArt + "</font></pre></html>";
+
+        String htmlFormattedArt = Utilities.toHtmlFormat(asciiArt);
+
         this.welcomeText = new JLabel(htmlFormattedArt);
 
         setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
@@ -72,6 +78,10 @@ public class WelcomePage extends JPanel {
         add(Box.createRigidArea(new Dimension(0, 30))); // Space between text and button panel
         add(buttonPanel);
 
+    }
+
+    public void addLoginListener(ActionListener action) {
+        loginButton.addActionListener(action);
     }
 
 }
