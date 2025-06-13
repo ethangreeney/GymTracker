@@ -1,6 +1,7 @@
 package GUI.view;
 
-import java.awt.*;
+import java.awt.BorderLayout;
+import java.awt.CardLayout;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
@@ -32,8 +33,6 @@ public class MainFrame extends JFrame {
         cardPanelContainer.add(welcome, "WelcomePanel");
 
         add(cardPanelContainer, BorderLayout.CENTER);
-
-        showPanel("WelcomePanel");
 
     }
 

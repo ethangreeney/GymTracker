@@ -36,6 +36,8 @@ public class ApplicationController {
         this.mainFrame = new MainFrame();
         mainFrame.setVisible(true);
 
+        mainFrame.showPanel("WelcomePanel");
+
     }
 
     public static void main(String[] args) {
