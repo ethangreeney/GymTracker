@@ -9,7 +9,7 @@ public class Goal {
     Date endDate;
     Date timeToComplete;
 
-    Goal(String description) {
+    public Goal(String description) {
         goalDescription = description;
         startDate = new Date();
     }
