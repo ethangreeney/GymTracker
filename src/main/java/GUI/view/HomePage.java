@@ -1,5 +1,7 @@
 package GUI.view;
 
-public class HomePage {
+import javax.swing.JPanel;
+
+public class HomePage extends JPanel {
 
 }

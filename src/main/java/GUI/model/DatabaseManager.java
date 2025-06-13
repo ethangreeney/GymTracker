@@ -155,6 +155,7 @@ public class DatabaseManager {
             }
         } catch (SQLException e) {
             System.err.println("Error getting user: " + e.getMessage());
+            return null;
         }
         return user;
     }

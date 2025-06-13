@@ -7,13 +7,17 @@ import java.sql.SQLException;
 import javax.swing.SwingUtilities;
 
 import GUI.model.DatabaseManager;
+import GUI.model.User;
+import GUI.view.HomePage;
 import GUI.view.LoginPage;
 import GUI.view.MainFrame;
 import GUI.view.WelcomePage;
 
 public class ApplicationController {
+
     private MainFrame mainFrame;
     private DatabaseManager dbManager;
+    private User currentUser;
 
     public ApplicationController() {
 
@@ -27,8 +31,12 @@ public class ApplicationController {
         LoginPage loginView = new LoginPage();
         LoginController loginScene = new LoginController(dbManager, this, loginView);
 
+        HomePage homeView = new HomePage();
+        HomeController homeScene = new HomeController(dbManager, this, homeView);
+
         mainFrame.addPanel(welcomeView, MainFrame.WELCOME_PAGE);
         mainFrame.addPanel(loginView, MainFrame.LOGIN_PAGE);
+        mainFrame.addPanel(homeView, MainFrame.HOME_PAGE);
 
         mainFrame.showPanel(MainFrame.WELCOME_PAGE);
         mainFrame.setVisible(true);
@@ -51,6 +59,11 @@ public class ApplicationController {
 
     public void showLoginPage() {
         mainFrame.showPanel(MainFrame.LOGIN_PAGE);
+    }
+
+    public void showHomePage(User user) {
+        currentUser = user;
+        mainFrame.showPanel(MainFrame.HOME_PAGE);
     }
 
     public static void main(String[] args) {
