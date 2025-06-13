@@ -16,7 +16,8 @@ public class ApplicationController {
 
     public ApplicationController() {
 
-        Connection dbConnection = null;
+        Connection dbConnection;
+
         try {
 
             String dbURL = "jdbc:derby:gymDB;create=true";
@@ -28,15 +29,6 @@ public class ApplicationController {
 
         } catch (SQLException e) {
             e.printStackTrace();
-        } finally {
-
-            try {
-                if (dbConnection != null && !dbConnection.isClosed()) {
-
-                }
-            } catch (SQLException e) {
-                e.printStackTrace();
-            }
         }
 
         WelcomeController welcomeScene = new WelcomeController(dbManager, this, new WelcomePage());
