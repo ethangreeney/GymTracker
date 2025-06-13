@@ -1,10 +1,5 @@
 package GUI;
 
-<<<<<<< HEAD
-public class DatabaseManager {
-
-}
-=======
 import java.sql.Connection;
 import java.sql.DatabaseMetaData;
 import java.sql.PreparedStatement;
@@ -190,4 +185,3 @@ public class DatabaseManager {
         return false;
     }
 }
->>>>>>> 913522df7ff42cc4b1a08e704d12e66a0b47d52f
