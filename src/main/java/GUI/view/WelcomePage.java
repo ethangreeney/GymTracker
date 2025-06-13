@@ -37,7 +37,7 @@ public class WelcomePage extends JPanel {
         this.welcomeText = new JLabel(htmlFormattedArt);
 
         setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
-        setBackground(Color.LIGHT_GRAY);
+        setBackground(Color.getHSBColor(0.6f, 0, .9f));
 
         this.welcomeText.setAlignmentX(Component.CENTER_ALIGNMENT);
         this.welcomeText.setHorizontalAlignment(SwingConstants.CENTER);
