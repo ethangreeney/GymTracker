@@ -1,5 +1,9 @@
 package GUI.controller;
 
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.SQLException;
+
 import javax.swing.SwingUtilities;
 
 import GUI.model.DatabaseManager;
@@ -11,9 +15,32 @@ public class ApplicationController {
 
     public ApplicationController() {
 
-        this.mainFrame = new MainFrame();
+        Connection dbConnection = null;
+        try {
 
+            String dbURL = "jdbc:derby:gymDB;create=true";
+            dbConnection = DriverManager.getConnection(dbURL);
+            System.out.println("Connected to database successfully.");
+
+            DatabaseManager dbManager = new DatabaseManager(dbConnection);
+            dbManager.setupTables(dbConnection);
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } finally {
+
+            try {
+                if (dbConnection != null && !dbConnection.isClosed()) {
+
+                }
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+        }
+
+        this.mainFrame = new MainFrame();
         mainFrame.setVisible(true);
+
     }
 
     public static void main(String[] args) {
