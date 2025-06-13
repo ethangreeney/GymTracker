@@ -1,4 +1,4 @@
-package GUI;
+package GUI.controller;
 
 import java.sql.Connection;
 import java.sql.DatabaseMetaData;
@@ -6,6 +6,8 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+
+import GUI.model.User;
 
 public class DatabaseManager {
 

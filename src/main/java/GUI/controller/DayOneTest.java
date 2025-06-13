@@ -1,8 +1,10 @@
-package GUI;
+package GUI.controller;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
+
+import GUI.model.User;
 
 /**
  * A command-line test rig to verify the functionality of the DatabaseManager

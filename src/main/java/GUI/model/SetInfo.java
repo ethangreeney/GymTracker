@@ -1,4 +1,4 @@
-package GUI.controller;
+package GUI.model;
 
 public class SetInfo {
     private int weight;

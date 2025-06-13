@@ -1,4 +1,4 @@
-package GUI.controller;
+package GUI.model;
 
 import java.util.ArrayList;
 import java.util.Date;
