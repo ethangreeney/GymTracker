@@ -4,11 +4,11 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 
-import javax.sound.sampled.SourceDataLine;
 import javax.swing.SwingUtilities;
 
 import GUI.model.DatabaseManager;
 import GUI.view.MainFrame;
+import GUI.view.WelcomePage;
 
 public class ApplicationController {
     private MainFrame mainFrame;
@@ -39,7 +39,7 @@ public class ApplicationController {
             }
         }
 
-        WelcomeController welcomeScene = new WelcomeController(dbManager, new WelcomePage, this);
+        WelcomeController welcomeScene = new WelcomeController(dbManager, this, new WelcomePage());
 
         this.mainFrame = new MainFrame();
         mainFrame.setVisible(true);
