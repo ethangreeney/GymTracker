@@ -7,6 +7,7 @@ import java.sql.SQLException;
 import javax.swing.SwingUtilities;
 
 import GUI.model.DatabaseManager;
+import GUI.view.LoginPage;
 import GUI.view.MainFrame;
 import GUI.view.WelcomePage;
 
@@ -22,6 +23,9 @@ public class ApplicationController {
 
         WelcomePage welcomeView = new WelcomePage();
         WelcomeController welcomeScene = new WelcomeController(dbManager, this, welcomeView);
+
+        LoginPage loginView = new LoginPage();
+        LoginController loginScene = new LoginController(dbManager, this, loginView);
 
         mainFrame.addPanel(welcomeView);
 

@@ -9,7 +9,7 @@ import java.sql.Statement;
 
 public class DatabaseManager {
 
-    private Connection conn;
+    private final Connection conn;
 
     public DatabaseManager(Connection connection) {
         this.conn = connection;
@@ -96,7 +96,6 @@ public class DatabaseManager {
 
         } catch (SQLException e) {
             System.err.println("Error setting up database tables.");
-            e.printStackTrace();
         }
     }
 
