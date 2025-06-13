@@ -28,6 +28,7 @@ public class ApplicationController {
         LoginController loginScene = new LoginController(dbManager, this, loginView);
 
         mainFrame.addPanel(welcomeView);
+        mainFrame.addPanel(loginView);
 
         mainFrame.showPanel(MainFrame.WELCOME_PAGE);
         mainFrame.setVisible(true);
@@ -46,6 +47,10 @@ public class ApplicationController {
         } catch (SQLException e) {
             e.printStackTrace();
         }
+    }
+
+    public void showLoginPage() {
+        mainFrame.showPanel(MainFrame.LOGIN_PAGE);
     }
 
     public static void main(String[] args) {

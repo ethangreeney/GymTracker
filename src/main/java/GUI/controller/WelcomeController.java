@@ -14,7 +14,7 @@ public class WelcomeController {
         welcomePage = view;
         appController = controller;
 
-        welcomePage.addLoginListener(() -> appController.showLoginPage);
+        welcomePage.addLoginListener(e -> appController.showLoginPage());
     }
 
 }
