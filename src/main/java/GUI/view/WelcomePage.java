@@ -24,6 +24,7 @@ public class WelcomePage extends JPanel {
 
     private String asciiArt = """
 
+
              ██████╗██╗   ██╗███╗   ███╗
             ██╔════╝╚██╗ ██╔╝████╗ ████║
             ██║  ███╗╚████╔╝ ██╔████╔██║
@@ -53,7 +54,7 @@ public class WelcomePage extends JPanel {
 
         // LayoutBackground
         setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
-        setBackground(Color.getHSBColor(0.6f, 0, .9f));
+        setBackground(Utilities.backgroundColour);
 
         add(welcomeText);
         this.welcomeText.setAlignmentX(Component.CENTER_ALIGNMENT);
