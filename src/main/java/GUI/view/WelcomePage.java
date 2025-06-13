@@ -19,6 +19,8 @@ public class WelcomePage extends JPanel {
 
     JPanel buttonPanel;
 
+    private Dimension buttonSize = new Dimension(200, 60);
+
     public final String asciiArt = """
               _____                _____                _
              / ____|              |_   _|              | |
@@ -42,11 +44,15 @@ public class WelcomePage extends JPanel {
 
         // 3. Create the buttons
         this.loginButton = new JButton("Login");
-        loginButton.setPreferredSize(new Dimension(150, 40)); // A bit wider for better centering feel
+        loginButton.setPreferredSize(buttonSize); // A bit wider for better centering feel
+        loginButton.setMinimumSize(buttonSize);
+        loginButton.setMaximumSize(buttonSize);
         loginButton.setAlignmentX(Component.CENTER_ALIGNMENT); // Center it horizontally
 
         this.registerButton = new JButton("Register");
-        registerButton.setPreferredSize(new Dimension(150, 40));
+        registerButton.setPreferredSize(buttonSize);
+        registerButton.setMinimumSize(buttonSize);
+        registerButton.setMaximumSize(buttonSize);
         registerButton.setAlignmentX(Component.CENTER_ALIGNMENT); // Center it horizontally
 
         this.buttonPanel = new JPanel();

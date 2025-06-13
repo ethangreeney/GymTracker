@@ -17,8 +17,10 @@ public class MainFrame extends JFrame {
     private WorkoutPage workout;
     private WelcomePage welcome;
 
-    public static final int WIDTH = 800;
-    public static final int HEIGHT = 600;
+    public static final String WELCOME_PAGE = "WelcomePanel";
+
+    public static final int WIDTH = 600;
+    public static final int HEIGHT = 500;
 
     public MainFrame() {
         setTitle("GymTracker");
@@ -28,9 +30,6 @@ public class MainFrame extends JFrame {
 
         this.cardLayout = new CardLayout();
         this.cardPanelContainer = new JPanel(cardLayout);
-
-        WelcomePage welcome = new WelcomePage();
-        cardPanelContainer.add(welcome, "WelcomePanel");
 
         add(cardPanelContainer, BorderLayout.CENTER);
 
