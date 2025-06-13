@@ -6,14 +6,13 @@ import javax.swing.*;
 
 public class LoginPage extends JPanel {
 
-    private JLabel welcome;
+    private JTextField username;
+    private JTextField password;
 
     public LoginPage() {
-        JLabel welcome = new JLabel();
-        welcome.setText("Welcome to the Gym Tracker Application");
+
         setSize(WIDTH, HEIGHT);
         setBackground(Color.lightGray);
-        add(welcome);
 
     }
 

@@ -14,7 +14,9 @@ public class MainFrame extends JFrame {
     private RegisterPage register;
     private WorkoutHistoryPage history;
     private WorkoutPage workout;
+    private WelcomePage welcome;
 
+    public static final String WELCOME_PANEL = "WELCOME";
     public static final String LOGIN_PANEL = "LOGIN";
     private static final int WIDTH = 1200;
     private static final int HEIGHT = 800;
@@ -28,8 +30,8 @@ public class MainFrame extends JFrame {
         this.cardLayout = new CardLayout();
         this.cardPanelContainer = new JPanel(cardLayout);
 
-        LoginPage login = new LoginPage();
-        cardPanelContainer.add(login, LOGIN_PANEL);
+        WelcomePage welcome = new WelcomePage();
+        cardPanelContainer.add(welcome, WELCOME_PANEL);
 
         add(cardPanelContainer, BorderLayout.CENTER);
 
