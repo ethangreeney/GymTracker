@@ -9,8 +9,10 @@ public class WelcomeController {
     ApplicationControler appController;
     
 
-    public WelcomeController(DatabaseManager db) {
-        this.db = db;
+    public WelcomeController(DatabaseManager model, ApplicationController controller, WelcomePage view) {
+        db = model;
+        welcomePage = view;
+        appController = controller;
     }
 
     WelcomePage.addLoginListener(()->appControler.showLoginPage);
