@@ -14,6 +14,7 @@ import javax.swing.SwingConstants;
 
 public class WelcomePage extends JPanel {
     private JLabel welcomeText;
+    private JLabel welcomeText2;
     private JButton loginButton;
     private JButton registerButton;
 
@@ -23,29 +24,44 @@ public class WelcomePage extends JPanel {
 
     private String asciiArt = """
 
-
              ██████╗██╗   ██╗███╗   ███╗
             ██╔════╝╚██╗ ██╔╝████╗ ████║
             ██║  ███╗╚████╔╝ ██╔████╔██║
             ██║   ██║ ╚██╔╝  ██║╚██╔╝██║
             ╚██████╔╝  ██║   ██║ ╚═╝ ██║
              ╚═════╝   ╚═╝   ╚═╝     ╚═╝
+            """;
 
-
-
+    private String asciiArt2 = """
+            ████████╗██████╗  █████╗  ██████╗██╗  ██╗███████╗██████╗
+            ╚══██╔══╝██╔══██╗██╔══██╗██╔════╝██║ ██╔╝██╔════╝██╔══██╗
+               ██║   ██████╔╝███████║██║     █████╔╝ █████╗  ██████╔╝
+               ██║   ██╔══██╗██╔══██║██║     ██╔═██╗ ██╔══╝  ██╔══██╗
+               ██║   ██║  ██║██║  ██║╚██████╗██║  ██╗███████╗██║  ██║
+               ╚═╝   ╚═╝  ╚═╝╚═╝  ╚═╝ ╚═════╝╚═╝  ╚═╝╚══════╝╚═╝  ╚═╝
             """;
 
     public WelcomePage() {
 
+        // Top text
         String htmlFormattedArt = Utilities.toHtmlFormat(asciiArt);
-
         this.welcomeText = new JLabel(htmlFormattedArt);
 
+        // Bottom text
+        String htmlFormattedArt2 = Utilities.toHtmlFormat(asciiArt2);
+        this.welcomeText2 = new JLabel(htmlFormattedArt2);
+
+        // LayoutBackground
         setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
         setBackground(Color.getHSBColor(0.6f, 0, .9f));
 
+        add(welcomeText);
         this.welcomeText.setAlignmentX(Component.CENTER_ALIGNMENT);
         this.welcomeText.setHorizontalAlignment(SwingConstants.CENTER);
+
+        add(welcomeText2);
+        this.welcomeText2.setAlignmentX(Component.CENTER_ALIGNMENT);
+        this.welcomeText2.setHorizontalAlignment(SwingConstants.CENTER);
 
         // 3. Create the buttons
         this.loginButton = new JButton("Login");
@@ -73,7 +89,6 @@ public class WelcomePage extends JPanel {
         buttonPanel.setAlignmentX(Component.CENTER_ALIGNMENT); // Center the button panel itself
 
         // 5. Add components to the main WelcomePage panel
-        add(this.welcomeText);
         add(Box.createRigidArea(new Dimension(0, 30))); // Space between text and button panel
         add(buttonPanel);
 
