@@ -4,6 +4,7 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 
+import GUI.model.DatabaseManager;
 import GUI.model.User;
 
 /**
@@ -15,6 +16,7 @@ import GUI.model.User;
  */
 public class DayOneTest {
 
+    @SuppressWarnings("CallToPrintStackTrace")
     public static void main(String[] args) {
         System.out.println("--- Starting End-of-Day-1 Database Test ---");
         Connection conn = null;
