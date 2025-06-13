@@ -8,6 +8,7 @@ import javax.swing.BoxLayout;
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 import javax.swing.SwingConstants;
 import javax.swing.border.Border;
@@ -18,10 +19,10 @@ public class LoginPage extends JPanel {
     private JLabel passwordText;
     private JLabel loginFailed;
     private JTextField usernameField;
-    private JTextField passwordField;
+    private JPasswordField passwordField;
     private JButton login;
     private JPanel userInterface;
-    private Dimension textFieldSize = new Dimension(250, 35);
+    private Dimension textFieldSize = new Dimension(215, 35);
 
     private String asciiArt = """
 
@@ -46,11 +47,9 @@ public class LoginPage extends JPanel {
         add(loginText);
 
         add(Box.createRigidArea(Utilities.buttonGap));
-        loginFailed = new JLabel("Invalid Username/Password");
-        loginFailed.setForeground(Color.red);
+        loginFailed = new JLabel(" ");
         loginFailed.setAlignmentX(CENTER_ALIGNMENT);
         add(loginFailed);
-        loginFailed.setVisible(false);
         add(Box.createRigidArea(new Dimension(0, 35)));
 
         userInterface = new JPanel();
@@ -62,7 +61,7 @@ public class LoginPage extends JPanel {
         usernameField.setMaximumSize(textFieldSize);
         usernameField.setAlignmentX(CENTER_ALIGNMENT);
 
-        passwordField = new JTextField();
+        passwordField = new JPasswordField();
         passwordField.setPreferredSize(textFieldSize);
         passwordField.setMinimumSize(textFieldSize);
         passwordField.setMaximumSize(textFieldSize);
@@ -101,7 +100,8 @@ public class LoginPage extends JPanel {
     }
 
     public void invalidLogin() {
-        this.loginFailed.setVisible(true);
+        loginFailed.setForeground(Color.red);
+        loginFailed.setText("Invalid Username/Password");
     }
 
 }
