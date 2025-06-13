@@ -5,24 +5,24 @@ import GUI.model.User;
 import GUI.view.LoginPage;
 
 public class LoginController {
-    DatabaseManager db;
-    LoginPage loginPage;
-    ApplicationController appController;
+    DatabaseManager model;
+    LoginPage view;
+    ApplicationController controller;
 
     public LoginController(DatabaseManager model, ApplicationController controller, LoginPage view) {
-        db = model;
-        loginPage = view;
-        appController = controller;
+        this.model = model;
+        this.view = view;
+        this.controller = controller;
 
-        loginPage.addLoginListener(e -> {
-            String user = loginPage.getUsername();
-            String pass = loginPage.getPassword();
-            User currentUser = db.getUser(user, pass);
+        view.addLoginListener(e -> {
+            String user = view.getUsername();
+            String pass = view.getPassword();
+            User currentUser = model.getUser(user, pass);
 
             if (currentUser == null) {
                 view.invalidLogin();
             } else {
-                appController.showHomePage(currentUser);
+                controller.showHomePage(currentUser);
             }
         });
 
