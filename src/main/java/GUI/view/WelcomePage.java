@@ -84,7 +84,7 @@ public class WelcomePage extends JPanel {
 
         // Add buttons and gap to the buttonPanel
         buttonPanel.add(loginButton);
-        buttonPanel.add(Box.createRigidArea(new Dimension(0, 10))); // 10px vertical gap
+        buttonPanel.add(Box.createRigidArea(Utilities.buttonGap)); // 10px vertical gap
         buttonPanel.add(registerButton);
 
         buttonPanel.setAlignmentX(Component.CENTER_ALIGNMENT); // Center the button panel itself
