@@ -1,5 +1,13 @@
 package GUI.view;
 
-public class LoginPage {
+import java.awt.Color;
+
+import javax.swing.*;
+
+public class LoginPage extends JPanel {
+    public LoginPage() {
+        setBackground(Color.lightGray);
+
+    }
 
 }
