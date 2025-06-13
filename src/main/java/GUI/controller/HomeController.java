@@ -4,14 +4,14 @@ import GUI.model.DatabaseManager;
 import GUI.view.HomePage;
 
 public class HomeController {
-    DatabaseManager db;
-    HomePage homePage;
-    ApplicationController appController;
+    DatabaseManager model;
+    HomePage view;
+    ApplicationController controller;
 
     public HomeController(DatabaseManager model, ApplicationController controller, HomePage view) {
-        db = model;
-        homePage = view;
-        appController = controller;
+        this.model = model;
+        this.view = view;
+        this.controller = controller;
 
     }
 }
