@@ -40,8 +40,8 @@ public class MainFrame extends JFrame {
         cardLayout.show(cardPanelContainer, panelName);
     }
 
-    public void addPanel(JPanel toAdd) {
-        cardPanelContainer.add(toAdd);
+    public void addPanel(JPanel toAdd, String panelName) {
+        cardPanelContainer.add(toAdd, panelName);
     }
 
 }

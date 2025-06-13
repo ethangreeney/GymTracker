@@ -27,8 +27,8 @@ public class ApplicationController {
         LoginPage loginView = new LoginPage();
         LoginController loginScene = new LoginController(dbManager, this, loginView);
 
-        mainFrame.addPanel(welcomeView);
-        mainFrame.addPanel(loginView);
+        mainFrame.addPanel(welcomeView, MainFrame.WELCOME_PAGE);
+        mainFrame.addPanel(loginView, MainFrame.LOGIN_PAGE);
 
         mainFrame.showPanel(MainFrame.WELCOME_PAGE);
         mainFrame.setVisible(true);
