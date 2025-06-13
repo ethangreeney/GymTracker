@@ -23,9 +23,9 @@ public class ApplicationController {
         WelcomePage welcomeView = new WelcomePage();
         WelcomeController welcomeScene = new WelcomeController(dbManager, this, welcomeView);
 
-        mainFrame.addPanel(welcomeView, MainFrame.WELCOME_PAGE);
+        mainFrame.addPanel(welcomeView);
 
-        mainFrame.showPanel("WelcomePanel");
+        mainFrame.showPanel(MainFrame.WELCOME_PAGE);
         mainFrame.setVisible(true);
 
     }
