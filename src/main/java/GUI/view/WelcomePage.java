@@ -90,7 +90,7 @@ public class WelcomePage extends JPanel {
         buttonPanel.setAlignmentX(Component.CENTER_ALIGNMENT); // Center the button panel itself
 
         // 5. Add components to the main WelcomePage panel
-        add(Box.createRigidArea(new Dimension(0, 30))); // Space between text and button panel
+        add(Box.createRigidArea(Utilities.buttonGap)); // Space between text and button panel
         add(buttonPanel);
 
     }
