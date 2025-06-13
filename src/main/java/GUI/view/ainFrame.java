@@ -5,17 +5,17 @@ import java.awt.CardLayout;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 
-public class MainFrame extends JFrame {
+public class ainFrame extends JFrame {
     private CardLayout cardLayout;
     private JPanel cardPanelContainer;
 
-    private HomePage home;
-    private LoginPage login;
-    private RegisterPage register;
+    private omePage home;
+    private oginPage login;
+    private egisterPage register;
     private WorkoutHistoryPage history;
     private WorkoutPage workout;
 
-    public MainFrame() {
+    public ainFrame() {
         setTitle("GymTracker");
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setSize(500, 400);
