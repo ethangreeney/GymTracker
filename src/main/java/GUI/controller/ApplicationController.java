@@ -16,28 +16,32 @@ public class ApplicationController {
 
     public ApplicationController() {
 
-        Connection dbConnection;
+        setupDatabase();
 
+        this.mainFrame = new MainFrame();
+
+        WelcomePage welcomeView = new WelcomePage();
+        WelcomeController welcomeScene = new WelcomeController(dbManager, this, welcomeView);
+
+        mainFrame.addPanel(welcomeView, MainFrame.WELCOME_PAGE);
+
+        mainFrame.showPanel("WelcomePanel");
+        mainFrame.setVisible(true);
+
+    }
+
+    private void setupDatabase() {
         try {
-
             String dbURL = "jdbc:derby:gymDB;create=true";
-            dbConnection = DriverManager.getConnection(dbURL);
+            Connection dbConnection = DriverManager.getConnection(dbURL);
             System.out.println("Connected to database successfully.");
 
-            DatabaseManager dbManager = new DatabaseManager(dbConnection);
-            dbManager.setupTables(dbConnection);
+            this.dbManager = new DatabaseManager(dbConnection);
+            this.dbManager.setupTables(dbConnection);
 
         } catch (SQLException e) {
             e.printStackTrace();
         }
-
-        WelcomeController welcomeScene = new WelcomeController(dbManager, this, new WelcomePage());
-
-        this.mainFrame = new MainFrame();
-        mainFrame.setVisible(true);
-
-        mainFrame.showPanel("WelcomePanel");
-
     }
 
     public static void main(String[] args) {
