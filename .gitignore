@@ -1,0 +1,12 @@
+*.class
+
+/target/
+
+.vscode/
+*.iml
+.idea/
+
+*.log
+derby.log
+
+/gymDB/
