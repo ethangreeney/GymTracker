@@ -1,5 +1,5 @@
 package GUI.view;
 
-public class homePage {
+public class HomePage {
 
 }
