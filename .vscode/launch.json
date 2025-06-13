@@ -6,6 +6,13 @@
     "configurations": [
         {
             "type": "java",
+            "name": "TestingGUI",
+            "request": "launch",
+            "mainClass": "GUI.controller.TestingGUI",
+            "projectName": "GymApplication"
+        },
+        {
+            "type": "java",
             "name": "ApplicationController",
             "request": "launch",
             "mainClass": "GUI.controller.ApplicationController",

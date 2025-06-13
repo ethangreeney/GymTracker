@@ -1,6 +1,7 @@
 package GUI.view;
 
 import java.awt.Color;
+import java.awt.Dimension;
 
 import javax.swing.*;
 
@@ -22,12 +23,12 @@ public class WelcomePage extends JPanel {
 
     public WelcomePage() {
         String htmlFormattedArt = "<html><pre><font face='Monospaced'>" + asciiArt + "</font></pre></html>";
-        JLabel welcomeText = new JLabel(htmlFormattedArt);
-        JButton loginbuButton = new JButton("Login");
-        loginbuButton.setSize(150, 150);
-        JButton registerButton = new JButton("Register");
-        registerButton.setSize(150, 150);
-        setSize(WIDTH, HEIGHT);
+        this.welcomeText = new JLabel(htmlFormattedArt);
+        this.loginButton = new JButton("Login");
+        loginButton.setPreferredSize(new Dimension(120, 40));
+        this.registerButton = new JButton("Register");
+        registerButton.setPreferredSize(new Dimension(120, 40));
+        setSize(MainFrame.WIDTH, MainFrame.HEIGHT);
         setBackground(Color.LIGHT_GRAY);
 
         add(welcomeText);

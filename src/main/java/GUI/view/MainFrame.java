@@ -18,8 +18,8 @@ public class MainFrame extends JFrame {
 
     public static final String WELCOME_PANEL = "WELCOME";
     public static final String LOGIN_PANEL = "LOGIN";
-    private static final int WIDTH = 1200;
-    private static final int HEIGHT = 800;
+    public static final int WIDTH = 1200;
+    public static final int HEIGHT = 800;
 
     public MainFrame() {
         setTitle("GymTracker");
@@ -35,7 +35,7 @@ public class MainFrame extends JFrame {
 
         add(cardPanelContainer, BorderLayout.CENTER);
 
-        showPanel(LOGIN_PANEL);
+        showPanel(WELCOME_PANEL);
 
     }
 
