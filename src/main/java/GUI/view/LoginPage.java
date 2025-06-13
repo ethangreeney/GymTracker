@@ -17,8 +17,6 @@ public class LoginPage extends JPanel {
     private JButton login;
     private JPanel userInterface;
 
-    private String asciiArt = "h";
-
     public LoginPage() {
         setBackground(Utilities.backgroundColour);
 

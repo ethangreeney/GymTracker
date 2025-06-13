@@ -20,10 +20,10 @@ public class LoginController {
             User currentUser = db.getUser(user, pass);
 
             if (currentUser == null) {
-                System.out.println("Invalid username or password");
+                view.invalidLogin();
+            } else {
+                appController.showHomePage(currentUser);
             }
-
-            appController.showHomePage(currentUser);
         });
 
     }

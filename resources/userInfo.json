@@ -6,5 +6,13 @@
     "height": 1,
     "age": 1,
     "weight": 1
+  },
+  {
+    "username": "ethan",
+    "password": "greene",
+    "name": "ethan",
+    "height": 185,
+    "age": 19,
+    "weight": 80
   }
 ]

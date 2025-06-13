@@ -6,6 +6,13 @@
     "configurations": [
         {
             "type": "java",
+            "name": "GymApplication",
+            "request": "launch",
+            "mainClass": "CLI.GymApplication",
+            "projectName": "GymApplication"
+        },
+        {
+            "type": "java",
             "name": "DayOneTest",
             "request": "launch",
             "mainClass": "GUI.controller.DayOneTest",
