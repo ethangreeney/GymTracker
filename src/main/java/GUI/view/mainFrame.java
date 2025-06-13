@@ -1,8 +1,9 @@
 package GUI.view;
 
-import javax.swing.*;
-import java.awt.*;
-import java.awt.event.ActionEvent;
+import java.awt.CardLayout;
+
+import javax.swing.JFrame;
+import javax.swing.JPanel;
 
 public class MainFrame extends JFrame {
     private CardLayout cardLayout;
@@ -14,7 +15,7 @@ public class MainFrame extends JFrame {
     private WorkoutHistoryPage history;
     private WorkoutPage workout;
 
-    public MainFrame(){
+    public MainFrame() {
         setTitle("GymTracker");
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setSize(500, 400);

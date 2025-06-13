@@ -26,7 +26,7 @@ public class User {
 
     public List<Goal> getUserGoals() {
         if (this.userGoals == null) {
-            userGoals = new ArrayList<Goal>();
+            userGoals = new ArrayList<>();
         }
 
         return userGoals;
@@ -78,7 +78,7 @@ public class User {
 
     public void addWorkout(Workout currentWorkout) {
         if (this.workoutHistory == null) {
-            workoutHistory = new ArrayList<Workout>();
+            workoutHistory = new ArrayList<>();
         }
         workoutHistory.add(currentWorkout);
     }
