@@ -12,6 +12,8 @@ import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.SwingConstants;
 
+import CLI.UserInfo;
+
 public class RegisterPage extends JPanel {
 
     private String asciiArt = """
@@ -157,8 +159,6 @@ public class RegisterPage extends JPanel {
 
         userInfo.add(confirm);
 
-        add(userInfo);
-
     }
 
     public void addRegisterListener(ActionListener e) {
@@ -179,23 +179,23 @@ public class RegisterPage extends JPanel {
 
     public void validDetail() {
         duplicate.setVisible(false);
-        registerArea.setVisible(false);
-        userInfo.setVisible(true);
+        remove(registerArea);
+        add(userInfo);
     }
 
-    public String getName() {
+    public String getUserName() {
         return name.getText();
     }
 
-    public int getAge() {
+    public int getUserAge() {
         return Integer.parseInt(age.getText());
     }
 
-    public int getWeight() {
+    public int getUserWeight() {
         return Integer.parseInt(weight.getText());
     }
 
-    public int getHeight() {
+    public int getUserHeight() {
         return Integer.parseInt(height.getText());
     }
 
