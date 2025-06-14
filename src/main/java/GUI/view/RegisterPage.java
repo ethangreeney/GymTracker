@@ -183,4 +183,20 @@ public class RegisterPage extends JPanel {
         userInfo.setVisible(true);
     }
 
+    public String getName() {
+        return name.getText();
+    }
+
+    public int getAge() {
+        return Integer.parseInt(age.getText());
+    }
+
+    public int getWeight() {
+        return Integer.parseInt(weight.getText());
+    }
+
+    public int getHeight() {
+        return Integer.parseInt(height.getText());
+    }
+
 }
