@@ -20,7 +20,7 @@ public class MainFrame extends JFrame {
     public static final String WELCOME_PAGE = "WelcomePanel";
     public static final String LOGIN_PAGE = "LoginPanel";
     public static final String HOME_PAGE = "HomePanel";
-    public static final String REGISTER_PAGE = "HomePanel";
+    public static final String REGISTER_PAGE = "RegisterPanel";
 
     public static final int WIDTH = 600;
     public static final int HEIGHT = 500;

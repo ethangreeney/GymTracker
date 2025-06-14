@@ -41,7 +41,7 @@ public class ApplicationController {
         mainFrame.addPanel(welcomeView, MainFrame.WELCOME_PAGE);
         mainFrame.addPanel(loginView, MainFrame.LOGIN_PAGE);
         mainFrame.addPanel(homeView, MainFrame.HOME_PAGE);
-        mainFrame.addPanel(homeView, MainFrame.REGISTER_PAGE);
+        mainFrame.addPanel(RegisterView, MainFrame.REGISTER_PAGE);
 
         mainFrame.showPanel(MainFrame.WELCOME_PAGE);
         mainFrame.setVisible(true);
@@ -69,6 +69,10 @@ public class ApplicationController {
     public void showHomePage(User user) {
         currentUser = user;
         mainFrame.showPanel(MainFrame.HOME_PAGE);
+    }
+
+    public void showRegisterPage() {
+        mainFrame.showPanel(MainFrame.REGISTER_PAGE);
     }
 
     public static void main(String[] args) {

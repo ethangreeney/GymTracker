@@ -5,16 +5,17 @@ import GUI.view.WelcomePage;
 
 public class WelcomeController {
 
-    DatabaseManager db;
-    WelcomePage welcomePage;
-    ApplicationController appController;
+    DatabaseManager model;
+    WelcomePage view;
+    ApplicationController controller;
 
     public WelcomeController(DatabaseManager model, ApplicationController controller, WelcomePage view) {
-        db = model;
-        welcomePage = view;
-        appController = controller;
+        this.model = model;
+        this.view = view;
+        this.controller = controller;
 
-        welcomePage.addLoginListener(e -> appController.showLoginPage());
+        view.addLoginListener(e -> controller.showLoginPage());
+        view.addRegisterListener(e -> controller.showRegisterPage());
     }
 
 }

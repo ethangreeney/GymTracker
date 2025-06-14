@@ -1,6 +1,5 @@
 package GUI.view;
 
-import java.awt.Color;
 import java.awt.Component;
 import java.awt.Dimension;
 import java.awt.event.ActionListener;
@@ -97,6 +96,10 @@ public class WelcomePage extends JPanel {
 
     public void addLoginListener(ActionListener action) {
         loginButton.addActionListener(action);
+    }
+
+    public void addRegisterListener(ActionListener action) {
+        registerButton.addActionListener(action);
     }
 
 }
