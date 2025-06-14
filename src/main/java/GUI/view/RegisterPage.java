@@ -2,6 +2,7 @@ package GUI.view;
 
 import java.awt.Color;
 import java.awt.Dimension;
+import java.awt.event.ActionListener;
 
 import javax.swing.*;
 
@@ -27,13 +28,17 @@ public class RegisterPage extends JPanel {
     private JTextField password;
     private JLabel usernameLabel;
     private JLabel passwordLabel;
-    private Dimension textFieldSize = new Dimension(215, 35);
+    private JButton registerButton;
 
     private JPanel userInfo;
     private JTextField name;
     private JTextField age;
     private JTextField height;
     private JTextField weight;
+
+    private Dimension textFieldSize = new Dimension(215, 35);
+    private Dimension mediumGap = new Dimension(0, 15);
+    private Dimension largerGap = new Dimension(0, 35);
 
     public RegisterPage() {
         setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
@@ -50,7 +55,7 @@ public class RegisterPage extends JPanel {
         duplicate.setAlignmentX(CENTER_ALIGNMENT);
         add(duplicate);
 
-        add(Box.createRigidArea(new Dimension(0, 35)));
+        add(Box.createRigidArea(largerGap));
 
         registerArea = new JPanel();
         registerArea.setBackground(this.getBackground());
@@ -67,8 +72,46 @@ public class RegisterPage extends JPanel {
         username.setAlignmentX(CENTER_ALIGNMENT);
         registerArea.add(username);
 
+        registerArea.add(Box.createRigidArea(mediumGap));
+
+        passwordLabel = new JLabel("Password: ");
+        passwordLabel.setAlignmentX(CENTER_ALIGNMENT);
+        registerArea.add(passwordLabel);
+
+        password = new JTextField();
+        password.setPreferredSize(textFieldSize);
+        password.setMaximumSize(textFieldSize);
+        password.setMinimumSize(textFieldSize);
+        password.setAlignmentX(CENTER_ALIGNMENT);
+        registerArea.add(password);
+
+        registerButton = new JButton("Register");
+        registerButton.setAlignmentX(CENTER_ALIGNMENT);
+        registerArea.add(registerButton);
+
         add(registerArea);
 
+    }
+
+    public void registerListener(ActionListener e) {
+        registerButton.addActionListener(e);
+    }
+
+    public void duplicateUsername() {
+        duplicate.setText("Duplicate username, please enter a different username");
+    }
+
+    public String getUsername() {
+        return username.getText();
+    }
+
+    public String getPassword() {
+        return password.getText();
+    }
+
+    public void validDetail() {
+        registerArea.setVisible(false);
+        userInfo.setVisible(true);
     }
 
 }
