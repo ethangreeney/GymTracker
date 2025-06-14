@@ -4,7 +4,13 @@ import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.event.ActionListener;
 
-import javax.swing.*;
+import javax.swing.Box;
+import javax.swing.BoxLayout;
+import javax.swing.JButton;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.JTextField;
+import javax.swing.SwingConstants;
 
 public class RegisterPage extends JPanel {
 
@@ -155,7 +161,7 @@ public class RegisterPage extends JPanel {
 
     }
 
-    public void registerListener(ActionListener e) {
+    public void addRegisterListener(ActionListener e) {
         registerButton.addActionListener(e);
     }
 

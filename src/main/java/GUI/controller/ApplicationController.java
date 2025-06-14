@@ -11,6 +11,7 @@ import GUI.model.User;
 import GUI.view.HomePage;
 import GUI.view.LoginPage;
 import GUI.view.MainFrame;
+import GUI.view.RegisterPage;
 import GUI.view.WelcomePage;
 
 public class ApplicationController {
@@ -34,9 +35,13 @@ public class ApplicationController {
         HomePage homeView = new HomePage();
         HomeController homeScene = new HomeController(dbManager, this, homeView);
 
+        RegisterPage RegisterView = new RegisterPage();
+        RegisterController RegisterScene = new RegisterController(dbManager, this, RegisterView);
+
         mainFrame.addPanel(welcomeView, MainFrame.WELCOME_PAGE);
         mainFrame.addPanel(loginView, MainFrame.LOGIN_PAGE);
         mainFrame.addPanel(homeView, MainFrame.HOME_PAGE);
+        mainFrame.addPanel(homeView, MainFrame.REGISTER_PAGE);
 
         mainFrame.showPanel(MainFrame.WELCOME_PAGE);
         mainFrame.setVisible(true);
