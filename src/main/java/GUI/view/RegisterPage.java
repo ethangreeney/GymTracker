@@ -31,10 +31,17 @@ public class RegisterPage extends JPanel {
     private JButton registerButton;
 
     private JPanel userInfo;
+
+    private JLabel nameLabel;
+    private JLabel ageLabel;
+    private JLabel heightLabel;
+    private JLabel weightLabel;
+
     private JTextField name;
     private JTextField age;
     private JTextField height;
     private JTextField weight;
+    private JButton confirm;
 
     private Dimension textFieldSize = new Dimension(215, 35);
     private Dimension mediumGap = new Dimension(0, 15);
@@ -91,6 +98,61 @@ public class RegisterPage extends JPanel {
 
         add(registerArea);
 
+        userInfo = new JPanel();
+        userInfo.setLayout(new BoxLayout(userInfo, BoxLayout.Y_AXIS));
+        userInfo.setBackground(this.getBackground());
+
+        nameLabel = new JLabel("Name: ");
+        nameLabel.setAlignmentX(CENTER_ALIGNMENT);
+        userInfo.add(nameLabel);
+
+        name = new JTextField();
+        name.setPreferredSize(textFieldSize);
+        name.setMaximumSize(textFieldSize);
+        name.setMinimumSize(textFieldSize);
+        name.setAlignmentX(CENTER_ALIGNMENT);
+        userInfo.add(name);
+
+        ageLabel = new JLabel("Age: ");
+        ageLabel.setAlignmentX(CENTER_ALIGNMENT);
+        userInfo.add(ageLabel);
+
+        age = new JTextField();
+        age.setPreferredSize(textFieldSize);
+        age.setMaximumSize(textFieldSize);
+        age.setMinimumSize(textFieldSize);
+        age.setAlignmentX(CENTER_ALIGNMENT);
+        userInfo.add(age);
+
+        heightLabel = new JLabel("Height: ");
+        heightLabel.setAlignmentX(CENTER_ALIGNMENT);
+        userInfo.add(heightLabel);
+
+        height = new JTextField();
+        height.setPreferredSize(textFieldSize);
+        height.setMaximumSize(textFieldSize);
+        height.setMinimumSize(textFieldSize);
+        height.setAlignmentX(CENTER_ALIGNMENT);
+        userInfo.add(height);
+
+        weightLabel = new JLabel("Weight: ");
+        weightLabel.setAlignmentX(CENTER_ALIGNMENT);
+        userInfo.add(weightLabel);
+
+        weight = new JTextField();
+        weight.setPreferredSize(textFieldSize);
+        weight.setMaximumSize(textFieldSize);
+        weight.setMinimumSize(textFieldSize);
+        weight.setAlignmentX(CENTER_ALIGNMENT);
+        userInfo.add(weight);
+
+        confirm = new JButton("Confirm Details");
+        confirm.setAlignmentX(CENTER_ALIGNMENT);
+
+        userInfo.add(confirm);
+
+        add(userInfo);
+
     }
 
     public void registerListener(ActionListener e) {
@@ -110,6 +172,7 @@ public class RegisterPage extends JPanel {
     }
 
     public void validDetail() {
+        duplicate.setVisible(false);
         registerArea.setVisible(false);
         userInfo.setVisible(true);
     }
