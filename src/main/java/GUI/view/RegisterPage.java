@@ -63,7 +63,7 @@ public class RegisterPage extends JPanel {
         add(registerText);
 
         add(Box.createRigidArea(Utilities.buttonGap));
-        duplicate = new JLabel("PLACEHOLDER");
+        duplicate = new JLabel(" ");
         duplicate.setForeground(Color.RED);
         duplicate.setAlignmentX(CENTER_ALIGNMENT);
         add(duplicate);
