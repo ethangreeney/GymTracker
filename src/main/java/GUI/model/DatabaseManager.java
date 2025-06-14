@@ -133,6 +133,21 @@ public class DatabaseManager {
         return false;
     }
 
+    public boolean userExists(String username) {
+        String sql = "SELECT 1 FROM USERS WHERE username = ?";
+
+        try (PreparedStatement pstmt = conn.prepareStatement(sql)) {
+            pstmt.setString(1, username);
+
+            ResultSet rs = pstmt.executeQuery();
+            return rs.next();
+
+        } catch (SQLException e) {
+            System.out.println("Error checking if user exists: " + e.getMessage());
+        }
+        return false;
+    }
+
     public User getUser(String username, String password) {
         String sql = "SELECT * FROM USERS WHERE username = ? AND password = ?";
         User user = null;
