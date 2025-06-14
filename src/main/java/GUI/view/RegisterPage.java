@@ -165,6 +165,10 @@ public class RegisterPage extends JPanel {
         registerButton.addActionListener(e);
     }
 
+    public void addConfirmListener(ActionListener e) {
+        confirm.addActionListener(e);
+    }
+
     public void duplicateUsername() {
         duplicate.setText("Duplicate username, please enter a different username");
     }
