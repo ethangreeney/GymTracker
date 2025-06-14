@@ -96,7 +96,7 @@ public class LoginPage extends JPanel {
     }
 
     public String getPassword() {
-        return passwordField.getText();
+        return passwordField.getPassword().toString();
     }
 
     public void invalidLogin() {
