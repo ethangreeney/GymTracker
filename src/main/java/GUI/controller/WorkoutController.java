@@ -19,6 +19,8 @@ public class WorkoutController {
         view.addExercisesList(model.getDefaultExercises());
         view.addBackListener(e -> controller.showHomePage(null));
 
+        view.addBackListener(e -> controller.showHomePage(controller.getCurrentUser()));
+
         view.addFirstNextListener(e -> {
 
             String workoutName = view.getWorkoutName().trim();

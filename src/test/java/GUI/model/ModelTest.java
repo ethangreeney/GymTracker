@@ -38,18 +38,4 @@ public class ModelTest {
         assertEquals(2, exercises.size(), "Workout should contain 2 exercises");
         assertEquals("Bench Press", exercises.get(0).getName(), "First exercise should be Bench Press");
     }
-
-    @Test
-    void testAddWorkoutToUser() {
-        User testUser = new User();
-        testUser.setUsername("test");
-        Workout chestDay = new Workout();
-        chestDay.setName("Chest Day");
-
-        testUser.addWorkout(chestDay);
-
-        assertNotNull(testUser.getWorkoutHistory(), "Workout history should not be null");
-        assertEquals(1, testUser.getWorkoutHistory().size(), "User should have 1 workout in history");
-        assertEquals("Chest Day", testUser.getWorkoutHistory().get(0).getName(), "The workout name should match");
-    }
 }

@@ -7,6 +7,10 @@ public class WorkoutHistoryController {
 
     public WorkoutHistoryController(DatabaseManager model, ApplicationController controller,
             WorkoutHistoryPageInterface view) {
+
+        view.addBackListener(e -> controller.showHomePage(controller.getCurrentUser()));
+        view.previousWorkoutsListener(e -> view.updateDisplay(e.toString()));
+
     }
 
 }

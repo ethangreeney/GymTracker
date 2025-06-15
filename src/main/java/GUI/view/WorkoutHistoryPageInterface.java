@@ -15,5 +15,5 @@ public interface WorkoutHistoryPageInterface {
 
     void addBackListener(ActionListener e);
 
-    void updateDisply(String s);
+    void updateDisplay(String s);
 }

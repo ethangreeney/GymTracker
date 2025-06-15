@@ -30,13 +30,6 @@ public class User {
         userGoals.add(new Goal(goalDescription));
     }
 
-    public List<Workout> getWorkoutHistory() {
-        if (this.workoutHistory == null) {
-            workoutHistory = new ArrayList<>();
-        }
-        return workoutHistory;
-    }
-
     public void addWorkout(Workout currentWorkout) {
         if (this.workoutHistory == null) {
             workoutHistory = new ArrayList<>();

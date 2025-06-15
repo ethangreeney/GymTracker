@@ -119,7 +119,7 @@ public class WorkoutHistoryPage extends JPanel implements WorkoutHistoryPageInte
                 back.addActionListener(e);
         }
 
-        public void updateDisply(String s) {
+        public void updateDisplay(String s) {
                 displayWorkout.setText(s);
         }
 
