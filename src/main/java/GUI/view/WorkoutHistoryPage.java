@@ -35,7 +35,7 @@ public class WorkoutHistoryPage extends JPanel implements WorkoutHistoryPageInte
                         """;
 
         private final JLabel historyArt;
-        private final JList<String> previousWorkouts;
+        private final JList<Workout> previousWorkouts;
         private final JTextArea displayWorkout;
         private final JButton back;
 
@@ -44,7 +44,7 @@ public class WorkoutHistoryPage extends JPanel implements WorkoutHistoryPageInte
         private final JScrollPane scrollPane;
         private final JScrollPane scrollPane2;
 
-        private final DefaultListModel<String> listModel;
+        private final DefaultListModel<Workout> listModel;
 
         public WorkoutHistoryPage() {
                 setBackground(Utilities.backgroundColour);
@@ -103,8 +103,10 @@ public class WorkoutHistoryPage extends JPanel implements WorkoutHistoryPageInte
 
         @Override
         public void populateWorkouts(List<Workout> workouts) {
+                listModel.clear();
+
                 for (Workout w : workouts) {
-                        listModel.addElement(w.getName());
+                        listModel.addElement(w);
                 }
         }
 
