@@ -50,7 +50,7 @@ public class WorkoutController {
 
         view.addThirdNextListener(e -> {
 
-            if (numberOfsets == 0) {
+            if (--numberOfsets == 0) {
                 view.toSecondPage();
                 return;
             }
@@ -72,8 +72,6 @@ public class WorkoutController {
             }
 
             currentExercise.addSet(weight, reps);
-
-            numberOfsets--;
 
             view.toThirdPage();
 
