@@ -6,6 +6,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
@@ -15,6 +16,50 @@ public class DatabaseManager {
 
     public DatabaseManager(Connection connection) {
         this.conn = connection;
+    }
+
+    public List<Workout> getWorkoutHistory(User user) {
+        List<Workout> workoutHistory = new ArrayList<>();
+
+        String workoutsSQL = "SELECT workout_id, workout_name, workout_date FROM WORKOUTS WHERE user_id = ? ORDER BY workout_date DESC";
+        String exercisesSQL = "SELECT exercise_id, exercise_name FROM EXERCISES WHERE workout_id = ?";
+        String setsSQL = "SELECT weight_kg, reps FROM SETS WHERE exercise_id = ?";
+
+        try (PreparedStatement workoutsPstmt = conn.prepareStatement(workoutsSQL)) {
+            workoutsPstmt.setInt(1, user.getUserID());
+            ResultSet workoutsRs = workoutsPstmt.executeQuery();
+
+            while (workoutsRs.next()) {
+                int workoutId = workoutsRs.getInt("workout_id");
+                Workout workout = new Workout();
+                workout.setName(workoutsRs.getString("workout_name"));
+                workout.setWorkoutDate(workoutsRs.getTimestamp("workout_date"));
+
+                try (PreparedStatement exercisesPstmt = conn.prepareStatement(exercisesSQL)) {
+                    exercisesPstmt.setInt(1, workoutId);
+                    ResultSet exercisesRs = exercisesPstmt.executeQuery();
+
+                    while (exercisesRs.next()) {
+                        int exerciseId = exercisesRs.getInt("exercise_id");
+                        Exercise exercise = new Exercise(exercisesRs.getString("exercise_name"));
+
+                        try (PreparedStatement setsPstmt = conn.prepareStatement(setsSQL)) {
+                            setsPstmt.setInt(1, exerciseId);
+                            ResultSet setsRs = setsPstmt.executeQuery();
+
+                            while (setsRs.next()) {
+                                exercise.addSet(setsRs.getInt("weight_kg"), setsRs.getInt("reps"));
+                            }
+                        }
+                        workout.addExercise(exercise);
+                    }
+                }
+                workoutHistory.add(workout);
+            }
+        } catch (SQLException e) {
+            System.err.println("Error retrieving workout history: " + e.getMessage());
+        }
+        return workoutHistory;
     }
 
     // USED AI FOR THE FOLLOWING SAVEWORKOUT METHOD

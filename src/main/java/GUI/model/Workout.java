@@ -1,5 +1,6 @@
 package GUI.model;
 
+import java.sql.Timestamp;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -7,7 +8,7 @@ import java.util.List;
 public class Workout {
 
     private String name;
-    private final Date workoutDate;
+    private Date workoutDate;
 
     private final List<Exercise> exerciseInfo;
 
@@ -53,6 +54,10 @@ public class Workout {
 
     Iterable<Exercise> getExerciseInfo() {
         return exerciseInfo;
+    }
+
+    public void setWorkoutDate(Timestamp timestamp) {
+        this.workoutDate = timestamp;
     }
 
 }
