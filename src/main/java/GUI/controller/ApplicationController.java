@@ -111,7 +111,7 @@ public class ApplicationController {
 
         WorkoutHistoryPageInterface view = workoutHistoryView;
 
-        view.populateWorkouts(currentUser.getWorkoutHistory());
+        view.populateWorkouts(dbManager.getWorkoutHistory(currentUser));
         mainFrame.showPanel(MainFrame.WORKOUT_HISTORY_PAGE);
     }
 
