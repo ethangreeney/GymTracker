@@ -307,7 +307,7 @@ public class WorkoutPage extends JPanel implements WorkoutPageInterface {
 
     @Override
     public void toThirdPage(int setNumber) {
-        warningText.setText("Current set: " + setNumber);
+        warningText.setText("Sets Remaining: " + setNumber);
         warningText.setForeground(Color.black);
         reps.setText("");
         weight.setText("");
