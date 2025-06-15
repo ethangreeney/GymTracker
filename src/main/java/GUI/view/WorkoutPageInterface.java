@@ -41,4 +41,6 @@ public interface WorkoutPageInterface {
 
     void invalidWeight();
 
+    void SetNumber();
+
 }
