@@ -1,5 +1,9 @@
 package GUI.view;
 
+import java.awt.Dimension;
+import java.awt.event.ActionListener;
+import java.util.List;
+
 import javax.swing.Box;
 import javax.swing.BoxLayout;
 import javax.swing.JButton;
@@ -24,10 +28,15 @@ public class WorkoutPage extends JPanel {
     private final JLabel workoutArt;
     private final JPanel topBar;
     private final JButton back;
+    private final JButton next1;
 
     private final JPanel landing;
-    private final JTextArea exerciseName;
-    private final JLabel exerciseNameLabel;
+    private final JTextArea workoutName;
+    private final JLabel workoutNameLabel;
+
+    private final Dimension textFieldSize = new Dimension(215, 35);
+
+    private final JPanel page1;
 
     /*
      * 
@@ -50,6 +59,7 @@ public class WorkoutPage extends JPanel {
         topBar.add(Box.createHorizontalGlue());
         topBar.add(back);
         topBar.add(Box.createHorizontalStrut(20));
+        topBar.setMaximumSize(Utilities.topBarGap(topBar));
 
         add(topBar);
 
@@ -61,18 +71,47 @@ public class WorkoutPage extends JPanel {
 
         landing = new JPanel();
         landing.setLayout(new BoxLayout(landing, BoxLayout.Y_AXIS));
+        landing.setBackground(this.getBackground());
 
-        exerciseNameLabel = new JLabel("Exercise name:");
-        exerciseNameLabel.setHorizontalAlignment(SwingConstants.CENTER);
-        exerciseNameLabel.setAlignmentX(CENTER_ALIGNMENT);
-        landing.add(exerciseNameLabel);
+        workoutNameLabel = new JLabel("Workout name:");
+        workoutNameLabel.setHorizontalAlignment(SwingConstants.CENTER);
+        workoutNameLabel.setAlignmentX(CENTER_ALIGNMENT);
+        landing.add(workoutNameLabel);
 
-        exerciseName = new JTextArea();
-        exerciseName.setAlignmentX(CENTER_ALIGNMENT);
-        landing.add(exerciseName);
+        landing.add(Box.createRigidArea(Utilities.buttonGap));
 
+        workoutName = new JTextArea();
+        workoutName.setAlignmentX(CENTER_ALIGNMENT);
+        workoutName.setMinimumSize(textFieldSize);
+        workoutName.setMaximumSize(textFieldSize);
+        workoutName.setPreferredSize(textFieldSize);
+        landing.add(workoutName);
+
+        next1 = new JButton("next");
+        next1.setAlignmentX(CENTER_ALIGNMENT);
+        landing.add(next1);
         add(landing);
 
+        page1 = new JPanel();
+        add(page1);
+        page1.setVisible(false);
+
+    }
+
+    public String getWorkoutName() {
+        return workoutName.getText();
+    }
+
+    public void next1Listener(ActionListener e) {
+        next1.addActionListener(e);
+    }
+
+    public void userExercises(List<String> StringList) {
+
+    }
+
+    public void reset() {
+        workoutName.setText("");
     }
 
 }
