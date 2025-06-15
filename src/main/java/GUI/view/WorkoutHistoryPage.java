@@ -124,4 +124,7 @@ public class WorkoutHistoryPage extends JPanel implements WorkoutHistoryPageInte
                 displayWorkout.setText(s);
         }
 
+        public Workout getWorkoutAtIndex(int i) {
+                return workoutsForController.get(i);
+        }
 }
