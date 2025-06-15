@@ -52,9 +52,9 @@ public class RegisterController {
 
             if (savedToDatabase) {
                 controller.showHomePage(currentUser);
+            } else {
+                view.failedToSaveData();
             }
-
-            view.failedToSaveData();
 
         });
 

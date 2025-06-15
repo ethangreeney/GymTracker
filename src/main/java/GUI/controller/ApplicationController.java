@@ -29,16 +29,16 @@ public class ApplicationController {
         this.mainFrame = new MainFrame();
 
         WelcomePage welcomeView = new WelcomePage();
-        WelcomeController welcomeScene = new WelcomeController(dbManager, this, welcomeView);
+        new WelcomeController(dbManager, this, welcomeView);
 
         LoginPage loginView = new LoginPage();
-        LoginController loginScene = new LoginController(dbManager, this, loginView);
+        new LoginController(dbManager, this, loginView);
 
         homeView = new HomePage();
-        HomeController homeScene = new HomeController(dbManager, this, homeView);
+        new HomeController(dbManager, this, homeView);
 
         RegisterPage registerView = new RegisterPage();
-        RegisterController registerScene = new RegisterController(dbManager, this, registerView);
+        new RegisterController(dbManager, this, registerView);
 
         mainFrame.addPanel(welcomeView, MainFrame.WELCOME_PAGE);
         mainFrame.addPanel(loginView, MainFrame.LOGIN_PAGE);
@@ -60,6 +60,8 @@ public class ApplicationController {
             this.dbManager.setupTables(dbConnection);
 
         } catch (SQLException e) {
+            System.out.println("Database connection failed. " + e.getMessage());
+            System.exit(0);
         }
     }
 

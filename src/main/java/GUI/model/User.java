@@ -4,9 +4,6 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-import CLI.Goal;
-import CLI.Workout;
-
 public class User {
 
     private String username;
