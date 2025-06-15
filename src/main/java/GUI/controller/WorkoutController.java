@@ -9,6 +9,8 @@ public class WorkoutController {
 
     Exercise currentExercise;
 
+    private int numberOfsets = 0;
+
     public WorkoutController(DatabaseManager model, ApplicationController controller, WorkoutPageInterface view) {
 
         Workout currentWorkout = new Workout();
@@ -40,6 +42,39 @@ public class WorkoutController {
             }
 
             currentExercise = new Exercise(exerciseName);
+
+            numberOfsets = view.getSetNumber();
+            view.toThirdPage();
+
+        });
+
+        view.addThirdNextListener(e -> {
+
+            if (numberOfsets == 0) {
+                view.toSecondPage();
+            }
+
+            int reps;
+            int weight;
+
+            try {
+                reps = Integer.parseInt(view.getReps());
+            } catch (NumberFormatException exception) {
+                view.invalidReps();
+                return;
+            }
+            try {
+                weight = Integer.parseInt(view.getWeight());
+            } catch (NumberFormatException exception) {
+                view.invalidWeight();
+                return;
+            }
+
+            currentExercise.addSet(weight, reps);
+
+            numberOfsets--;
+
+            view.toThirdPage();
 
         });
 
