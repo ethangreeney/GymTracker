@@ -1,5 +1,9 @@
 package GUI.view;
 
+import java.awt.Dimension;
+import java.awt.GridLayout;
+
+import javax.swing.BorderFactory;
 import javax.swing.BoxLayout;
 import javax.swing.JButton;
 import javax.swing.JLabel;
@@ -22,11 +26,11 @@ public class HomePage extends JPanel {
     private final JLabel userGreeting;
     private final JLabel homeArt;
 
-    private final JPanel buttonPanel;
-    private final JButton workout;
-    private final JButton workoutHistory;
-    private final JButton userInfo;
-    private final JButton logOut;
+    private JPanel buttonPanel;
+    private JButton workout;
+    private JButton workoutHistory;
+    private JButton userInfo;
+    private JButton logOut;
 
     public HomePage() {
         setBackground(Utilities.backgroundColour);
@@ -45,17 +49,21 @@ public class HomePage extends JPanel {
 
         buttonPanel = new JPanel();
         buttonPanel.setBackground(this.getBackground());
-        buttonPanel.setLayout(new BoxLayout(buttonPanel, BoxLayout.X_AXIS));
+        buttonPanel.setLayout(new GridLayout(2, 2, 10, 10));
+        buttonPanel.setBorder(BorderFactory.createEmptyBorder(30, 80, 30, 80));
 
         workout = new JButton("Workout");
+
         workoutHistory = new JButton("Workout History");
-        userInfo = new JButton("userInfo");
-        logOut = new JButton("Logout");
+
+        userInfo = new JButton("User Information");
+
+        goals = new JButton("Goals");
 
         buttonPanel.add(workout);
         buttonPanel.add(workoutHistory);
         buttonPanel.add(userInfo);
-        buttonPanel.add(logOut);
+        buttonPanel.add(goals);
 
         add(buttonPanel);
     }

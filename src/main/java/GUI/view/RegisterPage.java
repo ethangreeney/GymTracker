@@ -217,4 +217,9 @@ public class RegisterPage extends JPanel implements RegisterPageInterface {
         duplicate.setVisible(true);
     }
 
+    public void failedToSaveData() {
+        duplicate.setText("Failed to save data");
+        duplicate.setVisible(true);
+    }
+
 }
