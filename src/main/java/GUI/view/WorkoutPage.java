@@ -12,7 +12,7 @@ import javax.swing.JPanel;
 import javax.swing.JTextArea;
 import javax.swing.SwingConstants;
 
-public class WorkoutPage extends JPanel {
+public class WorkoutPage extends JPanel implements WorkoutPageInterface {
     private final String asciiArt = """
 
             ██╗    ██╗ ██████╗ ██████╗ ██╗  ██╗ ██████╗ ██╗   ██╗████████╗
@@ -98,20 +98,29 @@ public class WorkoutPage extends JPanel {
 
     }
 
+    @Override
     public String getWorkoutName() {
         return workoutName.getText();
     }
 
+    @Override
     public void next1Listener(ActionListener e) {
         next1.addActionListener(e);
     }
 
+    @Override
     public void userExercises(List<String> StringList) {
 
     }
 
+    @Override
     public void reset() {
         workoutName.setText("");
+    }
+
+    @Override
+    public void addBackListener(ActionListener e) {
+        back.addActionListener(e);
     }
 
 }

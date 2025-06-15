@@ -13,6 +13,7 @@ import GUI.view.LoginPage;
 import GUI.view.MainFrame;
 import GUI.view.RegisterPage;
 import GUI.view.WelcomePage;
+import GUI.view.WorkoutPage;
 
 public class ApplicationController {
 
@@ -24,6 +25,7 @@ public class ApplicationController {
     RegisterPage registerView;
     LoginPage loginView;
     WelcomePage welcomeView;
+    WorkoutPage workoutView;
 
     public ApplicationController() {
 
@@ -37,16 +39,20 @@ public class ApplicationController {
         loginView = new LoginPage();
         new LoginController(dbManager, this, loginView);
 
+        registerView = new RegisterPage();
+        new RegisterController(dbManager, this, registerView);
+
         homeView = new HomePage();
         new HomeController(dbManager, this, homeView);
 
-        registerView = new RegisterPage();
-        new RegisterController(dbManager, this, registerView);
+        workoutView = new WorkoutPage();
+        new WorkoutController(dbManager, this, workoutView);
 
         mainFrame.addPanel(welcomeView, MainFrame.WELCOME_PAGE);
         mainFrame.addPanel(loginView, MainFrame.LOGIN_PAGE);
         mainFrame.addPanel(homeView, MainFrame.HOME_PAGE);
         mainFrame.addPanel(registerView, MainFrame.REGISTER_PAGE);
+        mainFrame.addPanel(workoutView, MainFrame.NEW_WORKOUT_PAGE);
 
         mainFrame.showPanel(MainFrame.WELCOME_PAGE);
         mainFrame.setVisible(true);
@@ -73,7 +79,9 @@ public class ApplicationController {
     }
 
     public void showHomePage(User user) {
-        currentUser = user;
+        if (user != null) {
+            currentUser = user;
+        }
         homeView.setWelcomeMessage(currentUser);
         mainFrame.showPanel(MainFrame.HOME_PAGE);
     }
