@@ -14,13 +14,13 @@ public interface RegisterPageInterface {
 
     String getPassword();
 
-    String getUserName();
+    String getInfoName();
 
-    String getUserAge();
+    String getInfoAge();
 
-    String getUserWeight();
+    String getInfoWeight();
 
-    String getUserHeight();
+    String getInfoHeight();
 
     void validDetail();
 

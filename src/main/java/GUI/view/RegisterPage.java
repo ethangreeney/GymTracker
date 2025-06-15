@@ -187,22 +187,22 @@ public class RegisterPage extends JPanel implements RegisterPageInterface {
     }
 
     @Override
-    public String getUserName() {
+    public String getInfoName() {
         return name.getText();
     }
 
     @Override
-    public String getUserAge() {
+    public String getInfoAge() {
         return age.getText();
     }
 
     @Override
-    public String getUserWeight() {
+    public String getInfoWeight() {
         return weight.getText();
     }
 
     @Override
-    public String getUserHeight() {
+    public String getInfoHeight() {
         return height.getText();
     }
 
