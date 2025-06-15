@@ -79,7 +79,7 @@ public class HomePage extends JPanel implements HomePageInterface {
     }
 
     @Override
-    public void addWorkoutListener(ActionListener e) {
+    public void addNewWorkoutListener(ActionListener e) {
         workout.addActionListener(e);
     }
 

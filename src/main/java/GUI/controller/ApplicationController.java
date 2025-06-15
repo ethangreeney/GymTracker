@@ -77,6 +77,22 @@ public class ApplicationController {
         mainFrame.showPanel(MainFrame.REGISTER_PAGE);
     }
 
+    public void showGoalPage() {
+        mainFrame.showPanel(MainFrame.GOAL_PAGE);
+    }
+
+    public void showUserInfoPage() {
+        mainFrame.showPanel(MainFrame.USER_INFO_PAGE);
+    }
+
+    public void showWorkoutHistoryPage() {
+        mainFrame.showPanel(MainFrame.WORKOUT_HISTORY_PAGE);
+    }
+
+    public void showNewWorkoutPage() {
+        mainFrame.showPanel(MainFrame.NEW_WORKOUT_PAGE);
+    }
+
     public static void main(String[] args) {
         SwingUtilities.invokeLater(() -> new ApplicationController());
     }

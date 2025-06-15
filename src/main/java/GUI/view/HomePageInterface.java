@@ -8,7 +8,7 @@ public interface HomePageInterface {
 
     void setWelcomeMessage(User user);
 
-    void addWorkoutListener(ActionListener e);
+    void addNewWorkoutListener(ActionListener e);
 
     void addWorkoutHistoryListener(ActionListener e);
 
