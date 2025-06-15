@@ -7,11 +7,13 @@ public interface WorkoutPageInterface {
 
     String getWorkoutName();
 
-    void addNextPageListener(ActionListener e);
+    void addSecondNextListener(ActionListener e);
 
     void addBackListener(ActionListener e);
 
     void userExercises(List<String> StringList);
+
+    void addFirstNextListener(ActionListener e);
 
     void reset();
 

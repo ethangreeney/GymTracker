@@ -28,10 +28,9 @@ public class WorkoutPage extends JPanel implements WorkoutPageInterface {
 
     private final JLabel workoutArt;
     private final JPanel topBar;
-    private final JButton back;<<<<<<<HEAD
-    private final JButton nextPage;=======
-    private final JButton next1;
-    private final JButton next2;>>>>>>>3061350(Workoutpage progress)
+    private final JButton back;
+    private final JButton firstNext;
+    private final JButton secondNext;
 
     private final JPanel landing;
     private final JTextArea workoutName;
@@ -92,9 +91,9 @@ public class WorkoutPage extends JPanel implements WorkoutPageInterface {
         workoutName.setPreferredSize(textFieldSize);
         landing.add(workoutName);
 
-        nextPage = new JButton("next");
-        nextPage.setAlignmentX(CENTER_ALIGNMENT);
-        landing.add(nextPage);
+        firstNext = new JButton("next");
+        firstNext.setAlignmentX(CENTER_ALIGNMENT);
+        landing.add(firstNext);
         add(landing);
 
         selectExercise = new JPanel();
@@ -111,17 +110,17 @@ public class WorkoutPage extends JPanel implements WorkoutPageInterface {
 
         selectExercise.add(Box.createRigidArea(Utilities.buttonGap));
 
-        exercises = new JComboBox<String>();
+        exercises = new JComboBox<>();
         exercises.setEditable(true);
         exercises.setMinimumSize(textFieldSize);
         exercises.setMaximumSize(textFieldSize);
         exercises.setAlignmentX(CENTER_ALIGNMENT);
 
-        next2 = new JButton("next");
-        next2.setAlignmentX(CENTER_ALIGNMENT);
+        secondNext = new JButton("next");
+        secondNext.setAlignmentX(CENTER_ALIGNMENT);
 
         selectExercise.add(exercises);
-        selectExercise.add(next2);
+        selectExercise.add(secondNext);
 
     }
 
@@ -131,15 +130,18 @@ public class WorkoutPage extends JPanel implements WorkoutPageInterface {
     }
 
     @Override
-    public void addNextPageListener(ActionListener e) {
-        nextPage.addActionListener(e);
+    public void addFirstNextListener(ActionListener e) {
+        firstNext.addActionListener(e);
     }
 
     @Override
     public void userExercises(List<String> StringList) {
 
-    public void next2Listener(ActionListener e) {
-        next2.addActionListener(e);
+    }
+
+    @Override
+    public void addSecondNextListener(ActionListener e) {
+        secondNext.addActionListener(e);
     }
 
     @Override
@@ -150,6 +152,7 @@ public class WorkoutPage extends JPanel implements WorkoutPageInterface {
     @Override
     public void addBackListener(ActionListener e) {
         back.addActionListener(e);
+    }
 
     public void addExercisesList(List<String> exerciseList) {
         for (String s : exerciseList) {
