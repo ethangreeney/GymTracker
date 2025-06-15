@@ -8,5 +8,6 @@ public class WorkoutController {
 
         view.addExercisesList(model.getDefaultExcercises());
         view.addBackListener(e -> controller.showHomePage(null));
+
     }
 }
