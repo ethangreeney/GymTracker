@@ -73,7 +73,7 @@ public class LoginPage extends JPanel implements LoginPageInterface {
         passwordText = new JLabel("Password:");
         passwordText.setAlignmentX(CENTER_ALIGNMENT);
 
-        login = new JButton("LOG IN NOW");
+        login = new JButton("Login");
         login.setAlignmentX(CENTER_ALIGNMENT);
 
         userInterface.add(usernameText);
