@@ -113,6 +113,7 @@ public class LoginPage extends JPanel implements LoginPageInterface {
         return textFieldSize;
     }
 
+    @Override
     public void reset() {
         usernameField.setText("");
         passwordField.setText("");
