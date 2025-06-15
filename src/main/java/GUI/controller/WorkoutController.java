@@ -1,7 +1,7 @@
 package GUI.controller;
 
-import CLI.Exercise;
 import GUI.model.DatabaseManager;
+import GUI.model.Exercise;
 import GUI.model.Workout;
 import GUI.view.WorkoutPageInterface;
 
@@ -44,16 +44,11 @@ public class WorkoutController {
             currentExercise = new Exercise(exerciseName);
 
             numberOfsets = view.getSetNumber();
-            view.toThirdPage();
+            view.toThirdPage(numberOfsets);
 
         });
 
         view.addThirdNextListener(e -> {
-
-            if (--numberOfsets == 0) {
-                view.toSecondPage();
-                return;
-            }
 
             int reps;
             int weight;
@@ -73,7 +68,12 @@ public class WorkoutController {
 
             currentExercise.addSet(weight, reps);
 
-            view.toThirdPage();
+            if (--numberOfsets == 0) {
+                currentWorkout.addExercise(currentExercise);
+                view.toSecondPage();
+            } else {
+                view.toThirdPage(numberOfsets);
+            }
 
         });
 

@@ -31,7 +31,7 @@ public interface WorkoutPageInterface {
 
     void toSecondPage();
 
-    void toThirdPage();
+    void toThirdPage(int setNumber);
 
     void invalidWorkoutName();
 
@@ -40,7 +40,5 @@ public interface WorkoutPageInterface {
     void invalidReps();
 
     void invalidWeight();
-
-    void SetNumber(int setNumber);
 
 }

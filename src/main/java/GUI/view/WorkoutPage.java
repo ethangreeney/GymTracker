@@ -290,19 +290,14 @@ public class WorkoutPage extends JPanel implements WorkoutPageInterface {
     }
 
     @Override
-    public void toThirdPage() {
-        warningText.setText(" ");
+    public void toThirdPage(int setNumber) {
+        warningText.setText("Current set: " + setNumber);
+        warningText.setForeground(Color.black);
         reps.setText("");
         weight.setText("");
         landing.setVisible(false);
         selectExercise.setVisible(false);
         repsAndWeight.setVisible(true);
-    }
-
-    @Override
-    public void SetNumber(int setNumber) {
-        warningText.setText("Current set: " + setNumber);
-        warningText.setForeground(Color.black);
     }
 
     @Override
