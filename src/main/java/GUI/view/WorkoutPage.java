@@ -175,6 +175,7 @@ public class WorkoutPage extends JPanel implements WorkoutPageInterface {
         back.addActionListener(e);
     }
 
+    @Override
     public void addExercisesList(List<String> exerciseList) {
         for (String s : exerciseList) {
             exercises.addItem(s);
