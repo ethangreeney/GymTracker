@@ -36,7 +36,7 @@ public class WorkoutPage extends JPanel {
 
     private final Dimension textFieldSize = new Dimension(215, 35);
 
-    private final JPanel page1;
+    private final JPanel selectExercise;
 
     /*
      * 
@@ -92,9 +92,9 @@ public class WorkoutPage extends JPanel {
         landing.add(next1);
         add(landing);
 
-        page1 = new JPanel();
-        add(page1);
-        page1.setVisible(false);
+        selectExercise = new JPanel();
+        add(selectExercise);
+        selectExercise.setVisible(false);
 
     }
 
