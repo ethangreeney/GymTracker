@@ -168,7 +168,7 @@ public class WorkoutPage extends JPanel implements WorkoutPageInterface {
         repsLabel = new JLabel("Please enter number of reps: ");
         repsLabel.setHorizontalAlignment(SwingConstants.CENTER);
         repsLabel.setAlignmentX(CENTER_ALIGNMENT);
-        selectExercise.add(repsLabel);
+        repsAndWeight.add(repsLabel);
 
         reps = new JTextArea();
         reps.setAlignmentX(CENTER_ALIGNMENT);
@@ -182,7 +182,7 @@ public class WorkoutPage extends JPanel implements WorkoutPageInterface {
         weightLabel = new JLabel("Please enter the weight you are using: ");
         weightLabel.setHorizontalAlignment(SwingConstants.CENTER);
         weightLabel.setAlignmentX(CENTER_ALIGNMENT);
-        selectExercise.add(weightLabel);
+        repsAndWeight.add(weightLabel);
 
         weight = new JTextArea();
         weight.setAlignmentX(CENTER_ALIGNMENT);
