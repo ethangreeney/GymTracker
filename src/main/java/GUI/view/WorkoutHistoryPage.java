@@ -3,10 +3,13 @@ package GUI.view;
 import java.awt.BorderLayout;
 import java.awt.Dimension;
 import java.awt.GridLayout;
+import java.util.ArrayList;
+import java.util.List;
 
 import javax.swing.BorderFactory;
 import javax.swing.Box;
 import javax.swing.BoxLayout;
+import javax.swing.DefaultListModel;
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JList;
@@ -16,138 +19,135 @@ import javax.swing.JTextArea;
 import javax.swing.ListSelectionModel;
 import javax.swing.SwingConstants;
 
-public class WorkoutHistoryPage extends JPanel {
+import GUI.model.Workout;;
 
-    String ascii = """
+public class WorkoutHistoryPage extends JPanel implements WorkoutHistoryPageInterface {
 
-            ██╗  ██╗██╗███████╗████████╗ ██████╗ ██████╗ ██╗   ██╗
-            ██║  ██║██║██╔════╝╚══██╔══╝██╔═══██╗██╔══██╗╚██╗ ██╔╝
-            ███████║██║███████╗   ██║   ██║   ██║██████╔╝ ╚████╔╝
-            ██╔══██║██║╚════██║   ██║   ██║   ██║██╔══██╗  ╚██╔╝
-            ██║  ██║██║███████║   ██║   ╚██████╔╝██║  ██║   ██║
-            ╚═╝  ╚═╝╚═╝╚══════╝   ╚═╝    ╚═════╝ ╚═╝  ╚═╝   ╚═╝
+        String ascii = """
 
-            """;
+                        ██╗  ██╗██╗███████╗████████╗ ██████╗ ██████╗ ██╗   ██╗
+                        ██║  ██║██║██╔════╝╚══██╔══╝██╔═══██╗██╔══██╗╚██╗ ██╔╝
+                        ███████║██║███████╗   ██║   ██║   ██║██████╔╝ ╚████╔╝
+                        ██╔══██║██║╚════██║   ██║   ██║   ██║██╔══██╗  ╚██╔╝
+                        ██║  ██║██║███████║   ██║   ╚██████╔╝██║  ██║   ██║
+                        ╚═╝  ╚═╝╚═╝╚══════╝   ╚═╝    ╚═════╝ ╚═╝  ╚═╝   ╚═╝
 
-    private final JLabel historyArt;
-    private final JList<String> previousWorkouts;
-    private final JTextArea displayWorkout;
-    private final JButton back;
+                        """;
 
-    private final Dimension textFieldSize = new Dimension(215, 20);
+        private final JLabel historyArt;
+        private final JList<String> previousWorkouts;
+        private final JTextArea displayWorkout;
+        private final JButton back;
 
-    private final JPanel topBar;
-    private final JPanel bottomPanel;
-    private final JScrollPane scrollPane;
-    private final JScrollPane scrollPane2;
+        private final Dimension textFieldSize = new Dimension(215, 20);
 
-    public WorkoutHistoryPage() {
-        setBackground(Utilities.backgroundColour);
-        setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
+        private final JPanel topBar;
+        private final JPanel bottomPanel;
+        private final JScrollPane scrollPane;
+        private final JScrollPane scrollPane2;
 
-        add(Box.createRigidArea(Utilities.buttonGap));
+        private final DefaultListModel<String> listModel;
 
-        topBar = new JPanel();
-        topBar.setBackground(this.getBackground());
-        topBar.setLayout(new BoxLayout(topBar, BoxLayout.X_AXIS));
+        public WorkoutHistoryPage() {
+                setBackground(Utilities.backgroundColour);
+                setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
 
-        back = new JButton("Back");
-        topBar.add(Box.createHorizontalGlue());
-        topBar.add(back);
-        topBar.add(Box.createHorizontalStrut(20));
-        topBar.setMaximumSize(Utilities.topBarGap(topBar));
+                add(Box.createRigidArea(Utilities.buttonGap));
 
-        add(topBar);
+                topBar = new JPanel();
+                topBar.setBackground(this.getBackground());
+                topBar.setLayout(new BoxLayout(topBar, BoxLayout.X_AXIS));
 
-        historyArt = new JLabel(Utilities.toHtmlFormat(ascii));
-        historyArt.setAlignmentX(CENTER_ALIGNMENT);
-        historyArt.setHorizontalAlignment(SwingConstants.CENTER);
-        add(historyArt);
+                back = new JButton("Back");
+                topBar.add(Box.createHorizontalGlue());
+                topBar.add(back);
+                topBar.add(Box.createHorizontalStrut(20));
+                topBar.setMaximumSize(Utilities.topBarGap(topBar));
 
-        add(Box.createRigidArea(Utilities.buttonGap));
+                add(topBar);
 
-        bottomPanel = new JPanel();
-        bottomPanel.setBackground(this.getBackground());
+                historyArt = new JLabel(Utilities.toHtmlFormat(ascii));
+                historyArt.setAlignmentX(CENTER_ALIGNMENT);
+                historyArt.setHorizontalAlignment(SwingConstants.CENTER);
+                add(historyArt);
 
-        bottomPanel.setLayout(new GridLayout(1, 2, 10, 0));
+                add(Box.createRigidArea(Utilities.buttonGap));
 
-        String[] workoutHistoryData = {
-                "bench",
-                "Interprative steph curry dancing",
-                "Watching Lebron James",
-                "Gaming and Gooning",
-                "Morning Run",
-                "Coaching the youngest person ever",
-                "Fighting Lions",
-                "Learning to be a F student",
-                "Morning Meditation",
-                "Afternoon Yoga",
-                "Hustlers university workout",
-                "Buying a new tesla"
-        };
+                bottomPanel = new JPanel();
+                bottomPanel.setBackground(this.getBackground());
 
-        String testString = """
-                "bench",
-                "Interprative steph curry dancing",
-                "Watching Lebron James",
-                "Gaming and Gooning",
-                "Morning Run",
-                "Coaching the youngest person ever",
-                "Fighting Lions",
-                "Learning to be a F student",
-                "Morning Meditation",
-                "Afternoon Yoga",
-                "Hustlers university workout",
-                "Buying a new tesla"
-                "bench",
-                "Interprative steph curry dancing",
-                "Watching Lebron James",
-                "Gaming and Gooning",
-                "Morning Run",
-                "Coaching the youngest person ever",
-                "Fighting Lions",
-                "Learning to be a F student",
-                "Morning Meditation",
-                "Afternoon Yoga",
-                "Hustlers university workout",
-                "Buying a new tesla"
-                "bench",
-                "Interprative steph curry dancing",
-                "Watching Lebron James",
-                "Gaming and Gooning",
-                "Morning Run",
-                "Coaching the youngest person ever",
-                "Fighting Lions",
-                "Learning to be a F student",
-                "Morning Meditation",
-                "Afternoon Yoga",
-                "Hustlers university workout",
-                "Buying a new tesla"
-                """;
+                bottomPanel.setLayout(new GridLayout(1, 2, 10, 0));
 
-        previousWorkouts = new JList<>(workoutHistoryData);
-        previousWorkouts.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
-        previousWorkouts.setAlignmentX(LEFT_ALIGNMENT);
+                String testString = """
+                                "bench",
+                                "Interprative steph curry dancing",
+                                "Watching Lebron James",
+                                "Gaming and Gooning",
+                                "Morning Run",
+                                "Coaching the youngest person ever",
+                                "Fighting Lions",
+                                "Learning to be a F student",
+                                "Morning Meditation",
+                                "Afternoon Yoga",
+                                "Hustlers university workout",
+                                "Buying a new tesla"
+                                "bench",
+                                "Interprative steph curry dancing",
+                                "Watching Lebron James",
+                                "Gaming and Gooning",
+                                "Morning Run",
+                                "Coaching the youngest person ever",
+                                "Fighting Lions",
+                                "Learning to be a F student",
+                                "Morning Meditation",
+                                "Afternoon Yoga",
+                                "Hustlers university workout",
+                                "Buying a new tesla"
+                                "bench",
+                                "Interprative steph curry dancing",
+                                "Watching Lebron James",
+                                "Gaming and Gooning",
+                                "Morning Run",
+                                "Coaching the youngest person ever",
+                                "Fighting Lions",
+                                "Learning to be a F student",
+                                "Morning Meditation",
+                                "Afternoon Yoga",
+                                "Hustlers university workout",
+                                "Buying a new tesla"
+                                """;
 
-        scrollPane = new JScrollPane(previousWorkouts);
-        scrollPane.setPreferredSize(new Dimension(250, 150));
-        bottomPanel.add(scrollPane, BorderLayout.CENTER);
+                listModel = new DefaultListModel<>();
+                previousWorkouts = new JList<>(listModel);
+                previousWorkouts.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
+                previousWorkouts.setAlignmentX(LEFT_ALIGNMENT);
 
-        displayWorkout = new JTextArea();
-        displayWorkout.setAlignmentX(RIGHT_ALIGNMENT);
-        displayWorkout.setEditable(false);
-        displayWorkout.setLineWrap(true);
-        displayWorkout.setWrapStyleWord(true);
+                scrollPane = new JScrollPane(previousWorkouts);
+                scrollPane.setPreferredSize(new Dimension(250, 150));
+                bottomPanel.add(scrollPane, BorderLayout.CENTER);
 
-        scrollPane2 = new JScrollPane(displayWorkout);
-        scrollPane.setPreferredSize(new Dimension(250, 150));
+                displayWorkout = new JTextArea();
+                displayWorkout.setAlignmentX(RIGHT_ALIGNMENT);
+                displayWorkout.setEditable(false);
+                displayWorkout.setLineWrap(true);
+                displayWorkout.setWrapStyleWord(true);
 
-        displayWorkout.setText(testString);
-        bottomPanel.add(scrollPane2);
+                scrollPane2 = new JScrollPane(displayWorkout);
+                scrollPane.setPreferredSize(new Dimension(250, 150));
 
-        bottomPanel.setBorder(BorderFactory.createEmptyBorder(30, 50, 30, 50));
-        add(bottomPanel);
+                displayWorkout.setText(testString);
+                bottomPanel.add(scrollPane2);
 
-    }
+                bottomPanel.setBorder(BorderFactory.createEmptyBorder(30, 50, 30, 50));
+                add(bottomPanel);
+
+        }
+
+        @Override
+        public void populateWorkouts(List<Workout> workouts) {
+                for (Workout w : workouts) {
+                        listModel.addElement(w.getName());
+                }
+        }
 
 }
