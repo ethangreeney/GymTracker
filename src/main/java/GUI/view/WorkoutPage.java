@@ -209,10 +209,12 @@ public class WorkoutPage extends JPanel implements WorkoutPageInterface {
         selectExercise.setVisible(true);
     }
 
+    @Override
     public void invalidWorkoutName() {
         warningText.setText("Invalid workout name!");
     }
 
+    @Override
     public void invalidExerciseName() {
         warningText.setText("Invalid exercise name!");
     }

@@ -9,13 +9,13 @@ public interface WorkoutPageInterface {
 
     String getExerciseChoice();
 
+    Integer getSetNumber();
+
     void addFirstNextListener(ActionListener e);
 
     void addSecondNextListener(ActionListener e);
 
     void reset();
-
-    Integer getSetNumber();
 
     void addBackListener(ActionListener e);
 
@@ -24,5 +24,9 @@ public interface WorkoutPageInterface {
     void addSetList(List<Integer> setList);
 
     void toSecondPage();
+
+    void invalidWorkoutName();
+
+    void invalidExerciseName();
 
 }
