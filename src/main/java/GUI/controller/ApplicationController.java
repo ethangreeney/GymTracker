@@ -15,6 +15,7 @@ import GUI.view.LoginPageInterface;
 import GUI.view.MainFrame;
 import GUI.view.RegisterPage;
 import GUI.view.RegisterPageInterface;
+import GUI.view.UserInfoPage;
 import GUI.view.WelcomePage;
 import GUI.view.WorkoutHistoryPage;
 import GUI.view.WorkoutHistoryPageInterface;
@@ -33,6 +34,7 @@ public class ApplicationController {
     WelcomePage welcomeView;
     WorkoutPage workoutView;
     WorkoutHistoryPage workoutHistoryView;
+    UserInfoPage userInfoView;
 
     public ApplicationController() {
 
@@ -58,12 +60,16 @@ public class ApplicationController {
         workoutHistoryView = new WorkoutHistoryPage();
         new WorkoutHistoryController(dbManager, this, workoutHistoryView);
 
+        userInfoView = new UserInfoPage();
+        new UserInfoController(dbManager, this, userInfoView);
+
         mainFrame.addPanel(welcomeView, MainFrame.WELCOME_PAGE);
         mainFrame.addPanel(loginView, MainFrame.LOGIN_PAGE);
         mainFrame.addPanel(homeView, MainFrame.HOME_PAGE);
         mainFrame.addPanel(registerView, MainFrame.REGISTER_PAGE);
         mainFrame.addPanel(workoutView, MainFrame.NEW_WORKOUT_PAGE);
         mainFrame.addPanel(workoutHistoryView, MainFrame.WORKOUT_HISTORY_PAGE);
+        mainFrame.addPanel(userInfoView, MainFrame.USER_INFO_PAGE);
 
         mainFrame.showPanel(MainFrame.WELCOME_PAGE);
         mainFrame.setVisible(true);
