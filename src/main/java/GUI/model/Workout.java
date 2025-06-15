@@ -7,7 +7,7 @@ import java.util.List;
 public class Workout {
 
     private String name;
-    private Date workoutDate;
+    private final Date workoutDate;
 
     private List<Exercise> exerciseInfo;
 
