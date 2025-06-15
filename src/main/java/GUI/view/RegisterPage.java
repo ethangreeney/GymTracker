@@ -157,6 +157,9 @@ public class RegisterPage extends JPanel implements RegisterPageInterface {
 
         userInfo.add(confirm);
 
+        userInfo.setVisible(false);
+        add(userInfo);
+
     }
 
     @Override
@@ -207,8 +210,8 @@ public class RegisterPage extends JPanel implements RegisterPageInterface {
     @Override
     public void validDetail() {
         duplicate.setVisible(false);
-        remove(registerArea);
-        add(userInfo);
+        registerArea.setVisible(false);
+        userInfo.setVisible(true);
     }
 
     @Override
