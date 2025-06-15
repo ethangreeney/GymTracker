@@ -11,7 +11,7 @@ public class Workout {
 
     private List<Exercise> exerciseInfo;
 
-    Workout() {
+    public Workout() {
         workoutDate = new Date();
     }
 

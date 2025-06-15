@@ -3,6 +3,7 @@ package GUI.controller;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
+import java.util.Arrays;
 
 import javax.swing.SwingUtilities;
 
@@ -103,6 +104,8 @@ public class ApplicationController {
     }
 
     public void showNewWorkoutPage() {
+        workoutView.addExercisesList(dbManager.getDefaultExcercises());
+        workoutView.addSetList(Arrays.asList(1, 2, 3, 4, 5, 6, 7, 8, 9, 10));
         mainFrame.showPanel(MainFrame.NEW_WORKOUT_PAGE);
     }
 
