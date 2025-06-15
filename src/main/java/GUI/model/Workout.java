@@ -9,10 +9,11 @@ public class Workout {
     private String name;
     private final Date workoutDate;
 
-    private List<Exercise> exerciseInfo;
+    private final List<Exercise> exerciseInfo;
 
     public Workout() {
         workoutDate = new Date();
+        exerciseInfo = new ArrayList<>();
     }
 
     public void showExercises() {
@@ -34,10 +35,6 @@ public class Workout {
     }
 
     public void addExercise(Exercise currentExercise) {
-        if (this.exerciseInfo == null) {
-            this.exerciseInfo = new ArrayList<>();
-        }
-
         exerciseInfo.add(currentExercise);
     }
 

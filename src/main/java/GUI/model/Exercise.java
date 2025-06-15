@@ -10,6 +10,7 @@ public class Exercise {
 
     public Exercise(String exerciseName) {
         this.name = exerciseName;
+        sets = new ArrayList<>();
     }
 
     public String getName() {
@@ -17,9 +18,6 @@ public class Exercise {
     }
 
     public List<SetInfo> getSets() {
-        if (this.sets == null) {
-            sets = new ArrayList<>();
-        }
         return sets;
     }
 

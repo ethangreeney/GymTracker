@@ -83,9 +83,7 @@ public class ApplicationController {
     }
 
     public void showHomePage(User user) {
-        if (user != null) {
-            currentUser = user;
-        }
+        currentUser = user;
         homeView.setWelcomeMessage(currentUser);
         mainFrame.showPanel(MainFrame.HOME_PAGE);
     }
