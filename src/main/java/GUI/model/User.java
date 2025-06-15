@@ -1,7 +1,6 @@
 package GUI.model;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 public class User {
@@ -31,39 +30,6 @@ public class User {
 
     public void addGoal(String goalDescription) {
         userGoals.add(new Goal(goalDescription));
-    }
-
-    public List<String> getExercisesList() {
-        if (this.exercisesList == null) {
-            exercisesList = new ArrayList<>(Arrays.asList(
-                    "Bench Press",
-                    "Incline Dumbbell Press",
-                    "Push Ups",
-                    "Overhead Press",
-
-                    "Dips",
-                    "Cable Tricep Extensions",
-                    "Skull Crushers",
-                    "Overhead Cable Tricep Extensions",
-
-                    "Dumbbell Side Delts",
-                    "Cable Side Delts",
-
-                    "Bicep Curls",
-                    "Preacher Curls",
-                    "Cable Curls",
-
-                    "Pull Ups",
-                    "Pull Downs",
-                    "Dumbbell Rows",
-                    "Barbell Rows",
-
-                    "Squats",
-                    "Deadlifts",
-                    "Lunges",
-                    "Leg Press"));
-        }
-        return exercisesList;
     }
 
     public List<Workout> getWorkoutHistory() {
