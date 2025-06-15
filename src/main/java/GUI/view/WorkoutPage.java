@@ -7,6 +7,7 @@ import java.util.List;
 import javax.swing.Box;
 import javax.swing.BoxLayout;
 import javax.swing.JButton;
+import javax.swing.JComboBox;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextArea;
@@ -27,8 +28,10 @@ public class WorkoutPage extends JPanel implements WorkoutPageInterface {
 
     private final JLabel workoutArt;
     private final JPanel topBar;
-    private final JButton back;
-    private final JButton nextPage;
+    private final JButton back;<<<<<<<HEAD
+    private final JButton nextPage;=======
+    private final JButton next1;
+    private final JButton next2;>>>>>>>3061350(Workoutpage progress)
 
     private final JPanel landing;
     private final JTextArea workoutName;
@@ -37,6 +40,8 @@ public class WorkoutPage extends JPanel implements WorkoutPageInterface {
     private final Dimension textFieldSize = new Dimension(215, 35);
 
     private final JPanel selectExercise;
+    private final JLabel exercisesLabel;
+    private final JComboBox<String> exercises;
 
     /*
      * 
@@ -93,8 +98,30 @@ public class WorkoutPage extends JPanel implements WorkoutPageInterface {
         add(landing);
 
         selectExercise = new JPanel();
+        selectExercise.setLayout(new BoxLayout(selectExercise, BoxLayout.Y_AXIS));
+        selectExercise.setBackground(this.getBackground());
+
         add(selectExercise);
         selectExercise.setVisible(false);
+
+        exercisesLabel = new JLabel("Select your exercise, or enter a custom one: ");
+        exercisesLabel.setHorizontalAlignment(SwingConstants.CENTER);
+        exercisesLabel.setAlignmentX(CENTER_ALIGNMENT);
+        selectExercise.add(exercisesLabel);
+
+        selectExercise.add(Box.createRigidArea(Utilities.buttonGap));
+
+        exercises = new JComboBox<String>();
+        exercises.setEditable(true);
+        exercises.setMinimumSize(textFieldSize);
+        exercises.setMaximumSize(textFieldSize);
+        exercises.setAlignmentX(CENTER_ALIGNMENT);
+
+        next2 = new JButton("next");
+        next2.setAlignmentX(CENTER_ALIGNMENT);
+
+        selectExercise.add(exercises);
+        selectExercise.add(next2);
 
     }
 
@@ -111,6 +138,8 @@ public class WorkoutPage extends JPanel implements WorkoutPageInterface {
     @Override
     public void userExercises(List<String> StringList) {
 
+    public void next2Listener(ActionListener e) {
+        next2.addActionListener(e);
     }
 
     @Override
@@ -121,6 +150,11 @@ public class WorkoutPage extends JPanel implements WorkoutPageInterface {
     @Override
     public void addBackListener(ActionListener e) {
         back.addActionListener(e);
+
+    public void addExercisesList(List<String> exerciseList) {
+        for (String s : exerciseList) {
+            exercises.addItem(s);
+        }
     }
 
 }
