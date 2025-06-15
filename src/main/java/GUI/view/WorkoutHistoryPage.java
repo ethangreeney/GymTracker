@@ -1,13 +1,8 @@
 package GUI.view;
 
-import java.awt.BorderLayout;
 import java.awt.Dimension;
 import java.awt.GridLayout;
-<<<<<<< HEAD
 import java.awt.event.ActionListener;
-import java.util.ArrayList;
-=======
->>>>>>> fe2255f (workout history populate workouts)
 import java.util.List;
 
 import javax.swing.BorderFactory;
@@ -81,45 +76,6 @@ public class WorkoutHistoryPage extends JPanel implements WorkoutHistoryPageInte
 
                 bottomPanel.setLayout(new GridLayout(1, 2, 10, 0));
 
-                String testString = """
-                                "bench",
-                                "Interprative steph curry dancing",
-                                "Watching Lebron James",
-                                "Gaming and Gooning",
-                                "Morning Run",
-                                "Coaching the youngest person ever",
-                                "Fighting Lions",
-                                "Learning to be a F student",
-                                "Morning Meditation",
-                                "Afternoon Yoga",
-                                "Hustlers university workout",
-                                "Buying a new tesla"
-                                "bench",
-                                "Interprative steph curry dancing",
-                                "Watching Lebron James",
-                                "Gaming and Gooning",
-                                "Morning Run",
-                                "Coaching the youngest person ever",
-                                "Fighting Lions",
-                                "Learning to be a F student",
-                                "Morning Meditation",
-                                "Afternoon Yoga",
-                                "Hustlers university workout",
-                                "Buying a new tesla"
-                                "bench",
-                                "Interprative steph curry dancing",
-                                "Watching Lebron James",
-                                "Gaming and Gooning",
-                                "Morning Run",
-                                "Coaching the youngest person ever",
-                                "Fighting Lions",
-                                "Learning to be a F student",
-                                "Morning Meditation",
-                                "Afternoon Yoga",
-                                "Hustlers university workout",
-                                "Buying a new tesla"
-                                """;
-
                 listModel = new DefaultListModel<>();
                 previousWorkouts = new JList<>(listModel);
                 previousWorkouts.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
@@ -138,7 +94,6 @@ public class WorkoutHistoryPage extends JPanel implements WorkoutHistoryPageInte
                 scrollPane2 = new JScrollPane(displayWorkout);
                 scrollPane.setPreferredSize(new Dimension(250, 150));
 
-                displayWorkout.setText(testString);
                 bottomPanel.add(scrollPane2);
 
                 bottomPanel.setBorder(BorderFactory.createEmptyBorder(30, 50, 30, 50));
@@ -155,6 +110,14 @@ public class WorkoutHistoryPage extends JPanel implements WorkoutHistoryPageInte
 
         public void previousWorkoutsListener(ListSelectionListener e) {
                 previousWorkouts.addListSelectionListener(e);
+        }
+
+        public void addBackListener(ActionListener e) {
+                back.addActionListener(e);
+        }
+
+        public void updateDisply(String s) {
+                displayWorkout.setText(s);
         }
 
 }

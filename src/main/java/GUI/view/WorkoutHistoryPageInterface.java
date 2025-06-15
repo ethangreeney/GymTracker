@@ -1,5 +1,6 @@
 package GUI.view;
 
+import java.awt.event.ActionListener;
 import java.util.List;
 
 import javax.swing.event.ListSelectionListener;
@@ -11,4 +12,8 @@ public interface WorkoutHistoryPageInterface {
     void populateWorkouts(List<Workout> workouts);
 
     void previousWorkoutsListener(ListSelectionListener e);
+
+    void addBackListener(ActionListener e);
+
+    void updateDisply(String s);
 }
