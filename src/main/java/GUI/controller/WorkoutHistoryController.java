@@ -19,7 +19,7 @@ public class WorkoutHistoryController {
             int selectedIndex = sourceList.getSelectedIndex();
 
             if (selectedIndex != -1) {
-                view.updateDisplay(view.getWorkoutAtIndex(selectedIndex).toString());
+                view.updateDisplay(view.getWorkoutAtIndex(selectedIndex).toWorkoutContents());
             }
 
         });
