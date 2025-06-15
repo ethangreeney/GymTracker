@@ -15,7 +15,7 @@ public class WorkoutController {
 
         Workout currentWorkout = new Workout();
 
-        view.addExercisesList(model.getDefaultExcercises());
+        view.addExercisesList(model.getDefaultExercises());
         view.addBackListener(e -> controller.showHomePage(null));
 
         view.addFirstNextListener(e -> {

@@ -11,6 +11,7 @@ import GUI.model.DatabaseManager;
 import GUI.model.User;
 import GUI.view.HomePage;
 import GUI.view.LoginPage;
+import GUI.view.LoginPageInterface;
 import GUI.view.MainFrame;
 import GUI.view.RegisterPage;
 import GUI.view.RegisterPageInterface;
@@ -110,17 +111,19 @@ public class ApplicationController {
         WorkoutPageInterface view = workoutView;
 
         view.reset();
-        workoutView.addExercisesList(dbManager.getDefaultExcercises());
+        workoutView.addExercisesList(dbManager.getDefaultExercises());
         workoutView.addSetList(Arrays.asList(1, 2, 3, 4, 5, 6, 7, 8, 9, 10));
         mainFrame.showPanel(MainFrame.NEW_WORKOUT_PAGE);
     }
 
     public void logout() {
 
-        RegisterPageInterface view = registerView;
+        RegisterPageInterface regView = registerView;
+        LoginPageInterface logView = loginView;
 
         currentUser = null;
-        view.reset();
+        regView.reset();
+        logView.reset();
         mainFrame.showPanel(MainFrame.WELCOME_PAGE);
     }
 

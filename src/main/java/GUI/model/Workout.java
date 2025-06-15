@@ -33,10 +33,6 @@ public class Workout {
         this.name = name;
     }
 
-    public List<Exercise> getExerciseInfo() {
-        return exerciseInfo;
-    }
-
     public void addExercise(Exercise currentExercise) {
         if (this.exerciseInfo == null) {
             this.exerciseInfo = new ArrayList<>();

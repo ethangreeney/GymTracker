@@ -14,8 +14,6 @@ public class User {
     private int weight;
     private int userID;
 
-    private List<String> exercisesList;
-
     private List<Workout> workoutHistory;
 
     private List<Goal> userGoals;
@@ -100,14 +98,6 @@ public class User {
 
     public void setWeight(int weight) {
         this.weight = weight;
-    }
-
-    public String getExerciseAtIndex(int index) {
-        return this.exercisesList.get(index - 1);
-    }
-
-    public void addCustomExercise(String userInput) {
-        this.exercisesList.add(userInput);
     }
 
 }

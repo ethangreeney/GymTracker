@@ -108,7 +108,7 @@ public class DatabaseManager {
         }
     }
 
-    public List<String> getDefaultExcercises() {
+    public List<String> getDefaultExercises() {
         return Arrays.asList(
                 "Bench Press",
                 "Incline Dumbbell Press",
