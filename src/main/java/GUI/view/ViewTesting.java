@@ -6,7 +6,9 @@ public class ViewTesting {
         LoginPageInterface lp = new LoginPage();
         RegisterPage rp = new RegisterPage();
         HomePage hp = new HomePage();
-        mf.add(hp);
+        WelcomePage wp = new WelcomePage();
+
+        mf.add(wp);
         mf.setVisible(true);
 
     }
