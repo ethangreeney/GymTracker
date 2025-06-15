@@ -41,4 +41,7 @@ public interface WorkoutPageInterface {
 
     void invalidWeight();
 
+    void addFinishWorkoutListener(ActionListener e);
+
+    void showFinishWorkout();
 }

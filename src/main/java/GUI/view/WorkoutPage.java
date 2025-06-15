@@ -45,6 +45,7 @@ public class WorkoutPage extends JPanel implements WorkoutPageInterface {
     private final JComboBox<String> exercises;
     private final JLabel setsLabel;
     private final JComboBox<Integer> sets;
+    private final JButton finishWorkout;
 
     private final JPanel repsAndWeight;
     private final JLabel repsLabel;
@@ -161,6 +162,13 @@ public class WorkoutPage extends JPanel implements WorkoutPageInterface {
 
         selectExercise.add(secondNext);
 
+        selectExercise.add(Box.createRigidArea(Utilities.buttonGap));
+
+        finishWorkout = new JButton("Complete Workout");
+        finishWorkout.setAlignmentX(CENTER_ALIGNMENT);
+        finishWorkout.setVisible(false);
+        selectExercise.add(finishWorkout);
+
         // picking reps and weights
 
         repsAndWeight = new JPanel();
@@ -247,6 +255,14 @@ public class WorkoutPage extends JPanel implements WorkoutPageInterface {
     @Override
     public void addThirdNextListener(ActionListener e) {
         thirdNext.addActionListener(e);
+    }
+
+    public void addFinishWorkoutListener(ActionListener e) {
+        finishWorkout.addActionListener(e);
+    }
+
+    public void showFinishWorkout() {
+        finishWorkout.setVisible(true);
     }
 
     @Override
