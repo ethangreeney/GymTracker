@@ -6,6 +6,8 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.Arrays;
+import java.util.List;
 
 public class DatabaseManager {
 
@@ -104,6 +106,36 @@ public class DatabaseManager {
         try (ResultSet rs = meta.getTables(null, null, tableName.toUpperCase(), new String[] { "TABLE" })) {
             return rs.next();
         }
+    }
+
+    public List<String> getDefaultExcercises() {
+        return Arrays.asList(
+                "Bench Press",
+                "Incline Dumbbell Press",
+                "Push Ups",
+                "Overhead Press",
+
+                "Dips",
+                "Cable Tricep Extensions",
+                "Skull Crushers",
+                "Overhead Cable Tricep Extensions",
+
+                "Dumbbell Side Delts",
+                "Cable Side Delts",
+
+                "Bicep Curls",
+                "Preacher Curls",
+                "Cable Curls",
+
+                "Pull Ups",
+                "Pull Downs",
+                "Dumbbell Rows",
+                "Barbell Rows",
+
+                "Squats",
+                "Deadlifts",
+                "Lunges",
+                "Leg Press");
     }
 
     public boolean addUser(User user) {
