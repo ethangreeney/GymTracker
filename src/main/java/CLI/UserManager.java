@@ -15,13 +15,13 @@ import com.google.gson.reflect.TypeToken;
 public class UserManager {
 
     public static User currentUser;
-    private static Map<String, User> users = new HashMap<>();
+    private static final Map<String, User> users = new HashMap<>();
 
-    private static String filePath = "resources/userInfo.json";
+    private static final String FILE_PATH = "resources/userInfo.json";
 
     public static void loadUsers() {
 
-        File file = new File(filePath);
+        File file = new File(FILE_PATH);
 
         if (!file.exists()) {
             System.out.println("No user info database found... Creating new file");
@@ -29,7 +29,7 @@ public class UserManager {
             return;
         }
 
-        try (FileReader reader = new FileReader(filePath)) {
+        try (FileReader reader = new FileReader(FILE_PATH)) {
 
             var userListType = new TypeToken<ArrayList<User>>() {
             }.getType();
@@ -62,7 +62,7 @@ public class UserManager {
         Gson gson = new GsonBuilder().setPrettyPrinting().create();
         Collection<User> userList = users.values();
 
-        try (FileWriter writer = new FileWriter(filePath)) {
+        try (FileWriter writer = new FileWriter(FILE_PATH)) {
             gson.toJson(userList, writer);
         } catch (Exception e) {
             System.out.println("File Writing Failed");

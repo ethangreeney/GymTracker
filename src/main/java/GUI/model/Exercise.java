@@ -6,7 +6,7 @@ import java.util.List;
 public class Exercise {
 
     private final String name;
-    private List<SetInfo> sets;
+    private final List<SetInfo> sets;
 
     public Exercise(String exerciseName) {
         this.name = exerciseName;

@@ -21,10 +21,9 @@ public class WorkoutHistory implements Page {
     @Override
     public void handleInput() {
 
-        String userInput = "";
+        String userInput;
 
         do {
-
             System.out.println("Input 'x' to return");
             userInput = GymApplication.scan.nextLine();
 
