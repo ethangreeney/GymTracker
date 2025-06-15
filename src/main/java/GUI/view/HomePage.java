@@ -14,7 +14,7 @@ import javax.swing.SwingConstants;
 
 import GUI.model.User;
 
-public class HomePage extends JPanel {
+public class HomePage extends JPanel implements HomePageInterface {
     private final String asciiArt = """
 
 
@@ -74,22 +74,27 @@ public class HomePage extends JPanel {
         add(buttonPanel);
     }
 
+    @Override
     public void setWelcomeMessage(User user) {
         userGreeting.setText("Welcome " + user.getUsername());
     }
 
+    @Override
     public void addWorkoutListener(ActionListener e) {
         workout.addActionListener(e);
     }
 
+    @Override
     public void addWorkoutHistoryListener(ActionListener e) {
         workoutHistory.addActionListener(e);
     }
 
+    @Override
     public void addUserInfoListener(ActionListener e) {
         userInfo.addActionListener(e);
     }
 
+    @Override
     public void addGoalListener(ActionListener e) {
         goals.addActionListener(e);
     }
