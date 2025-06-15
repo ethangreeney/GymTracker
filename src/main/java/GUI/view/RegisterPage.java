@@ -185,16 +185,16 @@ public class RegisterPage extends JPanel {
         return name.getText();
     }
 
-    public int getUserAge() {
-        return Integer.parseInt(age.getText());
+    public String getUserAge() {
+        return age.getText();
     }
 
-    public int getUserWeight() {
-        return Integer.parseInt(weight.getText());
+    public String getUserWeight() {
+        return weight.getText();
     }
 
-    public int getUserHeight() {
-        return Integer.parseInt(height.getText());
+    public String getUserHeight() {
+        return height.getText();
     }
 
     public void validDetail() {
