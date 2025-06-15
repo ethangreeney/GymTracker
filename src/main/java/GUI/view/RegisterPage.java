@@ -181,12 +181,6 @@ public class RegisterPage extends JPanel {
         return password.getText();
     }
 
-    public void validDetail() {
-        duplicate.setVisible(false);
-        remove(registerArea);
-        add(userInfo);
-    }
-
     public String getUserName() {
         return name.getText();
     }
@@ -201,6 +195,16 @@ public class RegisterPage extends JPanel {
 
     public int getUserHeight() {
         return Integer.parseInt(height.getText());
+    }
+
+    public void validDetail() {
+        duplicate.setVisible(false);
+        remove(registerArea);
+        add(userInfo);
+    }
+
+    public void invalidUserInfo(String s) {
+        duplicate.setText("Invalid" + s);
     }
 
 }
