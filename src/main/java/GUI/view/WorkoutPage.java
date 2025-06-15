@@ -292,24 +292,33 @@ public class WorkoutPage extends JPanel implements WorkoutPageInterface {
         exercises.setVisible(false);
     }
 
+    public void SetNumber(int setNumber) {
+        warningText.setText("Current set: " + setNumber);
+        warningText.setForeground(Color.black);
+    }
+
     @Override
     public void invalidWorkoutName() {
         warningText.setText("Invalid workout name!");
+        warningText.setForeground(Color.red);
     }
 
     @Override
     public void invalidExerciseName() {
         warningText.setText("Invalid exercise name!");
+        warningText.setForeground(Color.red);
     }
 
     @Override
     public void invalidReps() {
         warningText.setText("Invalid number of reps!");
+        warningText.setForeground(Color.red);
     }
 
     @Override
     public void invalidWeight() {
         warningText.setText("Invalid weight!");
+        warningText.setForeground(Color.red);
     }
 
 }
