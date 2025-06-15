@@ -39,19 +39,20 @@ public class Workout {
 
     public void addExercise(Exercise currentExercise) {
         if (this.exerciseInfo == null) {
-            this.exerciseInfo = new ArrayList<Exercise>();
+            this.exerciseInfo = new ArrayList<>();
         }
 
         exerciseInfo.add(currentExercise);
     }
 
+    @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
         if (exerciseInfo == null) {
         } else {
-            sb.append("Workout: " + name + "\nDate: " + workoutDate + "\n\n");
+            sb.append("Workout: ").append(name).append("\nDate: ").append(workoutDate).append("\n\n");
             for (Exercise exercise : exerciseInfo) {
-                sb.append(exercise + "\n");
+                sb.append(exercise).append("\n");
             }
         }
         return sb.toString();

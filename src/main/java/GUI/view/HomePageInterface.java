@@ -16,4 +16,6 @@ public interface HomePageInterface {
 
     void addGoalListener(ActionListener e);
 
+    void addLogoutListener(ActionListener e);
+
 }

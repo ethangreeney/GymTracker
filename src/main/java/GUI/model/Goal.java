@@ -7,7 +7,7 @@ public class Goal {
     String goalDescription;
     Date startDate;
     Date endDate;
-    Date timeToComplete;
+    // Date timeToComplete;
 
     public Goal(String description) {
         goalDescription = description;
@@ -18,18 +18,19 @@ public class Goal {
         endDate = new Date();
     }
 
+    @Override
     public String toString() {
 
         StringBuilder goalString = new StringBuilder();
 
         if (endDate == null) {
-            goalString.append("Goal description: \n" + goalDescription);
-            goalString.append("\nStart date: " + startDate);
+            goalString.append("Goal description: \n").append(goalDescription);
+            goalString.append("\nStart date: ").append(startDate);
             goalString.append("\nEnd date: not yet completed");
         } else {
-            goalString.append("\nGoal description: \n" + goalDescription);
-            goalString.append("\nStart date: " + startDate);
-            goalString.append("\nEnd date: " + endDate);
+            goalString.append("\nGoal description: \n").append(goalDescription);
+            goalString.append("\nStart date: ").append(startDate);
+            goalString.append("\nEnd date: ").append(endDate);
         }
 
         return goalString.toString();

@@ -12,5 +12,7 @@ public class HomeController {
         view.addWorkoutHistoryListener(e -> controller.showWorkoutHistoryPage());
         view.addNewWorkoutListener(e -> controller.showNewWorkoutPage());
 
+        view.addLogoutListener(e -> controller.logout());
+
     }
 }

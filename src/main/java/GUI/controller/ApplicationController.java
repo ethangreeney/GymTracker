@@ -69,7 +69,7 @@ public class ApplicationController {
 
     public void showHomePage(User user) {
         currentUser = user;
-        homeView.setWelcomeMessage(user);
+        homeView.setWelcomeMessage(currentUser);
         mainFrame.showPanel(MainFrame.HOME_PAGE);
     }
 
@@ -91,6 +91,11 @@ public class ApplicationController {
 
     public void showNewWorkoutPage() {
         mainFrame.showPanel(MainFrame.NEW_WORKOUT_PAGE);
+    }
+
+    public void logout() {
+        currentUser = null;
+        mainFrame.showPanel(MainFrame.WELCOME_PAGE);
     }
 
     public static void main(String[] args) {

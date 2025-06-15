@@ -1,6 +1,5 @@
 package GUI.view;
 
-import java.awt.Dimension;
 import java.awt.GridLayout;
 import java.awt.event.ActionListener;
 
@@ -114,6 +113,11 @@ public class HomePage extends JPanel implements HomePageInterface {
     @Override
     public void addGoalListener(ActionListener e) {
         goals.addActionListener(e);
+    }
+
+    @Override
+    public void addLogoutListener(ActionListener e) {
+        logout.addActionListener(e);
     }
 
 }

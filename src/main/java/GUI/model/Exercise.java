@@ -5,11 +5,11 @@ import java.util.List;
 
 public class Exercise {
 
-    private String name;
+    private final String name;
     private List<SetInfo> sets;
 
-    public Exercise(String n) {
-        this.name = n;
+    public Exercise(String exerciseName) {
+        this.name = exerciseName;
     }
 
     public String getName() {
@@ -18,7 +18,7 @@ public class Exercise {
 
     public List<SetInfo> getSets() {
         if (this.sets == null) {
-            sets = new ArrayList<SetInfo>();
+            sets = new ArrayList<>();
         }
         return sets;
     }
