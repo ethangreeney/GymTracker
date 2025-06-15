@@ -1,15 +1,15 @@
 package GUI.controller;
 
 import GUI.model.DatabaseManager;
-import GUI.view.WelcomePage;
+import GUI.view.WelcomePageInterface;
 
 public class WelcomeController {
 
     DatabaseManager model;
-    WelcomePage view;
+    WelcomePageInterface view;
     ApplicationController controller;
 
-    public WelcomeController(DatabaseManager model, ApplicationController controller, WelcomePage view) {
+    public WelcomeController(DatabaseManager model, ApplicationController controller, WelcomePageInterface view) {
         this.model = model;
         this.view = view;
         this.controller = controller;

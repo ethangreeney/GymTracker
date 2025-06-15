@@ -11,11 +11,11 @@ public class MainFrame extends JFrame {
     private JPanel cardPanelContainer;
 
     private HomePage home;
-    private LoginPage login;
-    private RegisterPage register;
+    private LoginPageInterface login;
+    private RegisterPageInterface register;
     private WorkoutHistoryPage history;
     private WorkoutPage workout;
-    private WelcomePage welcome;
+    private WelcomePageInterface welcome;
 
     public static final String WELCOME_PAGE = "WelcomePanel";
     public static final String LOGIN_PAGE = "LoginPanel";

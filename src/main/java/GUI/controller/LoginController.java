@@ -2,14 +2,14 @@ package GUI.controller;
 
 import GUI.model.DatabaseManager;
 import GUI.model.User;
-import GUI.view.LoginPage;
+import GUI.view.LoginPageInterface;
 
 public class LoginController {
     DatabaseManager model;
-    LoginPage view;
+    LoginPageInterface view;
     ApplicationController controller;
 
-    public LoginController(DatabaseManager model, ApplicationController controller, LoginPage view) {
+    public LoginController(DatabaseManager model, ApplicationController controller, LoginPageInterface view) {
         this.model = model;
         this.view = view;
         this.controller = controller;

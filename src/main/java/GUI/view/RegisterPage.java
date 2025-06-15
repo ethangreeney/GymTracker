@@ -14,7 +14,7 @@ import javax.swing.SwingConstants;
 
 import CLI.UserInfo;
 
-public class RegisterPage extends JPanel {
+public class RegisterPage extends JPanel implements RegisterPageInterface {
 
     private String asciiArt = """
 
@@ -161,48 +161,59 @@ public class RegisterPage extends JPanel {
 
     }
 
+    @Override
     public void addRegisterListener(ActionListener e) {
         registerButton.addActionListener(e);
     }
 
+    @Override
     public void addConfirmListener(ActionListener e) {
         confirm.addActionListener(e);
     }
 
+    @Override
     public void duplicateUsername() {
         duplicate.setText("Duplicate username, please enter a different username");
     }
 
+    @Override
     public String getUsername() {
         return username.getText();
     }
 
+    @Override
     public String getPassword() {
         return password.getText();
     }
 
+    @Override
     public String getUserName() {
         return name.getText();
     }
 
+    @Override
     public String getUserAge() {
         return age.getText();
     }
 
+    @Override
     public String getUserWeight() {
         return weight.getText();
     }
 
+    @Override
     public String getUserHeight() {
         return height.getText();
     }
 
+    @Override
     public void validDetail() {
         duplicate.setVisible(false);
         remove(registerArea);
         add(userInfo);
     }
 
+    @Override
     public void invalidUserInfo(String s) {
         duplicate.setText("Invalid" + s);
     }

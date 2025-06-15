@@ -13,7 +13,7 @@ import javax.swing.JTextField;
 import javax.swing.SwingConstants;
 import javax.swing.border.Border;
 
-public class LoginPage extends JPanel {
+public class LoginPage extends JPanel implements LoginPageInterface {
     private JLabel loginText;
     private JLabel usernameText;
     private JLabel passwordText;
@@ -87,18 +87,22 @@ public class LoginPage extends JPanel {
 
     }
 
+    @Override
     public void addLoginListener(ActionListener e) {
         login.addActionListener(e);
     }
 
+    @Override
     public String getUsername() {
         return usernameField.getText();
     }
 
+    @Override
     public String getPassword() {
         return passwordField.getPassword().toString();
     }
 
+    @Override
     public void invalidLogin() {
         loginFailed.setForeground(Color.red);
         loginFailed.setText("Invalid Username/Password");

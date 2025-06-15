@@ -11,7 +11,7 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.SwingConstants;
 
-public class WelcomePage extends JPanel {
+public class WelcomePage extends JPanel implements WelcomePageInterface {
     private JLabel welcomeText;
     private JLabel welcomeText2;
     private JButton loginButton;
@@ -94,10 +94,12 @@ public class WelcomePage extends JPanel {
 
     }
 
+    @Override
     public void addLoginListener(ActionListener action) {
         loginButton.addActionListener(action);
     }
 
+    @Override
     public void addRegisterListener(ActionListener action) {
         registerButton.addActionListener(action);
     }
