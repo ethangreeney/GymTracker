@@ -290,6 +290,7 @@ public class WorkoutPage extends JPanel implements WorkoutPageInterface {
         weight.setText("");
         landing.setVisible(false);
         exercises.setVisible(false);
+        repsAndWeight.setVisible(true);
     }
 
     public void SetNumber(int setNumber) {
