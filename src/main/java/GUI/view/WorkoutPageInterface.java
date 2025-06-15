@@ -7,9 +7,11 @@ public interface WorkoutPageInterface {
 
     String getWorkoutName();
 
-    void addFirstNextListener(ActionListener e);
+    String getExerciseChoice();
 
-    void userExercises(List<String> StringList);
+    Integer getSetNumber();
+
+    void addFirstNextListener(ActionListener e);
 
     void addSecondNextListener(ActionListener e);
 
@@ -18,5 +20,9 @@ public interface WorkoutPageInterface {
     void addBackListener(ActionListener e);
 
     void addExercisesList(List<String> exerciseList);
+
+    void addSetList(List<Integer> setList);
+
+    void toSecondPage();
 
 }

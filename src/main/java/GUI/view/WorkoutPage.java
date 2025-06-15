@@ -145,10 +145,12 @@ public class WorkoutPage extends JPanel implements WorkoutPageInterface {
         return workoutName.getText();
     }
 
+    @Override
     public String getExerciseChoice() {
         return (String) exercises.getSelectedItem();
     }
 
+    @Override
     public Integer getSetNumber() {
         return (Integer) sets.getSelectedItem();
     }
@@ -182,12 +184,14 @@ public class WorkoutPage extends JPanel implements WorkoutPageInterface {
         }
     }
 
+    @Override
     public void addSetList(List<Integer> setList) {
         for (Integer i : setList) {
             sets.addItem(i);
         }
     }
 
+    @Override
     public void toSecondPage() {
         landing.setVisible(false);
         selectExercise.setVisible(true);
