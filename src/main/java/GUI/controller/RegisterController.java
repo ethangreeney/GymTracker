@@ -17,6 +17,11 @@ public class RegisterController {
             currentUser.setUsername(view.getUsername());
             currentUser.setPassword(view.getPassword());
 
+            if (currentUser.getUsername().equals("") || currentUser.getPassword().equals("")) {
+                view.emptyInfo();
+                return;
+            }
+
             if (model.userExists(currentUser.getUsername())) {
                 view.duplicateUsername();
             } else {

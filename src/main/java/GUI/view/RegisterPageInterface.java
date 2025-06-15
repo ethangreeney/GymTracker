@@ -30,4 +30,6 @@ public interface RegisterPageInterface {
 
     void reset();
 
+    void emptyInfo();
+
 }

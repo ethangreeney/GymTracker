@@ -220,11 +220,13 @@ public class RegisterPage extends JPanel implements RegisterPageInterface {
         duplicate.setVisible(true);
     }
 
+    @Override
     public void failedToSaveData() {
         duplicate.setText("Failed to save data");
         duplicate.setVisible(true);
     }
 
+    @Override
     public void reset() {
         userInfo.setVisible(false);
         registerArea.setVisible(true);
@@ -235,6 +237,12 @@ public class RegisterPage extends JPanel implements RegisterPageInterface {
         age.setText("");
         height.setText("");
         weight.setText("");
+    }
+
+    @Override
+    public void emptyInfo() {
+        duplicate.setText("Username and password cannot be empty");
+        duplicate.setVisible(true);
     }
 
 }
