@@ -8,8 +8,9 @@ public class ViewTesting {
         HomePage hp = new HomePage();
         WelcomePage wp = new WelcomePage();
         WorkoutPage wop = new WorkoutPage();
+        WorkoutHistoryPage wh = new WorkoutHistoryPage();
 
-        mf.add(wop);
+        mf.add(wh);
         mf.setVisible(true);
 
     }
