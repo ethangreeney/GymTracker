@@ -2,13 +2,17 @@ package GUI.view;
 
 import java.awt.Dimension;
 import java.awt.GridLayout;
+import java.awt.event.ActionListener;
 
 import javax.swing.BorderFactory;
+import javax.swing.Box;
 import javax.swing.BoxLayout;
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.SwingConstants;
+
+import GUI.model.User;
 
 public class HomePage extends JPanel {
     private final String asciiArt = """
@@ -30,7 +34,7 @@ public class HomePage extends JPanel {
     private JButton workout;
     private JButton workoutHistory;
     private JButton userInfo;
-    private JButton logOut;
+    private JButton goals;
 
     public HomePage() {
         setBackground(Utilities.backgroundColour);
@@ -44,6 +48,8 @@ public class HomePage extends JPanel {
         homeArt.setHorizontalAlignment(SwingConstants.CENTER);
         homeArt.setAlignmentX(CENTER_ALIGNMENT);
 
+        add(Box.createRigidArea(Utilities.buttonGap));
+
         add(userGreeting);
         add(homeArt);
 
@@ -52,13 +58,13 @@ public class HomePage extends JPanel {
         buttonPanel.setLayout(new GridLayout(2, 2, 10, 10));
         buttonPanel.setBorder(BorderFactory.createEmptyBorder(30, 80, 30, 80));
 
-        workout = new JButton("Workout");
+        workout = new JButton("Workout 🏃");
 
-        workoutHistory = new JButton("Workout History");
+        workoutHistory = new JButton("Workout History 📖");
 
-        userInfo = new JButton("User Information");
+        userInfo = new JButton("User Information 📊");
 
-        goals = new JButton("Goals");
+        goals = new JButton("Goals 🌟");
 
         buttonPanel.add(workout);
         buttonPanel.add(workoutHistory);
@@ -66,6 +72,26 @@ public class HomePage extends JPanel {
         buttonPanel.add(goals);
 
         add(buttonPanel);
+    }
+
+    public void setWelcomeMessage(User user) {
+        userGreeting.setText("Welcome " + user.getUsername());
+    }
+
+    public void addWorkoutListener(ActionListener e) {
+        workout.addActionListener(e);
+    }
+
+    public void addWorkoutHistoryListener(ActionListener e) {
+        workoutHistory.addActionListener(e);
+    }
+
+    public void addUserInfoListener(ActionListener e) {
+        userInfo.addActionListener(e);
+    }
+
+    public void addGoalListener(ActionListener e) {
+        goals.addActionListener(e);
     }
 
 }
