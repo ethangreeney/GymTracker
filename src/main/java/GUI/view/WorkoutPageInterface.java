@@ -11,9 +11,15 @@ public interface WorkoutPageInterface {
 
     Integer getSetNumber();
 
+    String getReps();
+
+    String getWeight();
+
     void addFirstNextListener(ActionListener e);
 
     void addSecondNextListener(ActionListener e);
+
+    void addThirdNextListener(ActionListener e);
 
     void reset();
 
@@ -25,8 +31,14 @@ public interface WorkoutPageInterface {
 
     void toSecondPage();
 
+    void toThirdPage();
+
     void invalidWorkoutName();
 
     void invalidExerciseName();
+
+    void invalidReps();
+
+    void invalidWeight();
 
 }

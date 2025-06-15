@@ -32,6 +32,7 @@ public class WorkoutPage extends JPanel implements WorkoutPageInterface {
     private final JButton back;
     private final JButton firstNext;
     private final JButton secondNext;
+    private final JButton thirdNext;
 
     private final JPanel landing;
     private final JTextArea workoutName;
@@ -44,6 +45,12 @@ public class WorkoutPage extends JPanel implements WorkoutPageInterface {
     private final JComboBox<String> exercises;
     private final JLabel setsLabel;
     private final JComboBox<Integer> sets;
+
+    private final JPanel repsAndWeight;
+    private final JLabel repsLabel;
+    private final JTextArea reps;
+    private final JLabel weightLabel;
+    private final JTextArea weight;
 
     /*
      * 
@@ -87,6 +94,8 @@ public class WorkoutPage extends JPanel implements WorkoutPageInterface {
         landing.setLayout(new BoxLayout(landing, BoxLayout.Y_AXIS));
         landing.setBackground(this.getBackground());
 
+        // picking workout
+
         workoutNameLabel = new JLabel("Workout name:");
         workoutNameLabel.setHorizontalAlignment(SwingConstants.CENTER);
         workoutNameLabel.setAlignmentX(CENTER_ALIGNMENT);
@@ -105,6 +114,8 @@ public class WorkoutPage extends JPanel implements WorkoutPageInterface {
         firstNext.setAlignmentX(CENTER_ALIGNMENT);
         landing.add(firstNext);
         add(landing);
+
+        // picking exercise and sets
 
         selectExercise = new JPanel();
         selectExercise.setLayout(new BoxLayout(selectExercise, BoxLayout.Y_AXIS));
@@ -148,6 +159,48 @@ public class WorkoutPage extends JPanel implements WorkoutPageInterface {
 
         selectExercise.add(secondNext);
 
+        // picking reps and weights
+
+        repsAndWeight = new JPanel();
+        repsAndWeight.setLayout(new BoxLayout(repsAndWeight, BoxLayout.Y_AXIS));
+        repsAndWeight.setBackground(this.getBackground());
+
+        repsLabel = new JLabel("Please enter number of reps: ");
+        repsLabel.setHorizontalAlignment(SwingConstants.CENTER);
+        repsLabel.setAlignmentX(CENTER_ALIGNMENT);
+        selectExercise.add(repsLabel);
+
+        reps = new JTextArea();
+        reps.setAlignmentX(CENTER_ALIGNMENT);
+        reps.setMinimumSize(textFieldSize);
+        reps.setMaximumSize(textFieldSize);
+        reps.setPreferredSize(textFieldSize);
+        repsAndWeight.add(reps);
+
+        repsAndWeight.add(Box.createRigidArea(Utilities.buttonGap));
+
+        weightLabel = new JLabel("Please enter the weight you are using: ");
+        weightLabel.setHorizontalAlignment(SwingConstants.CENTER);
+        weightLabel.setAlignmentX(CENTER_ALIGNMENT);
+        selectExercise.add(weightLabel);
+
+        weight = new JTextArea();
+        weight.setAlignmentX(CENTER_ALIGNMENT);
+        weight.setMinimumSize(textFieldSize);
+        weight.setMaximumSize(textFieldSize);
+        weight.setPreferredSize(textFieldSize);
+        repsAndWeight.add(weight);
+
+        thirdNext = new JButton("next");
+        thirdNext.setAlignmentX(CENTER_ALIGNMENT);
+
+        thirdNext.add(Box.createRigidArea(Utilities.buttonGap));
+
+        repsAndWeight.add(thirdNext);
+
+        add(repsAndWeight);
+        repsAndWeight.setVisible(false);
+
     }
 
     @Override
@@ -166,6 +219,16 @@ public class WorkoutPage extends JPanel implements WorkoutPageInterface {
     }
 
     @Override
+    public String getReps() {
+        return reps.getText();
+    }
+
+    @Override
+    public String getWeight() {
+        return weight.getText();
+    }
+
+    @Override
     public void addFirstNextListener(ActionListener e) {
         firstNext.addActionListener(e);
     }
@@ -176,11 +239,21 @@ public class WorkoutPage extends JPanel implements WorkoutPageInterface {
     }
 
     @Override
+    public void addThirdNextListener(ActionListener e) {
+        thirdNext.addActionListener(e);
+    }
+
+    @Override
     public void reset() {
         warningText.setText(" ");
         workoutName.setText("");
         exercises.removeAllItems();
         sets.removeAllItems();
+        reps.setText("");
+        weight.setText("");
+        selectExercise.setVisible(false);
+        repsAndWeight.setVisible(false);
+        landing.setVisible(true);
     }
 
     @Override
@@ -206,7 +279,17 @@ public class WorkoutPage extends JPanel implements WorkoutPageInterface {
     public void toSecondPage() {
         warningText.setText(" ");
         landing.setVisible(false);
+        repsAndWeight.setVisible(false);
         selectExercise.setVisible(true);
+    }
+
+    @Override
+    public void toThirdPage() {
+        warningText.setText(" ");
+        reps.setText("");
+        weight.setText("");
+        landing.setVisible(false);
+        exercises.setVisible(false);
     }
 
     @Override
@@ -217,6 +300,16 @@ public class WorkoutPage extends JPanel implements WorkoutPageInterface {
     @Override
     public void invalidExerciseName() {
         warningText.setText("Invalid exercise name!");
+    }
+
+    @Override
+    public void invalidReps() {
+        warningText.setText("Invalid number of reps!");
+    }
+
+    @Override
+    public void invalidWeight() {
+        warningText.setText("Invalid weight!");
     }
 
 }
