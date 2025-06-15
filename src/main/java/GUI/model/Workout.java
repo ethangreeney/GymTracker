@@ -54,4 +54,8 @@ public class Workout {
         return sb.toString();
     }
 
+    Iterable<Exercise> getExerciseInfo() {
+        return exerciseInfo;
+    }
+
 }

@@ -8,12 +8,13 @@ import GUI.view.WorkoutPageInterface;
 public class WorkoutController {
 
     Exercise currentExercise;
+    Workout currentWorkout;
 
     private int numberOfsets = 0;
 
     public WorkoutController(DatabaseManager model, ApplicationController controller, WorkoutPageInterface view) {
 
-        Workout currentWorkout = new Workout();
+        currentWorkout = new Workout();
 
         view.addExercisesList(model.getDefaultExercises());
         view.addBackListener(e -> controller.showHomePage(null));
@@ -71,10 +72,16 @@ public class WorkoutController {
             if (--numberOfsets == 0) {
                 currentWorkout.addExercise(currentExercise);
                 view.toSecondPage();
+                view.showFinishWorkout();
             } else {
                 view.toThirdPage(numberOfsets);
             }
 
+        });
+
+        view.addFinishWorkoutListener(e -> {
+            model.saveWorkout(controller.getCurrentUser(), currentWorkout);
+            controller.showHomePage(controller.getCurrentUser());
         });
 
     }

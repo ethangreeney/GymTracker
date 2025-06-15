@@ -17,6 +17,73 @@ public class DatabaseManager {
         this.conn = connection;
     }
 
+    // USED AI FOR THE FOLLOWING SAVEWORKOUT METHOD
+    public boolean saveWorkout(User user, Workout workout) {
+
+        String workoutSQL = "INSERT INTO WORKOUTS(user_id, workout_name, workout_date) VALUES (?, ?, ?)";
+        String exerciseSQL = "INSERT INTO EXERCISES(workout_id, exercise_name) VALUES (?, ?)";
+        String setSQL = "INSERT INTO SETS(exercise_id, weight_kg, reps) VALUES (?, ?, ?)";
+
+        try {
+
+            long workoutId;
+            try (PreparedStatement pstmt = conn.prepareStatement(workoutSQL, Statement.RETURN_GENERATED_KEYS)) {
+                pstmt.setInt(1, user.getUserID());
+                pstmt.setString(2, workout.getName());
+                pstmt.setTimestamp(3, new java.sql.Timestamp(workout.getWorkoutDate().getTime()));
+
+                int affectedRows = pstmt.executeUpdate();
+                if (affectedRows == 0) {
+                    throw new SQLException("Creating workout failed, no rows affected.");
+                }
+
+                try (ResultSet generatedKeys = pstmt.getGeneratedKeys()) {
+                    if (generatedKeys.next()) {
+                        workoutId = generatedKeys.getLong(1);
+                    } else {
+                        throw new SQLException("Creating workout failed, no ID obtained.");
+                    }
+                }
+            }
+
+            for (Exercise exercise : workout.getExerciseInfo()) {
+                long exerciseId;
+                try (PreparedStatement pstmt = conn.prepareStatement(exerciseSQL, Statement.RETURN_GENERATED_KEYS)) {
+                    pstmt.setLong(1, workoutId);
+                    pstmt.setString(2, exercise.getName());
+
+                    int affectedRows = pstmt.executeUpdate();
+                    if (affectedRows == 0) {
+                        throw new SQLException("Creating exercise failed, no rows affected.");
+                    }
+
+                    try (ResultSet generatedKeys = pstmt.getGeneratedKeys()) {
+                        if (generatedKeys.next()) {
+                            exerciseId = generatedKeys.getLong(1);
+                        } else {
+                            throw new SQLException("Creating exercise failed, no ID obtained.");
+                        }
+                    }
+                }
+
+                for (SetInfo set : exercise.getSets()) {
+                    try (PreparedStatement pstmt = conn.prepareStatement(setSQL)) {
+                        pstmt.setLong(1, exerciseId);
+                        pstmt.setInt(2, set.getWeight());
+                        pstmt.setInt(3, set.getReps());
+                        pstmt.executeUpdate();
+                    }
+                }
+            }
+
+            return true;
+
+        } catch (SQLException e) {
+            System.err.println("Error saving workout to database: " + e.getMessage());
+            return false;
+        }
+    }
+
     public void setupTables(Connection conn) {
         try {
             if (!tableExists(conn, "USERS")) {

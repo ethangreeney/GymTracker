@@ -131,4 +131,8 @@ public class ApplicationController {
         SwingUtilities.invokeLater(() -> new ApplicationController());
     }
 
+    public User getCurrentUser() {
+        return currentUser;
+    }
+
 }
