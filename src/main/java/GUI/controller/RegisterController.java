@@ -21,10 +21,10 @@ public class RegisterController {
 
         view.addRegisterListener(e -> {
 
-            String username = view.getUsername();
-            String password = view.getPassword();
+            currentUser.setUsername(view.getUsername());
+            currentUser.setPassword(view.getPassword());
 
-            if (model.userExists(username)) {
+            if (model.userExists(currentUser.getUsername())) {
                 view.duplicateUsername();
             } else {
                 view.validDetail();
@@ -32,6 +32,6 @@ public class RegisterController {
 
         });
 
-    };
+    }
 
 }
