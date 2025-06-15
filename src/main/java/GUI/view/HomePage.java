@@ -6,10 +6,8 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.SwingConstants;
 
-import org.apache.derby.impl.jdbc.Util;
-
 public class HomePage extends JPanel {
-    private String asciiArt = """
+    private final String asciiArt = """
 
 
             ██╗  ██╗ ██████╗ ███╗   ███╗███████╗
@@ -21,14 +19,14 @@ public class HomePage extends JPanel {
 
             """;
 
-    private JLabel userGreeting;
-    private JLabel homeArt;
+    private final JLabel userGreeting;
+    private final JLabel homeArt;
 
-    private JPanel buttonPanel;
-    private JButton workout;
-    private JButton workoutHistory;
-    private JButton userInfo;
-    private JButton logOut;
+    private final JPanel buttonPanel;
+    private final JButton workout;
+    private final JButton workoutHistory;
+    private final JButton userInfo;
+    private final JButton logOut;
 
     public HomePage() {
         setBackground(Utilities.backgroundColour);

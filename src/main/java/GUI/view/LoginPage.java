@@ -1,6 +1,8 @@
 package GUI.view;
 
-import java.awt.*;
+import java.awt.Color;
+import java.awt.Component;
+import java.awt.Dimension;
 import java.awt.event.ActionListener;
 
 import javax.swing.Box;
@@ -11,20 +13,19 @@ import javax.swing.JPanel;
 import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 import javax.swing.SwingConstants;
-import javax.swing.border.Border;
 
 public class LoginPage extends JPanel implements LoginPageInterface {
-    private JLabel loginText;
-    private JLabel usernameText;
-    private JLabel passwordText;
-    private JLabel loginFailed;
-    private JTextField usernameField;
-    private JPasswordField passwordField;
-    private JButton login;
-    private JPanel userInterface;
-    private Dimension textFieldSize = new Dimension(215, 35);
+    private final JLabel loginText;
+    private final JLabel usernameText;
+    private final JLabel passwordText;
+    private final JLabel loginFailed;
+    private final JTextField usernameField;
+    private final JPasswordField passwordField;
+    private final JButton login;
+    private final JPanel userInterface;
+    private final Dimension textFieldSize = new Dimension(215, 35);
 
-    private String asciiArt = """
+    private final String asciiArt = """
 
 
 
@@ -99,13 +100,17 @@ public class LoginPage extends JPanel implements LoginPageInterface {
 
     @Override
     public String getPassword() {
-        return passwordField.getPassword().toString();
+        return new String(passwordField.getPassword());
     }
 
     @Override
     public void invalidLogin() {
         loginFailed.setForeground(Color.red);
         loginFailed.setText("Invalid Username/Password");
+    }
+
+    public Dimension getTextFieldSize() {
+        return textFieldSize;
     }
 
 }

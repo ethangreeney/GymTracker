@@ -14,7 +14,7 @@ import javax.swing.SwingConstants;
 
 public class RegisterPage extends JPanel implements RegisterPageInterface {
 
-    private String asciiArt = """
+    private final String asciiArt = """
 
 
 
@@ -26,32 +26,32 @@ public class RegisterPage extends JPanel implements RegisterPageInterface {
             ╚═╝  ╚═╝╚══════╝ ╚═════╝ ╚═╝╚══════╝   ╚═╝   ╚══════╝╚═╝  ╚═╝
             """;
 
-    private JLabel registerText;
-    private JLabel duplicate;
+    private final JLabel registerText;
+    private final JLabel duplicate;
 
-    private JPanel registerArea;
-    private JTextField username;
-    private JTextField password;
-    private JLabel usernameLabel;
-    private JLabel passwordLabel;
-    private JButton registerButton;
+    private final JPanel registerArea;
+    private final JTextField username;
+    private final JTextField password;
+    private final JLabel usernameLabel;
+    private final JLabel passwordLabel;
+    private final JButton registerButton;
 
-    private JPanel userInfo;
+    private final JPanel userInfo;
 
-    private JLabel nameLabel;
-    private JLabel ageLabel;
-    private JLabel heightLabel;
-    private JLabel weightLabel;
+    private final JLabel nameLabel;
+    private final JLabel ageLabel;
+    private final JLabel heightLabel;
+    private final JLabel weightLabel;
 
-    private JTextField name;
-    private JTextField age;
-    private JTextField height;
-    private JTextField weight;
-    private JButton confirm;
+    private final JTextField name;
+    private final JTextField age;
+    private final JTextField height;
+    private final JTextField weight;
+    private final JButton confirm;
 
-    private Dimension textFieldSize = new Dimension(215, 35);
-    private Dimension mediumGap = new Dimension(0, 15);
-    private Dimension largerGap = new Dimension(0, 35);
+    private final Dimension textFieldSize = new Dimension(215, 35);
+    private final Dimension mediumGap = new Dimension(0, 15);
+    private final Dimension largerGap = new Dimension(0, 35);
 
     public RegisterPage() {
         setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));

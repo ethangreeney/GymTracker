@@ -16,7 +16,7 @@ import GUI.view.WelcomePage;
 
 public class ApplicationController {
 
-    private MainFrame mainFrame;
+    private final MainFrame mainFrame;
     private DatabaseManager dbManager;
     private User currentUser;
 
@@ -35,13 +35,13 @@ public class ApplicationController {
         HomePage homeView = new HomePage();
         HomeController homeScene = new HomeController(dbManager, this, homeView);
 
-        RegisterPage RegisterView = new RegisterPage();
-        RegisterController RegisterScene = new RegisterController(dbManager, this, RegisterView);
+        RegisterPage registerView = new RegisterPage();
+        RegisterController registerScene = new RegisterController(dbManager, this, registerView);
 
         mainFrame.addPanel(welcomeView, MainFrame.WELCOME_PAGE);
         mainFrame.addPanel(loginView, MainFrame.LOGIN_PAGE);
         mainFrame.addPanel(homeView, MainFrame.HOME_PAGE);
-        mainFrame.addPanel(RegisterView, MainFrame.REGISTER_PAGE);
+        mainFrame.addPanel(registerView, MainFrame.REGISTER_PAGE);
 
         mainFrame.showPanel(MainFrame.WELCOME_PAGE);
         mainFrame.setVisible(true);
@@ -58,7 +58,6 @@ public class ApplicationController {
             this.dbManager.setupTables(dbConnection);
 
         } catch (SQLException e) {
-            e.printStackTrace();
         }
     }
 
@@ -68,7 +67,6 @@ public class ApplicationController {
 
     public void showHomePage(User user) {
         currentUser = user;
-        dbManager.addUser(currentUser);
         mainFrame.showPanel(MainFrame.HOME_PAGE);
     }
 

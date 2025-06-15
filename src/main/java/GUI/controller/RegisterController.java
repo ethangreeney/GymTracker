@@ -55,7 +55,13 @@ public class RegisterController {
                 return;
             }
 
-            controller.showHomePage(currentUser);
+            boolean savedToDatabase = model.addUser(currentUser);
+
+            if (savedToDatabase) {
+                controller.showHomePage(currentUser);
+            }
+
+            view.failedToSaveData();
 
         });
 
