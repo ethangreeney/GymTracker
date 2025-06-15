@@ -52,6 +52,7 @@ public class WorkoutController {
 
             if (numberOfsets == 0) {
                 view.toSecondPage();
+                return;
             }
 
             int reps;

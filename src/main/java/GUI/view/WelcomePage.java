@@ -12,16 +12,16 @@ import javax.swing.JPanel;
 import javax.swing.SwingConstants;
 
 public class WelcomePage extends JPanel implements WelcomePageInterface {
-    private JLabel welcomeText;
-    private JLabel welcomeText2;
-    private JButton loginButton;
-    private JButton registerButton;
+    private final JLabel welcomeText;
+    private final JLabel welcomeText2;
+    private final JButton loginButton;
+    private final JButton registerButton;
 
     JPanel buttonPanel;
 
-    private Dimension buttonSize = new Dimension(200, 60);
+    private final Dimension buttonSize = new Dimension(200, 60);
 
-    private String asciiArt = """
+    private final String asciiArt = """
 
 
              ██████╗██╗   ██╗███╗   ███╗
@@ -32,7 +32,7 @@ public class WelcomePage extends JPanel implements WelcomePageInterface {
              ╚═════╝   ╚═╝   ╚═╝     ╚═╝
             """;
 
-    private String asciiArt2 = """
+    private final String asciiArt2 = """
             ████████╗██████╗  █████╗  ██████╗██╗  ██╗███████╗██████╗
             ╚══██╔══╝██╔══██╗██╔══██╗██╔════╝██║ ██╔╝██╔════╝██╔══██╗
                ██║   ██████╔╝███████║██║     █████╔╝ █████╗  ██████╔╝

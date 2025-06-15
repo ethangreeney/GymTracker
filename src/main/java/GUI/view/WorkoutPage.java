@@ -293,6 +293,7 @@ public class WorkoutPage extends JPanel implements WorkoutPageInterface {
         repsAndWeight.setVisible(true);
     }
 
+    @Override
     public void SetNumber(int setNumber) {
         warningText.setText("Current set: " + setNumber);
         warningText.setForeground(Color.black);
