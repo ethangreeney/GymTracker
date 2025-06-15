@@ -1,5 +1,6 @@
 package GUI.view;
 
+import java.awt.Dimension;
 import java.awt.GridLayout;
 import java.awt.event.ActionListener;
 
@@ -26,8 +27,11 @@ public class HomePage extends JPanel implements HomePageInterface {
 
             """;
 
-    private final JLabel userGreeting;
     private final JLabel homeArt;
+
+    private final JLabel userGreeting;
+    private final JPanel topBar;
+    private final JButton logout;
 
     private final JPanel buttonPanel;
     private final JButton workout;
@@ -38,18 +42,32 @@ public class HomePage extends JPanel implements HomePageInterface {
     public HomePage() {
         setBackground(Utilities.backgroundColour);
         setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
+        add(Box.createRigidArea(Utilities.buttonGap));
+
+        topBar = new JPanel();
+        topBar.setBackground(this.getBackground());
+        topBar.setLayout(new BoxLayout(topBar, BoxLayout.X_AXIS));
+
         userGreeting = new JLabel("Welcome *insert username");
         userGreeting.setHorizontalAlignment(SwingConstants.CENTER);
         userGreeting.setAlignmentX(CENTER_ALIGNMENT);
-        userGreeting.setAlignmentY(TOP_ALIGNMENT);
+        topBar.add(Box.createHorizontalStrut(95));
+        topBar.add(Box.createHorizontalGlue());
+        topBar.add(userGreeting);
+
+        logout = new JButton("Logout");
+        topBar.add(Box.createHorizontalGlue());
+        topBar.add(logout);
+        topBar.add(Box.createHorizontalStrut(20));
+
+        add(topBar);
+
+        topBar.setMaximumSize(Utilities.topBarGap(topBar));
 
         homeArt = new JLabel(Utilities.toHtmlFormat(asciiArt));
         homeArt.setHorizontalAlignment(SwingConstants.CENTER);
         homeArt.setAlignmentX(CENTER_ALIGNMENT);
 
-        add(Box.createRigidArea(Utilities.buttonGap));
-
-        add(userGreeting);
         add(homeArt);
 
         buttonPanel = new JPanel();

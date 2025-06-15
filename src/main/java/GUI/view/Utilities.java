@@ -3,6 +3,8 @@ package GUI.view;
 import java.awt.Color;
 import java.awt.Dimension;
 
+import javax.swing.JPanel;
+
 public class Utilities {
 
     public static Color backgroundColour = Color.getHSBColor(0.6f, 0, .9f);
@@ -14,6 +16,10 @@ public class Utilities {
 
         return sb.toString();
 
+    }
+
+    public static Dimension topBarGap(JPanel topBar) {
+        return new Dimension(Integer.MAX_VALUE, topBar.getPreferredSize().height);
     }
 
 }
