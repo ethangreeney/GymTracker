@@ -145,6 +145,8 @@ public class WorkoutPage extends JPanel implements WorkoutPageInterface {
         setsLabel.setAlignmentX(CENTER_ALIGNMENT);
         selectExercise.add(setsLabel);
 
+        selectExercise.add(Box.createRigidArea(Utilities.buttonGap));
+
         sets = new JComboBox<>();
         sets.setAlignmentX(CENTER_ALIGNMENT);
         sets.setMinimumSize(textFieldSize);
