@@ -1,5 +1,6 @@
 package GUI.view;
 
+import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.event.ActionListener;
 import java.util.List;
@@ -23,10 +24,10 @@ public class WorkoutPage extends JPanel implements WorkoutPageInterface {
             ╚███╔███╔╝╚██████╔╝██║  ██║██║  ██╗╚██████╔╝╚██████╔╝   ██║
              ╚══╝╚══╝  ╚═════╝ ╚═╝  ╚═╝╚═╝  ╚═╝ ╚═════╝  ╚═════╝    ╚═╝
 
-
             """;
 
     private final JLabel workoutArt;
+    private final JLabel warningText;
     private final JPanel topBar;
     private final JButton back;
     private final JButton firstNext;
@@ -75,6 +76,13 @@ public class WorkoutPage extends JPanel implements WorkoutPageInterface {
 
         add(workoutArt);
 
+        warningText = new JLabel(" ");
+        warningText.setForeground(Color.red);
+        warningText.setAlignmentX(CENTER_ALIGNMENT);
+        warningText.setHorizontalAlignment(SwingConstants.CENTER);
+        warningText.setAlignmentY(TOP_ALIGNMENT);
+        add(warningText);
+
         landing = new JPanel();
         landing.setLayout(new BoxLayout(landing, BoxLayout.Y_AXIS));
         landing.setBackground(this.getBackground());
@@ -117,6 +125,7 @@ public class WorkoutPage extends JPanel implements WorkoutPageInterface {
         exercises.setMinimumSize(textFieldSize);
         exercises.setMaximumSize(textFieldSize);
         exercises.setAlignmentX(CENTER_ALIGNMENT);
+        selectExercise.add(exercises);
 
         selectExercise.add(Box.createRigidArea(Utilities.buttonGap));
 
@@ -135,7 +144,8 @@ public class WorkoutPage extends JPanel implements WorkoutPageInterface {
         secondNext = new JButton("next");
         secondNext.setAlignmentX(CENTER_ALIGNMENT);
 
-        selectExercise.add(exercises);
+        selectExercise.add(Box.createRigidArea(Utilities.buttonGap));
+
         selectExercise.add(secondNext);
 
     }
@@ -167,6 +177,7 @@ public class WorkoutPage extends JPanel implements WorkoutPageInterface {
 
     @Override
     public void reset() {
+        warningText.setText(" ");
         workoutName.setText("");
         exercises.removeAllItems();
         sets.removeAllItems();
@@ -193,8 +204,17 @@ public class WorkoutPage extends JPanel implements WorkoutPageInterface {
 
     @Override
     public void toSecondPage() {
+        warningText.setText(" ");
         landing.setVisible(false);
         selectExercise.setVisible(true);
+    }
+
+    public void invalidWorkoutName() {
+        warningText.setText("Invalid workout name!");
+    }
+
+    public void invalidExerciseName() {
+        warningText.setText("Invalid exercise name!");
     }
 
 }
