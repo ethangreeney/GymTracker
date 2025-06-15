@@ -170,6 +170,8 @@ public class WorkoutPage extends JPanel implements WorkoutPageInterface {
         repsLabel.setAlignmentX(CENTER_ALIGNMENT);
         repsAndWeight.add(repsLabel);
 
+        repsAndWeight.add(Box.createRigidArea(Utilities.buttonGap));
+
         reps = new JTextArea();
         reps.setAlignmentX(CENTER_ALIGNMENT);
         reps.setMinimumSize(textFieldSize);
@@ -183,6 +185,8 @@ public class WorkoutPage extends JPanel implements WorkoutPageInterface {
         weightLabel.setHorizontalAlignment(SwingConstants.CENTER);
         weightLabel.setAlignmentX(CENTER_ALIGNMENT);
         repsAndWeight.add(weightLabel);
+
+        repsAndWeight.add(Box.createRigidArea(Utilities.buttonGap));
 
         weight = new JTextArea();
         weight.setAlignmentX(CENTER_ALIGNMENT);
