@@ -3,6 +3,7 @@ package GUI.view;
 import java.awt.BorderLayout;
 import java.awt.Dimension;
 import java.awt.GridLayout;
+import java.awt.event.ActionListener;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -18,6 +19,7 @@ import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
 import javax.swing.ListSelectionModel;
 import javax.swing.SwingConstants;
+import javax.swing.event.ListSelectionListener;
 
 import GUI.model.Workout;;
 
@@ -124,7 +126,7 @@ public class WorkoutHistoryPage extends JPanel implements WorkoutHistoryPageInte
 
                 scrollPane = new JScrollPane(previousWorkouts);
                 scrollPane.setPreferredSize(new Dimension(250, 150));
-                bottomPanel.add(scrollPane, BorderLayout.CENTER);
+                bottomPanel.add(scrollPane);
 
                 displayWorkout = new JTextArea();
                 displayWorkout.setAlignmentX(RIGHT_ALIGNMENT);
@@ -148,6 +150,10 @@ public class WorkoutHistoryPage extends JPanel implements WorkoutHistoryPageInte
                 for (Workout w : workouts) {
                         listModel.addElement(w.getName());
                 }
+        }
+
+        public void previousWorkoutsListener(ListSelectionListener e) {
+                previousWorkouts.addListSelectionListener(e);
         }
 
 }
