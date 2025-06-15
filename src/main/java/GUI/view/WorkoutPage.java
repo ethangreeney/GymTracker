@@ -28,7 +28,7 @@ public class WorkoutPage extends JPanel implements WorkoutPageInterface {
     private final JLabel workoutArt;
     private final JPanel topBar;
     private final JButton back;
-    private final JButton next1;
+    private final JButton nextPage;
 
     private final JPanel landing;
     private final JTextArea workoutName;
@@ -87,9 +87,9 @@ public class WorkoutPage extends JPanel implements WorkoutPageInterface {
         workoutName.setPreferredSize(textFieldSize);
         landing.add(workoutName);
 
-        next1 = new JButton("next");
-        next1.setAlignmentX(CENTER_ALIGNMENT);
-        landing.add(next1);
+        nextPage = new JButton("next");
+        nextPage.setAlignmentX(CENTER_ALIGNMENT);
+        landing.add(nextPage);
         add(landing);
 
         selectExercise = new JPanel();
@@ -104,8 +104,8 @@ public class WorkoutPage extends JPanel implements WorkoutPageInterface {
     }
 
     @Override
-    public void next1Listener(ActionListener e) {
-        next1.addActionListener(e);
+    public void addNextPageListener(ActionListener e) {
+        nextPage.addActionListener(e);
     }
 
     @Override

@@ -7,7 +7,7 @@ public interface WorkoutPageInterface {
 
     String getWorkoutName();
 
-    void next1Listener(ActionListener e);
+    void addNextPageListener(ActionListener e);
 
     void addBackListener(ActionListener e);
 
