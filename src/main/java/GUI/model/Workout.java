@@ -41,6 +41,10 @@ public class Workout {
 
     @Override
     public String toString() {
+        return name;
+    }
+
+    public String toWorkoutContents() {
         StringBuilder sb = new StringBuilder();
         if (exerciseInfo == null) {
         } else {
