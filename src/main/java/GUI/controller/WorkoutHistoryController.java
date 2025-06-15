@@ -13,6 +13,7 @@ public class WorkoutHistoryController {
         view.addBackListener(e -> controller.showHomePage(controller.getCurrentUser()));
         view.previousWorkoutsListener(e -> {
 
+            @SuppressWarnings("unchecked")
             JList<String> sourceList = (JList<String>) e.getSource();
 
             view.updateDisplay(view.getWorkoutAtIndex(sourceList.getSelectedIndex()).toString());

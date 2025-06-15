@@ -116,14 +116,17 @@ public class WorkoutHistoryPage extends JPanel implements WorkoutHistoryPageInte
                 previousWorkouts.addListSelectionListener(e);
         }
 
+        @Override
         public void addBackListener(ActionListener e) {
                 back.addActionListener(e);
         }
 
+        @Override
         public void updateDisplay(String s) {
                 displayWorkout.setText(s);
         }
 
+        @Override
         public Workout getWorkoutAtIndex(int i) {
                 return workoutsForController.get(i);
         }
