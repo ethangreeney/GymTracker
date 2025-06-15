@@ -7,6 +7,8 @@ import GUI.view.WorkoutPageInterface;
 
 public class WorkoutController {
 
+    Exercise currentExercise;
+
     public WorkoutController(DatabaseManager model, ApplicationController controller, WorkoutPageInterface view) {
 
         Workout currentWorkout = new Workout();
@@ -37,7 +39,7 @@ public class WorkoutController {
                 return;
             }
 
-            Exercise currentExercise = new Exercise(exerciseName);
+            currentExercise = new Exercise(exerciseName);
 
         });
 
