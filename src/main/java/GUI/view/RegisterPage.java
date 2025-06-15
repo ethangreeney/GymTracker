@@ -12,8 +12,6 @@ import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.SwingConstants;
 
-import CLI.UserInfo;
-
 public class RegisterPage extends JPanel implements RegisterPageInterface {
 
     private String asciiArt = """
@@ -215,7 +213,7 @@ public class RegisterPage extends JPanel implements RegisterPageInterface {
 
     @Override
     public void invalidUserInfo(String s) {
-        duplicate.setText("Invalid" + s);
+        duplicate.setText("Invalid " + s);
         duplicate.setVisible(true);
     }
 

@@ -68,6 +68,7 @@ public class ApplicationController {
 
     public void showHomePage(User user) {
         currentUser = user;
+        dbManager.addUser(currentUser);
         mainFrame.showPanel(MainFrame.HOME_PAGE);
     }
 
@@ -76,9 +77,6 @@ public class ApplicationController {
     }
 
     public static void main(String[] args) {
-
-        Runtime.getRuntime().addShutdownHook(new Thread(() -> System.out.println("hi")));
-
         SwingUtilities.invokeLater(() -> new ApplicationController());
     }
 

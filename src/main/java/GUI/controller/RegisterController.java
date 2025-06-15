@@ -32,6 +32,33 @@ public class RegisterController {
 
         });
 
+        view.addConfirmListener(e -> {
+
+            currentUser.setName(view.getInfoName());
+            try {
+                currentUser.setAge(Integer.parseInt(view.getInfoAge()));
+            } catch (NumberFormatException exception) {
+                view.invalidUserInfo("Age");
+                return;
+            }
+            try {
+                currentUser.setHeight(Integer.parseInt(view.getInfoHeight()));
+            } catch (NumberFormatException exception) {
+                view.invalidUserInfo("Height");
+                return;
+            }
+            try {
+                currentUser.setWeight((Integer.parseInt(view.getInfoWeight())));
+
+            } catch (NumberFormatException exception) {
+                view.invalidUserInfo("Weight");
+                return;
+            }
+
+            controller.showHomePage(currentUser);
+
+        });
+
     }
 
 }
