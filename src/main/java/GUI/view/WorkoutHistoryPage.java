@@ -44,6 +44,7 @@ public class WorkoutHistoryPage extends JPanel implements WorkoutHistoryPageInte
         private final JScrollPane scrollPane;
         private final JScrollPane scrollPane2;
 
+        private List<Workout> workoutsForController;
         private final DefaultListModel<Workout> listModel;
 
         public WorkoutHistoryPage() {
@@ -104,7 +105,7 @@ public class WorkoutHistoryPage extends JPanel implements WorkoutHistoryPageInte
         @Override
         public void populateWorkouts(List<Workout> workouts) {
                 listModel.clear();
-
+                workoutsForController = workouts;
                 for (Workout w : workouts) {
                         listModel.addElement(w);
                 }
