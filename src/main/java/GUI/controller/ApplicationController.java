@@ -21,6 +21,9 @@ public class ApplicationController {
     private User currentUser;
 
     HomePage homeView;
+    RegisterPage registerView;
+    LoginPage loginView;
+    WelcomePage welcomeView;
 
     public ApplicationController() {
 
@@ -28,16 +31,16 @@ public class ApplicationController {
 
         this.mainFrame = new MainFrame();
 
-        WelcomePage welcomeView = new WelcomePage();
+        welcomeView = new WelcomePage();
         new WelcomeController(dbManager, this, welcomeView);
 
-        LoginPage loginView = new LoginPage();
+        loginView = new LoginPage();
         new LoginController(dbManager, this, loginView);
 
         homeView = new HomePage();
         new HomeController(dbManager, this, homeView);
 
-        RegisterPage registerView = new RegisterPage();
+        registerView = new RegisterPage();
         new RegisterController(dbManager, this, registerView);
 
         mainFrame.addPanel(welcomeView, MainFrame.WELCOME_PAGE);
@@ -97,6 +100,7 @@ public class ApplicationController {
 
     public void logout() {
         currentUser = null;
+        registerView.reset();
         mainFrame.showPanel(MainFrame.WELCOME_PAGE);
     }
 
