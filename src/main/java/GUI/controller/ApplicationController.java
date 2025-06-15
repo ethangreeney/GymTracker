@@ -16,6 +16,8 @@ import GUI.view.MainFrame;
 import GUI.view.RegisterPage;
 import GUI.view.RegisterPageInterface;
 import GUI.view.WelcomePage;
+import GUI.view.WorkoutHistoryPage;
+import GUI.view.WorkoutHistoryPageInterface;
 import GUI.view.WorkoutPage;
 import GUI.view.WorkoutPageInterface;
 
@@ -30,6 +32,7 @@ public class ApplicationController {
     LoginPage loginView;
     WelcomePage welcomeView;
     WorkoutPage workoutView;
+    WorkoutHistoryPage workoutHistoryView;
 
     public ApplicationController() {
 
@@ -52,11 +55,15 @@ public class ApplicationController {
         workoutView = new WorkoutPage();
         new WorkoutController(dbManager, this, workoutView);
 
+        workoutHistoryView = new WorkoutHistoryPage();
+        new WorkoutHistoryController(dbManager, this, workoutHistoryView);
+
         mainFrame.addPanel(welcomeView, MainFrame.WELCOME_PAGE);
         mainFrame.addPanel(loginView, MainFrame.LOGIN_PAGE);
         mainFrame.addPanel(homeView, MainFrame.HOME_PAGE);
         mainFrame.addPanel(registerView, MainFrame.REGISTER_PAGE);
         mainFrame.addPanel(workoutView, MainFrame.NEW_WORKOUT_PAGE);
+        mainFrame.addPanel(workoutHistoryView, MainFrame.WORKOUT_HISTORY_PAGE);
 
         mainFrame.showPanel(MainFrame.WELCOME_PAGE);
         mainFrame.setVisible(true);
@@ -101,6 +108,10 @@ public class ApplicationController {
     }
 
     public void showWorkoutHistoryPage() {
+
+        WorkoutHistoryPageInterface view = workoutHistoryView;
+
+        view.populateWorkouts(currentUser.getWorkoutHistory());
         mainFrame.showPanel(MainFrame.WORKOUT_HISTORY_PAGE);
     }
 

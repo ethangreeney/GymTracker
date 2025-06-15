@@ -3,8 +3,11 @@ package GUI.view;
 import java.awt.BorderLayout;
 import java.awt.Dimension;
 import java.awt.GridLayout;
+<<<<<<< HEAD
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
+=======
+>>>>>>> fe2255f (workout history populate workouts)
 import java.util.List;
 
 import javax.swing.BorderFactory;
@@ -40,8 +43,6 @@ public class WorkoutHistoryPage extends JPanel implements WorkoutHistoryPageInte
         private final JList<String> previousWorkouts;
         private final JTextArea displayWorkout;
         private final JButton back;
-
-        private final Dimension textFieldSize = new Dimension(215, 20);
 
         private final JPanel topBar;
         private final JPanel bottomPanel;
