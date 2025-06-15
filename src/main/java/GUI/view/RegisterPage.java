@@ -225,4 +225,16 @@ public class RegisterPage extends JPanel implements RegisterPageInterface {
         duplicate.setVisible(true);
     }
 
+    public void reset() {
+        userInfo.setVisible(false);
+        registerArea.setVisible(true);
+        duplicate.setText("");
+        username.setText("");
+        password.setText("");
+        name.setText("");
+        age.setText("");
+        height.setText("");
+        weight.setText("");
+    }
+
 }

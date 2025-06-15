@@ -12,4 +12,6 @@ public interface LoginPageInterface {
 
     void invalidLogin();
 
+    void reset();
+
 }

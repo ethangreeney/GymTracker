@@ -28,4 +28,6 @@ public interface RegisterPageInterface {
 
     void failedToSaveData();
 
+    void reset();
+
 }
