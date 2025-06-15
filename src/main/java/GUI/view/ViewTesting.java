@@ -5,7 +5,8 @@ public class ViewTesting {
         MainFrame mf = new MainFrame();
         LoginPageInterface lp = new LoginPage();
         RegisterPage rp = new RegisterPage();
-        mf.add(rp);
+        HomePage hp = new HomePage();
+        mf.add(hp);
         mf.setVisible(true);
 
     }
