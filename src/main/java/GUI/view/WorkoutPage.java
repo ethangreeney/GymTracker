@@ -194,7 +194,7 @@ public class WorkoutPage extends JPanel implements WorkoutPageInterface {
         thirdNext = new JButton("next");
         thirdNext.setAlignmentX(CENTER_ALIGNMENT);
 
-        thirdNext.add(Box.createRigidArea(Utilities.buttonGap));
+        repsAndWeight.add(Box.createRigidArea(Utilities.buttonGap));
 
         repsAndWeight.add(thirdNext);
 
