@@ -7,8 +7,9 @@ public class ViewTesting {
         RegisterPage rp = new RegisterPage();
         HomePage hp = new HomePage();
         WelcomePage wp = new WelcomePage();
+        WorkoutPage wop = new WorkoutPage();
 
-        mf.add(wp);
+        mf.add(wop);
         mf.setVisible(true);
 
     }
