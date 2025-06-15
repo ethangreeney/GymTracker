@@ -36,11 +36,13 @@ public class WorkoutPage extends JPanel implements WorkoutPageInterface {
     private final JTextArea workoutName;
     private final JLabel workoutNameLabel;
 
-    private final Dimension textFieldSize = new Dimension(215, 35);
+    private final Dimension textFieldSize = new Dimension(215, 20);
 
     private final JPanel selectExercise;
     private final JLabel exercisesLabel;
     private final JComboBox<String> exercises;
+    private final JLabel setsLabel;
+    private final JComboBox<Integer> sets;
 
     /*
      * 
@@ -116,6 +118,20 @@ public class WorkoutPage extends JPanel implements WorkoutPageInterface {
         exercises.setMaximumSize(textFieldSize);
         exercises.setAlignmentX(CENTER_ALIGNMENT);
 
+        selectExercise.add(Box.createRigidArea(Utilities.buttonGap));
+
+        setsLabel = new JLabel("Please enter number of sets: ");
+        setsLabel.setHorizontalAlignment(SwingConstants.CENTER);
+        setsLabel.setAlignmentX(CENTER_ALIGNMENT);
+        selectExercise.add(setsLabel);
+
+        sets = new JComboBox<>();
+        sets.setAlignmentX(CENTER_ALIGNMENT);
+        sets.setMinimumSize(textFieldSize);
+        sets.setMaximumSize(textFieldSize);
+        sets.setPreferredSize(textFieldSize);
+        selectExercise.add(sets);
+
         secondNext = new JButton("next");
         secondNext.setAlignmentX(CENTER_ALIGNMENT);
 
@@ -129,14 +145,17 @@ public class WorkoutPage extends JPanel implements WorkoutPageInterface {
         return workoutName.getText();
     }
 
-    @Override
-    public void addFirstNextListener(ActionListener e) {
-        firstNext.addActionListener(e);
+    public String getExerciseChoice() {
+        return (String) exercises.getSelectedItem();
+    }
+
+    public Integer getSetNumber() {
+        return (Integer) sets.getSelectedItem();
     }
 
     @Override
-    public void userExercises(List<String> StringList) {
-
+    public void addFirstNextListener(ActionListener e) {
+        firstNext.addActionListener(e);
     }
 
     @Override
@@ -147,6 +166,8 @@ public class WorkoutPage extends JPanel implements WorkoutPageInterface {
     @Override
     public void reset() {
         workoutName.setText("");
+        exercises.removeAllItems();
+        sets.removeAllItems();
     }
 
     @Override
@@ -158,6 +179,17 @@ public class WorkoutPage extends JPanel implements WorkoutPageInterface {
         for (String s : exerciseList) {
             exercises.addItem(s);
         }
+    }
+
+    public void addSetList(List<Integer> setList) {
+        for (Integer i : setList) {
+            sets.addItem(i);
+        }
+    }
+
+    public void toSecondPage() {
+        landing.setVisible(false);
+        selectExercise.setVisible(true);
     }
 
 }
