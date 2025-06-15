@@ -1,6 +1,5 @@
 package GUI.view;
 
-import java.awt.Dimension;
 import java.awt.GridLayout;
 import java.awt.event.ActionListener;
 
@@ -30,11 +29,11 @@ public class HomePage extends JPanel implements HomePageInterface {
     private final JLabel userGreeting;
     private final JLabel homeArt;
 
-    private JPanel buttonPanel;
-    private JButton workout;
-    private JButton workoutHistory;
-    private JButton userInfo;
-    private JButton goals;
+    private final JPanel buttonPanel;
+    private final JButton workout;
+    private final JButton workoutHistory;
+    private final JButton userInfo;
+    private final JButton goals;
 
     public HomePage() {
         setBackground(Utilities.backgroundColour);

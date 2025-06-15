@@ -26,4 +26,6 @@ public interface RegisterPageInterface {
 
     void invalidUserInfo(String s);
 
+    void failedToSaveData();
+
 }

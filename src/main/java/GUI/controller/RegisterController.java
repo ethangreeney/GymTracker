@@ -6,16 +6,9 @@ import GUI.view.RegisterPageInterface;
 
 public class RegisterController {
 
-    private DatabaseManager model;
-    private RegisterPageInterface view;
-    private ApplicationController controller;
-
     private User currentUser;
 
     public RegisterController(DatabaseManager model, ApplicationController controller, RegisterPageInterface view) {
-        this.model = model;
-        this.view = view;
-        this.controller = controller;
 
         currentUser = new User();
 

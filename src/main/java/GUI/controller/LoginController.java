@@ -5,15 +5,8 @@ import GUI.model.User;
 import GUI.view.LoginPageInterface;
 
 public class LoginController {
-    DatabaseManager model;
-    LoginPageInterface view;
-    ApplicationController controller;
 
     public LoginController(DatabaseManager model, ApplicationController controller, LoginPageInterface view) {
-        this.model = model;
-        this.view = view;
-        this.controller = controller;
-
         view.addLoginListener(e -> {
             String user = view.getUsername();
             String pass = view.getPassword();
@@ -27,5 +20,4 @@ public class LoginController {
         });
 
     }
-
 }

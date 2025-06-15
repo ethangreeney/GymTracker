@@ -20,6 +20,8 @@ public class ApplicationController {
     private DatabaseManager dbManager;
     private User currentUser;
 
+    HomePage homeView;
+
     public ApplicationController() {
 
         setupDatabase();
@@ -32,7 +34,7 @@ public class ApplicationController {
         LoginPage loginView = new LoginPage();
         LoginController loginScene = new LoginController(dbManager, this, loginView);
 
-        HomePage homeView = new HomePage();
+        homeView = new HomePage();
         HomeController homeScene = new HomeController(dbManager, this, homeView);
 
         RegisterPage registerView = new RegisterPage();
@@ -67,6 +69,7 @@ public class ApplicationController {
 
     public void showHomePage(User user) {
         currentUser = user;
+        homeView.setWelcomeMessage(user);
         mainFrame.showPanel(MainFrame.HOME_PAGE);
     }
 
