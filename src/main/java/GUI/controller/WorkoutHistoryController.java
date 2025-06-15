@@ -16,7 +16,11 @@ public class WorkoutHistoryController {
             @SuppressWarnings("unchecked")
             JList<String> sourceList = (JList<String>) e.getSource();
 
-            view.updateDisplay(view.getWorkoutAtIndex(sourceList.getSelectedIndex()).toString());
+            int selectedIndex = sourceList.getSelectedIndex();
+
+            if (selectedIndex != -1) {
+                view.updateDisplay(view.getWorkoutAtIndex(selectedIndex).toString());
+            }
 
         });
 
