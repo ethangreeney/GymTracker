@@ -1,5 +1,7 @@
 package GUI.controller;
 
+import javax.swing.JList;
+
 import GUI.model.DatabaseManager;
 import GUI.view.WorkoutHistoryPageInterface;
 
@@ -9,7 +11,13 @@ public class WorkoutHistoryController {
             WorkoutHistoryPageInterface view) {
 
         view.addBackListener(e -> controller.showHomePage(controller.getCurrentUser()));
-        view.previousWorkoutsListener(e -> view.updateDisplay(e.toString()));
+        view.previousWorkoutsListener(e -> {
+
+            JList<String> sourceList = (JList<String>) e.getSource();
+
+            view.updateDisplay(view.getWorkoutAtIndex(sourceList.getSelectedIndex()).toString());
+
+        });
 
     }
 
