@@ -3,14 +3,25 @@ package GUI.view;
 import javax.swing.*;
 import java.awt.event.ActionListener;
 
-public class UserInfoPage extends JPanel {
-    private String asciiArt = "";
+public class UserInfoPage extends JPanel implements UserInfoPageInterface {
+    private String asciiArt = """
+
+            ██╗   ██╗███████╗███████╗██████╗     ██╗███╗   ██╗███████╗ ██████╗
+            ██║   ██║██╔════╝██╔════╝██╔══██╗    ██║████╗  ██║██╔════╝██╔═══██╗
+            ██║   ██║███████╗█████╗  ██████╔╝    ██║██╔██╗ ██║█████╗  ██║   ██║
+            ██║   ██║╚════██║██╔══╝  ██╔══██╗    ██║██║╚██╗██║██╔══╝  ██║   ██║
+            ╚██████╔╝███████║███████╗██║  ██║    ██║██║ ╚████║██║     ╚██████╔╝
+             ╚═════╝ ╚══════╝╚══════╝╚═╝  ╚═╝    ╚═╝╚═╝  ╚═══╝╚═╝      ╚═════╝
+
+            """;
 
     private JLabel userInformation;
     private JLabel warningText;
     private JPanel topBar;
     private JButton back;
     private JButton edit;
+
+    private JPanel displayPanel;
 
     public UserInfoPage() {
         setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
@@ -30,11 +41,22 @@ public class UserInfoPage extends JPanel {
 
         add(topBar);
 
+        userInformation = new JLabel(Utilities.toHtmlFormat(asciiArt));
+        userInformation.setHorizontalAlignment(SwingConstants.CENTER);
+        userInformation.setAlignmentX(CENTER_ALIGNMENT);
+
+        add(userInformation);
     }
 
+    @Override
     public void addBackListener(ActionListener e) {
         back.addActionListener(e);
 
+    }
+
+    @Override
+    public void addEditListener(ActionListener e) {
+        edit.addActionListener(e);
     }
 
 }
