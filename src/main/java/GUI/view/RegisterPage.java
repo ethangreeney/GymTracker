@@ -216,6 +216,7 @@ public class RegisterPage extends JPanel implements RegisterPageInterface {
     @Override
     public void invalidUserInfo(String s) {
         duplicate.setText("Invalid" + s);
+        duplicate.setVisible(true);
     }
 
 }
