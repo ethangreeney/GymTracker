@@ -92,7 +92,7 @@ public class HomePage extends JPanel implements HomePageInterface {
 
     @Override
     public void setWelcomeMessage(User user) {
-        userGreeting.setText("Welcome " + user.getUsername());
+        userGreeting.setText("Welcome, " + user.getName());
     }
 
     @Override

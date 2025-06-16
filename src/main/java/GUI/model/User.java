@@ -85,6 +85,10 @@ public class User {
         this.age = age;
     }
 
+    public void setUserGoals(List<Goal> userGoals) {
+        this.userGoals = userGoals;
+    }
+
     public int getWeight() {
         return weight;
     }

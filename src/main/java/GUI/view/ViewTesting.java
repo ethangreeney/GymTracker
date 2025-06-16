@@ -10,8 +10,9 @@ public class ViewTesting {
         WorkoutPage wop = new WorkoutPage();
         WorkoutHistoryPage wh = new WorkoutHistoryPage();
         UserInfoPage uip = new UserInfoPage();
+        GoalPage gp = new GoalPage();
 
-        mf.add(uip);
+        mf.add(gp);
         mf.setVisible(true);
 
     }

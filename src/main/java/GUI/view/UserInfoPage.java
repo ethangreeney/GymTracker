@@ -247,7 +247,7 @@ public class UserInfoPage extends JPanel implements UserInfoPageInferface {
         ageLabel.setText("Age: " + String.valueOf(user.getAge()));
         heightLabel.setText("Height: " + String.valueOf(user.getHeight()));
         weightLabel.setText("Weight: " + String.valueOf(user.getWeight()));
-        BMILabel.setText("BMI: " + String.valueOf(Math.round(user.getBMI() * 10) / 10));
+        BMILabel.setText("BMI: " + String.valueOf(Math.round(user.getBMI() * 10) / 10f));
     }
 
     @Override

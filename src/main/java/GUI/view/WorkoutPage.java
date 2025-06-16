@@ -53,13 +53,6 @@ public class WorkoutPage extends JPanel implements WorkoutPageInterface {
     private final JLabel weightLabel;
     private final JTextArea weight;
 
-    /*
-     * 
-     * private final JPanel Landing;
-     * private final JPanel page1;
-     * private final JPanel page2;
-     */
-
     public WorkoutPage() {
         setBackground(Utilities.backgroundColour);
         setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));

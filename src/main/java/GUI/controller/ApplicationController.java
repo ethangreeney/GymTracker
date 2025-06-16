@@ -4,11 +4,15 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.util.Arrays;
+import java.util.List;
 
 import javax.swing.SwingUtilities;
 
 import GUI.model.DatabaseManager;
+import GUI.model.Goal;
 import GUI.model.User;
+import GUI.view.GoalPage;
+import GUI.view.GoalPageInterface;
 import GUI.view.HomePage;
 import GUI.view.LoginPage;
 import GUI.view.LoginPageInterface;
@@ -36,6 +40,7 @@ public class ApplicationController {
     WorkoutPage workoutView;
     WorkoutHistoryPage workoutHistoryView;
     UserInfoPage userInfoView;
+    GoalPage goalView;
 
     WorkoutController workoutController;
 
@@ -66,6 +71,9 @@ public class ApplicationController {
         userInfoView = new UserInfoPage();
         new UserInfoController(dbManager, this, userInfoView);
 
+        goalView = new GoalPage();
+        new GoalController(dbManager, this, goalView);
+
         mainFrame.addPanel(welcomeView, MainFrame.WELCOME_PAGE);
         mainFrame.addPanel(loginView, MainFrame.LOGIN_PAGE);
         mainFrame.addPanel(homeView, MainFrame.HOME_PAGE);
@@ -73,6 +81,7 @@ public class ApplicationController {
         mainFrame.addPanel(workoutView, MainFrame.NEW_WORKOUT_PAGE);
         mainFrame.addPanel(workoutHistoryView, MainFrame.WORKOUT_HISTORY_PAGE);
         mainFrame.addPanel(userInfoView, MainFrame.USER_INFO_PAGE);
+        mainFrame.addPanel(goalView, MainFrame.GOAL_PAGE);
 
         mainFrame.showPanel(MainFrame.WELCOME_PAGE);
         mainFrame.setVisible(true);
@@ -109,6 +118,14 @@ public class ApplicationController {
     }
 
     public void showGoalPage() {
+
+        GoalPageInterface view = goalView;
+
+        List<Goal> goals = dbManager.getGoals(currentUser);
+        currentUser.setUserGoals(goals);
+
+        view.clearInput();
+        view.populateGoals(currentUser.getUserGoals());
         mainFrame.showPanel(MainFrame.GOAL_PAGE);
     }
 

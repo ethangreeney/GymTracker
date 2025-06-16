@@ -62,6 +62,78 @@ public class DatabaseManager {
         return workoutHistory;
     }
 
+    // used ai for goal database fuctionality
+    public boolean saveGoal(User user, Goal goal) {
+        String sql = "INSERT INTO GOALS(user_id, description, start_date, end_date) VALUES (?, ?, ?, ?)";
+        try (PreparedStatement pstmt = conn.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS)) {
+            pstmt.setInt(1, user.getUserID());
+            pstmt.setString(2, goal.getGoalDescription());
+            pstmt.setDate(3, new java.sql.Date(goal.getStartDate().getTime()));
+
+            if (goal.getEndDate() != null) {
+                pstmt.setDate(4, new java.sql.Date(goal.getEndDate().getTime()));
+            } else {
+                pstmt.setNull(4, java.sql.Types.DATE);
+            }
+
+            int affectedRows = pstmt.executeUpdate();
+            if (affectedRows > 0) {
+                try (ResultSet generatedKeys = pstmt.getGeneratedKeys()) {
+                    if (generatedKeys.next()) {
+                        goal.setGoalId(generatedKeys.getInt(1));
+                        return true;
+                    }
+                }
+            }
+        } catch (SQLException e) {
+            System.err.println("Error saving goal: " + e.getMessage());
+        }
+        return false;
+    }
+
+    public List<Goal> getGoals(User user) {
+        List<Goal> goals = new ArrayList<>();
+        String sql = "SELECT goal_id, description, start_date, end_date FROM GOALS WHERE user_id = ? ORDER BY start_date DESC";
+
+        try (PreparedStatement pstmt = conn.prepareStatement(sql)) {
+            pstmt.setInt(1, user.getUserID());
+            ResultSet rs = pstmt.executeQuery();
+
+            while (rs.next()) {
+                Goal goal = new Goal(rs.getString("description"));
+                goal.setGoalId(rs.getInt("goal_id"));
+                goal.setStartDate(rs.getDate("start_date"));
+                goal.setEndDate(rs.getDate("end_date"));
+                goals.add(goal);
+            }
+        } catch (SQLException e) {
+            System.err.println("Error retrieving goals: " + e.getMessage());
+        }
+        return goals;
+    }
+
+    public boolean updateGoal(Goal goal) {
+        String sql = "UPDATE GOALS SET description = ?, start_date = ?, end_date = ? WHERE goal_id = ?";
+        try (PreparedStatement pstmt = conn.prepareStatement(sql)) {
+            pstmt.setString(1, goal.getGoalDescription());
+            pstmt.setDate(2, new java.sql.Date(goal.getStartDate().getTime()));
+
+            if (goal.getEndDate() != null) {
+                pstmt.setDate(3, new java.sql.Date(goal.getEndDate().getTime()));
+            } else {
+                pstmt.setNull(3, java.sql.Types.DATE);
+            }
+
+            pstmt.setInt(4, goal.getGoalId());
+
+            int affectedRows = pstmt.executeUpdate();
+            return affectedRows > 0;
+        } catch (SQLException e) {
+            System.err.println("Error updating goal: " + e.getMessage());
+        }
+        return false;
+    }
+
     // USED AI FOR THE FOLLOWING SAVEWORKOUT METHOD
     public boolean saveWorkout(User user, Workout workout) {
 
@@ -128,6 +200,8 @@ public class DatabaseManager {
             return false;
         }
     }
+
+    // AI CREATED THE FIRST TWO TABLES
 
     public void setupTables(Connection conn) {
         try {
