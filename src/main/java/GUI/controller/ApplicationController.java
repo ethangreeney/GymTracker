@@ -107,6 +107,12 @@ public class ApplicationController {
         mainFrame.showPanel(MainFrame.LOGIN_PAGE);
     }
 
+    public void showWelcomePage() {
+        loginView.reset();
+        registerView.reset();
+        mainFrame.showPanel(MainFrame.WELCOME_PAGE);
+    }
+
     public void showHomePage(User user) {
         currentUser = user;
         homeView.setWelcomeMessage(currentUser);

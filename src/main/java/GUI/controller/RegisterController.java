@@ -30,6 +30,8 @@ public class RegisterController {
 
         });
 
+        view.addBackListener(e -> controller.showWelcomePage());
+
         view.addConfirmListener(e -> {
 
             currentUser.setName(view.getInfoName());

@@ -24,5 +24,7 @@ public class LoginController {
             }
         });
 
+        view.addBackListener(e -> controller.showWelcomePage());
+
     }
 }
