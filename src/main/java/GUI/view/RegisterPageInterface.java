@@ -32,4 +32,6 @@ public interface RegisterPageInterface {
 
     void emptyInfo();
 
+    public void addBackListener(ActionListener e);
+
 }

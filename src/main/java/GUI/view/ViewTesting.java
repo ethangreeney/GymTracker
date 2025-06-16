@@ -3,7 +3,7 @@ package GUI.view;
 public class ViewTesting {
     public static void main(String[] args) {
         MainFrame mf = new MainFrame();
-        LoginPageInterface lp = new LoginPage();
+        LoginPage lp = new LoginPage();
         RegisterPage rp = new RegisterPage();
         HomePage hp = new HomePage();
         WelcomePage wp = new WelcomePage();
@@ -12,7 +12,7 @@ public class ViewTesting {
         UserInfoPage uip = new UserInfoPage();
         GoalPage gp = new GoalPage();
 
-        mf.add(gp);
+        mf.add(lp);
         mf.setVisible(true);
 
     }

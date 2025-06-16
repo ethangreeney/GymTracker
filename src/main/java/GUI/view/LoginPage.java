@@ -24,6 +24,8 @@ public class LoginPage extends JPanel implements LoginPageInterface {
     private final JButton login;
     private final JPanel userInterface;
     private final Dimension textFieldSize = new Dimension(215, 35);
+    private final JPanel topBar;
+    private final JButton back;
 
     private final String asciiArt = """
 
@@ -38,13 +40,27 @@ public class LoginPage extends JPanel implements LoginPageInterface {
             """;
 
     public LoginPage() {
+        setBackground(Utilities.backgroundColour);
+        setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
+
+        add(Box.createRigidArea(Utilities.buttonGap));
+
+        topBar = new JPanel();
+        topBar.setBackground(this.getBackground());
+        topBar.setLayout(new BoxLayout(topBar, BoxLayout.X_AXIS));
+
+        back = new JButton("Back");
+        topBar.add(Box.createHorizontalGlue());
+        topBar.add(back);
+        topBar.add(Box.createHorizontalStrut(20));
+        topBar.setMaximumSize(Utilities.topBarGap(topBar));
+
+        add(topBar);
 
         loginText = new JLabel(Utilities.toHtmlFormat(asciiArt));
         loginText.setAlignmentX(CENTER_ALIGNMENT);
         loginText.setHorizontalAlignment(SwingConstants.CENTER);
 
-        setBackground(Utilities.backgroundColour);
-        setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
         add(loginText);
 
         add(Box.createRigidArea(Utilities.buttonGap));
@@ -118,6 +134,10 @@ public class LoginPage extends JPanel implements LoginPageInterface {
         usernameField.setText("");
         passwordField.setText("");
         loginFailed.setText("");
+    }
+
+    public void addBackListener(ActionListener e) {
+        back.addActionListener(e);
     }
 
 }

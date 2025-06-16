@@ -14,4 +14,6 @@ public interface LoginPageInterface {
 
     void reset();
 
+    void addBackListener(ActionListener e);
+
 }

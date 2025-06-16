@@ -2,6 +2,7 @@ package GUI.view;
 
 import java.awt.Color;
 import java.awt.Dimension;
+import java.awt.Desktop.Action;
 import java.awt.event.ActionListener;
 
 import javax.swing.Box;
@@ -49,6 +50,9 @@ public class RegisterPage extends JPanel implements RegisterPageInterface {
     private final JTextField weight;
     private final JButton confirm;
 
+    private final JPanel topBar;
+    private final JButton back;
+
     private final Dimension textFieldSize = new Dimension(215, 35);
     private final Dimension mediumGap = new Dimension(0, 15);
     private final Dimension largerGap = new Dimension(0, 35);
@@ -56,6 +60,20 @@ public class RegisterPage extends JPanel implements RegisterPageInterface {
     public RegisterPage() {
         setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
         setBackground(Utilities.backgroundColour);
+
+        add(Box.createRigidArea(Utilities.buttonGap));
+
+        topBar = new JPanel();
+        topBar.setBackground(this.getBackground());
+        topBar.setLayout(new BoxLayout(topBar, BoxLayout.X_AXIS));
+
+        back = new JButton("Back");
+        topBar.add(Box.createHorizontalGlue());
+        topBar.add(back);
+        topBar.add(Box.createHorizontalStrut(20));
+        topBar.setMaximumSize(Utilities.topBarGap(topBar));
+
+        add(topBar);
 
         registerText = new JLabel(Utilities.toHtmlFormat(asciiArt));
         registerText.setAlignmentX(CENTER_ALIGNMENT);
@@ -243,6 +261,10 @@ public class RegisterPage extends JPanel implements RegisterPageInterface {
     public void emptyInfo() {
         duplicate.setText("Username and password cannot be empty");
         duplicate.setVisible(true);
+    }
+
+    public void addBackListener(ActionListener e) {
+        back.addActionListener(e);
     }
 
 }
