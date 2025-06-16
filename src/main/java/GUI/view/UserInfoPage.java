@@ -4,6 +4,7 @@ import javax.swing.*;
 
 import GUI.model.User;
 
+import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Font;
 import java.awt.event.ActionListener;
@@ -17,7 +18,6 @@ public class UserInfoPage extends JPanel implements UserInfoPageInferface {
             ██║   ██║╚════██║██╔══╝  ██╔══██╗    ██║██║╚██╗██║██╔══╝  ██║   ██║
             ╚██████╔╝███████║███████╗██║  ██║    ██║██║ ╚████║██║     ╚██████╔╝
              ╚═════╝ ╚══════╝╚══════╝╚═╝  ╚═╝    ╚═╝╚═╝  ╚═══╝╚═╝      ╚═════╝
-
             """;
 
     private JLabel userInformation;
@@ -73,6 +73,11 @@ public class UserInfoPage extends JPanel implements UserInfoPageInferface {
         userInformation.setAlignmentX(CENTER_ALIGNMENT);
 
         add(userInformation);
+
+        warningText = new JLabel(" ");
+        warningText.setAlignmentX(CENTER_ALIGNMENT);
+        warningText.setForeground(Color.red);
+        add(warningText);
 
         displayPanel = new JPanel();
         displayPanel.setBackground(this.getBackground());
@@ -211,6 +216,7 @@ public class UserInfoPage extends JPanel implements UserInfoPageInferface {
 
     @Override
     public void toDisplayPanel() {
+        warningText.setText(" ");
         editPanel.setVisible(false);
         name.setText("");
         age.setText("");
@@ -221,6 +227,7 @@ public class UserInfoPage extends JPanel implements UserInfoPageInferface {
 
     @Override
     public void toEditPanel() {
+        warningText.setText(" ");
         displayPanel.setVisible(false);
         name.setText("");
         age.setText("");
@@ -239,6 +246,12 @@ public class UserInfoPage extends JPanel implements UserInfoPageInferface {
 
     public void updateBMI(Double bmi) {
         BMILabel.setText(String.valueOf(bmi));
+    }
+
+    @Override
+    public void invalidUpdateInfo(String s) {
+        warningText.setText("Invalid " + s);
+        warningText.setVisible(true);
     }
 
 }
