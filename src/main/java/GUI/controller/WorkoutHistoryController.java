@@ -3,6 +3,7 @@ package GUI.controller;
 import javax.swing.JList;
 
 import GUI.model.DatabaseManager;
+import GUI.model.Workout;
 import GUI.view.WorkoutHistoryPageInterface;
 
 public class WorkoutHistoryController {
@@ -13,8 +14,7 @@ public class WorkoutHistoryController {
         view.addBackListener(e -> controller.showHomePage(controller.getCurrentUser()));
         view.previousWorkoutsListener(e -> {
 
-            @SuppressWarnings("unchecked")
-            JList<String> sourceList = (JList<String>) e.getSource();
+            JList<Workout> sourceList = (JList<Workout>) e.getSource();
 
             int selectedIndex = sourceList.getSelectedIndex();
 

@@ -36,6 +36,8 @@ public class ApplicationController {
     WorkoutHistoryPage workoutHistoryView;
     UserInfoPage userInfoView;
 
+    WorkoutController workoutController;
+
     public ApplicationController() {
 
         setupDatabase();
@@ -55,7 +57,7 @@ public class ApplicationController {
         new HomeController(dbManager, this, homeView);
 
         workoutView = new WorkoutPage();
-        new WorkoutController(dbManager, this, workoutView);
+        workoutController = new WorkoutController(dbManager, this, workoutView);
 
         workoutHistoryView = new WorkoutHistoryPage();
         new WorkoutHistoryController(dbManager, this, workoutHistoryView);
@@ -125,6 +127,7 @@ public class ApplicationController {
 
         WorkoutPageInterface view = workoutView;
 
+        workoutController.reset();
         view.reset();
         workoutView.addExercisesList(dbManager.getDefaultExercises());
         workoutView.addSetList(Arrays.asList(1, 2, 3, 4, 5, 6, 7, 8, 9, 10));
