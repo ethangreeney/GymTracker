@@ -94,23 +94,23 @@ public class UserInfoPage extends JPanel implements UserInfoPageInterface {
 
         nameLabel = new JLabel("test name");
         nameLabel.setAlignmentX(CENTER_ALIGNMENT);
-        nameLabel.setFont(new Font("Arial", Font.BOLD, 30));
+        nameLabel.setFont(new Font("Arial", Font.BOLD, 22));
 
         ageLabel = new JLabel("test age");
         ageLabel.setAlignmentX(CENTER_ALIGNMENT);
-        ageLabel.setFont(new Font("Arial", Font.BOLD, 30));
+        ageLabel.setFont(new Font("Arial", Font.BOLD, 22));
 
         heightLabel = new JLabel("test height");
         heightLabel.setAlignmentX(CENTER_ALIGNMENT);
-        heightLabel.setFont(new Font("Arial", Font.BOLD, 30));
+        heightLabel.setFont(new Font("Arial", Font.BOLD, 22));
 
         weightLabel = new JLabel("test weight");
         weightLabel.setAlignmentX(CENTER_ALIGNMENT);
-        weightLabel.setFont(new Font("Arial", Font.BOLD, 30));
+        weightLabel.setFont(new Font("Arial", Font.BOLD, 22));
 
         BMILabel = new JLabel("test BMI");
         BMILabel.setAlignmentX(CENTER_ALIGNMENT);
-        BMILabel.setFont(new Font("Arial", Font.BOLD, 30));
+        BMILabel.setFont(new Font("Arial", Font.BOLD, 22));
 
         edit = new JButton("Edit Information");
         edit.setAlignmentX(CENTER_ALIGNMENT);
