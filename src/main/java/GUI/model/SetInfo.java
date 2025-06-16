@@ -4,6 +4,7 @@ public class SetInfo {
     private int weight;
     private int reps;
 
+    // SetInfo object class, has get methods and set methods
     public SetInfo(int w, int r) {
         this.weight = w;
         this.reps = r;

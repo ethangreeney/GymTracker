@@ -2,6 +2,7 @@ package GUI.view;
 
 import java.awt.event.ActionListener;
 
+//login page interface for model use
 public interface LoginPageInterface {
 
     void addLoginListener(ActionListener e);

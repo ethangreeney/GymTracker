@@ -57,11 +57,13 @@ public class RegisterPage extends JPanel implements RegisterPageInterface {
     private final Dimension largerGap = new Dimension(0, 35);
 
     public RegisterPage() {
+        // setting layout
         setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
         setBackground(Utilities.backgroundColour);
 
         add(Box.createRigidArea(Utilities.buttonGap));
 
+        // back button
         topBar = new JPanel();
         topBar.setBackground(this.getBackground());
         topBar.setLayout(new BoxLayout(topBar, BoxLayout.X_AXIS));
@@ -87,6 +89,7 @@ public class RegisterPage extends JPanel implements RegisterPageInterface {
 
         add(Box.createRigidArea(largerGap));
 
+        // area for user interaction
         registerArea = new JPanel();
         registerArea.setBackground(this.getBackground());
         registerArea.setLayout(new BoxLayout(registerArea, BoxLayout.Y_AXIS));
@@ -120,6 +123,8 @@ public class RegisterPage extends JPanel implements RegisterPageInterface {
         registerArea.add(registerButton);
 
         add(registerArea);
+
+        // second panel after user creates username and password
 
         userInfo = new JPanel();
         userInfo.setLayout(new BoxLayout(userInfo, BoxLayout.Y_AXIS));

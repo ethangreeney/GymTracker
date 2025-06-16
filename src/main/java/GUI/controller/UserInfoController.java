@@ -12,6 +12,9 @@ public class UserInfoController {
         view.addEditListener(e -> view.toEditPanel());
         view.addConfirmListener(e -> {
 
+            // use String.trim() to ensure that fields are not just spaces, and remove
+            // leading / trailing whitespace
+
             User currentUser = controller.getCurrentUser();
 
             String newName = view.getNewName().trim();
@@ -23,6 +26,9 @@ public class UserInfoController {
                 view.invalidUpdateInfo("Fields cannot be empty");
                 return;
             }
+
+            // set the user name, then check that all integer values can successfully be
+            // parsed as an int
 
             currentUser.setName(newName);
 

@@ -6,7 +6,7 @@ import java.util.Date;
 import java.util.List;
 
 public class Workout {
-
+    // Workout object class, has get methods and set methods
     private String name;
     private Date workoutDate;
 

@@ -3,6 +3,7 @@ package GUI.view;
 import java.awt.event.ActionListener;
 import java.util.List;
 
+//workoutpage interface for model use
 public interface WorkoutPageInterface {
 
     String getWorkoutName();

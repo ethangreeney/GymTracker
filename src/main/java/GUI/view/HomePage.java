@@ -39,14 +39,18 @@ public class HomePage extends JPanel implements HomePageInterface {
     private final JButton goals;
 
     public HomePage() {
+
+        // Setting layout
         setBackground(Utilities.backgroundColour);
         setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
         add(Box.createRigidArea(Utilities.buttonGap));
 
+        // top bar for back button
         topBar = new JPanel();
         topBar.setBackground(this.getBackground());
         topBar.setLayout(new BoxLayout(topBar, BoxLayout.X_AXIS));
 
+        // user greeting message
         userGreeting = new JLabel("Welcome *insert username");
         userGreeting.setHorizontalAlignment(SwingConstants.CENTER);
         userGreeting.setAlignmentX(CENTER_ALIGNMENT);
@@ -63,17 +67,20 @@ public class HomePage extends JPanel implements HomePageInterface {
 
         topBar.setMaximumSize(Utilities.topBarGap(topBar));
 
+        // ascii art
         homeArt = new JLabel(Utilities.toHtmlFormat(asciiArt));
         homeArt.setHorizontalAlignment(SwingConstants.CENTER);
         homeArt.setAlignmentX(CENTER_ALIGNMENT);
 
         add(homeArt);
 
+        // Panel for buttons
         buttonPanel = new JPanel();
         buttonPanel.setBackground(this.getBackground());
         buttonPanel.setLayout(new GridLayout(2, 2, 10, 10));
         buttonPanel.setBorder(BorderFactory.createEmptyBorder(30, 80, 30, 80));
 
+        // buttons
         workout = new JButton("Workout 🏃");
 
         workoutHistory = new JButton("Workout History 📖");

@@ -43,6 +43,7 @@ public class WelcomePage extends JPanel implements WelcomePageInterface {
 
     public WelcomePage() {
 
+        // welcome page
         String htmlFormattedArt = Utilities.toHtmlFormat(asciiArt);
         this.welcomeText = new JLabel(htmlFormattedArt);
 
@@ -60,6 +61,7 @@ public class WelcomePage extends JPanel implements WelcomePageInterface {
         this.welcomeText2.setAlignmentX(Component.CENTER_ALIGNMENT);
         this.welcomeText2.setHorizontalAlignment(SwingConstants.CENTER);
 
+        // buttons for login or register
         this.loginButton = new JButton("Login");
         loginButton.setPreferredSize(buttonSize);
         loginButton.setMinimumSize(buttonSize);

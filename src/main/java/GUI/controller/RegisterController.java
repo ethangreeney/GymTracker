@@ -12,6 +12,8 @@ public class RegisterController {
 
         currentUser = new User();
 
+        // add action listeners to the buttons of the view
+
         view.addRegisterListener(e -> {
 
             currentUser.setUsername(view.getUsername());

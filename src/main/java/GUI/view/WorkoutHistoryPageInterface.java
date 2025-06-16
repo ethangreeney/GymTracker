@@ -7,6 +7,8 @@ import javax.swing.event.ListSelectionListener;
 
 import GUI.model.Workout;
 
+//workouthistory interface for model use
+
 public interface WorkoutHistoryPageInterface {
 
     void populateWorkouts(List<Workout> workouts);

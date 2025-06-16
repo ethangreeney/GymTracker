@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class User {
-
+    // User object class, has get methods and set methods
     private String username;
     private String password;
 

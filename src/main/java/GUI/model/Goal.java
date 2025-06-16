@@ -5,6 +5,7 @@ import java.util.Date;
 
 public class Goal {
 
+    // Goal object class, has get methods and set methods
     private final String goalDescription;
     private Date startDate;
     private Date endDate;

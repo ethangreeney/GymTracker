@@ -14,10 +14,12 @@ public class DatabaseManager {
 
     private final Connection conn;
 
+    // establishing database connection
     public DatabaseManager(Connection connection) {
         this.conn = connection;
     }
 
+    // getting user workout history
     public List<Workout> getWorkoutHistory(User user) {
         List<Workout> workoutHistory = new ArrayList<>();
 
@@ -91,6 +93,7 @@ public class DatabaseManager {
         return false;
     }
 
+    // getting user goals
     public List<Goal> getGoals(User user) {
         List<Goal> goals = new ArrayList<>();
         String sql = "SELECT goal_id, description, start_date, end_date FROM GOALS WHERE user_id = ? ORDER BY start_date DESC";
@@ -112,6 +115,7 @@ public class DatabaseManager {
         return goals;
     }
 
+    // updating user goals
     public boolean updateGoal(Goal goal) {
         String sql = "UPDATE GOALS SET description = ?, start_date = ?, end_date = ? WHERE goal_id = ?";
         try (PreparedStatement pstmt = conn.prepareStatement(sql)) {
@@ -287,6 +291,7 @@ public class DatabaseManager {
         }
     }
 
+    // check if table exists
     private boolean tableExists(Connection conn, String tableName) throws SQLException {
         DatabaseMetaData meta = conn.getMetaData();
         try (ResultSet rs = meta.getTables(null, null, tableName.toUpperCase(), new String[] { "TABLE" })) {
@@ -294,6 +299,7 @@ public class DatabaseManager {
         }
     }
 
+    // predetermined exercises that every user has
     public List<String> getDefaultExercises() {
         return Arrays.asList(
                 "Bench Press",
@@ -324,6 +330,7 @@ public class DatabaseManager {
                 "Leg Press");
     }
 
+    // adding user
     public boolean addUser(User user) {
         String sql = "INSERT INTO USERS(username, password, name, age, height_cm, weight_kg) VALUES(?, ?, ?, ?, ?, ?)";
 
@@ -351,6 +358,7 @@ public class DatabaseManager {
         return false;
     }
 
+    // checking if user exists
     public boolean userExists(String username) {
         String sql = "SELECT 1 FROM USERS WHERE username = ?";
 
@@ -366,6 +374,7 @@ public class DatabaseManager {
         return false;
     }
 
+    // getting user informaiton
     public User getUser(String username, String password) {
         String sql = "SELECT * FROM USERS WHERE username = ? AND password = ?";
         User user = null;
@@ -393,6 +402,7 @@ public class DatabaseManager {
         return user;
     }
 
+    // updating user information
     public boolean updateUser(User user) {
         String sql = "UPDATE USERS SET name = ?, age = ?, height_cm = ?, weight_kg = ? WHERE user_id = ?";
 

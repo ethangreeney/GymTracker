@@ -56,11 +56,13 @@ public class UserInfoPage extends JPanel implements UserInfoPageInferface {
     private final Dimension textFieldSize = new Dimension(215, 35);
 
     public UserInfoPage() {
+        // Set layout
         setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
         setBackground(Utilities.backgroundColour);
 
         add(Box.createRigidArea(Utilities.buttonGap));
 
+        // top bar for back button
         topBar = new JPanel();
         topBar.setBackground(this.getBackground());
         topBar.setLayout(new BoxLayout(topBar, BoxLayout.X_AXIS));
@@ -79,11 +81,13 @@ public class UserInfoPage extends JPanel implements UserInfoPageInferface {
 
         add(userInformation);
 
+        // warning text
         warningText = new JLabel(" ");
         warningText.setAlignmentX(CENTER_ALIGNMENT);
         warningText.setForeground(Color.red);
         add(warningText);
 
+        // display user information
         displayPanel = new JPanel();
         displayPanel.setBackground(this.getBackground());
         displayPanel.setLayout(new BoxLayout(displayPanel, BoxLayout.Y_AXIS));

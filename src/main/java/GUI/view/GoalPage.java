@@ -51,9 +51,11 @@ public class GoalPage extends JPanel implements GoalPageInterface {
     private final JPanel inputPanel;
 
     public GoalPage() {
+        // setting background and layout
         setBackground(Utilities.backgroundColour);
         setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
 
+        // creating top bar for back button
         topBar = new JPanel();
         topBar.setBackground(getBackground());
         topBar.setLayout(new BoxLayout(topBar, BoxLayout.X_AXIS));
@@ -64,6 +66,7 @@ public class GoalPage extends JPanel implements GoalPageInterface {
         topBar.setMaximumSize(Utilities.topBarGap(topBar));
         add(topBar);
 
+        // ascii art
         goalArtLabel = new JLabel(Utilities.toHtmlFormat(asciiArt));
         goalArtLabel.setAlignmentX(CENTER_ALIGNMENT);
         goalArtLabel.setHorizontalAlignment(SwingConstants.CENTER);
@@ -74,6 +77,7 @@ public class GoalPage extends JPanel implements GoalPageInterface {
         messageLabel.setHorizontalAlignment(SwingConstants.CENTER);
         add(messageLabel);
 
+        // content panel which the user interacts with
         contentPanel = new JPanel(new GridLayout(1, 2, 10, 0));
         contentPanel.setBackground(getBackground());
         contentPanel.setBorder(BorderFactory.createEmptyBorder(10, 20, 10, 20));
@@ -92,6 +96,7 @@ public class GoalPage extends JPanel implements GoalPageInterface {
         contentPanel.add(detailsScrollPane);
         add(contentPanel);
 
+        // input panel for when creating a new goal
         inputPanel = new JPanel();
         inputPanel.setBackground(getBackground());
         inputPanel.setLayout(new BoxLayout(inputPanel, BoxLayout.Y_AXIS));

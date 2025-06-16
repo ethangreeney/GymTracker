@@ -40,11 +40,13 @@ public class LoginPage extends JPanel implements LoginPageInterface {
             """;
 
     public LoginPage() {
+        // layouts etting
         setBackground(Utilities.backgroundColour);
         setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
 
         add(Box.createRigidArea(Utilities.buttonGap));
 
+        // top bar for back butotn
         topBar = new JPanel();
         topBar.setBackground(this.getBackground());
         topBar.setLayout(new BoxLayout(topBar, BoxLayout.X_AXIS));
@@ -63,12 +65,14 @@ public class LoginPage extends JPanel implements LoginPageInterface {
 
         add(loginText);
 
+        // JLabel for invalid login
         add(Box.createRigidArea(Utilities.buttonGap));
         loginFailed = new JLabel(" ");
         loginFailed.setAlignmentX(CENTER_ALIGNMENT);
         add(loginFailed);
         add(Box.createRigidArea(new Dimension(0, 35)));
 
+        // user interaction panel
         userInterface = new JPanel();
         userInterface.setBackground(Utilities.backgroundColour);
         userInterface.setLayout(new BoxLayout(userInterface, BoxLayout.Y_AXIS));

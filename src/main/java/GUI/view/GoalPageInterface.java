@@ -7,6 +7,7 @@ import javax.swing.event.ListSelectionListener;
 
 import GUI.model.Goal;
 
+//interfaces for Goal for model use
 public interface GoalPageInterface {
 
     void addBackListener(ActionListener e);

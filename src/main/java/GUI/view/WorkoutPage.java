@@ -54,11 +54,13 @@ public class WorkoutPage extends JPanel implements WorkoutPageInterface {
     private final JTextArea weight;
 
     public WorkoutPage() {
+        // setting layout
         setBackground(Utilities.backgroundColour);
         setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
 
         add(Box.createRigidArea(Utilities.buttonGap));
 
+        // adding back button
         topBar = new JPanel();
         topBar.setBackground(this.getBackground());
         topBar.setLayout(new BoxLayout(topBar, BoxLayout.X_AXIS));
@@ -77,6 +79,7 @@ public class WorkoutPage extends JPanel implements WorkoutPageInterface {
 
         add(workoutArt);
 
+        // warning text
         warningText = new JLabel(" ");
         warningText.setForeground(Color.red);
         warningText.setAlignmentX(CENTER_ALIGNMENT);

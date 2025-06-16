@@ -5,6 +5,7 @@ import java.awt.Dimension;
 
 import javax.swing.JPanel;
 
+//public utilities class, for setting constants
 public class Utilities {
 
     public static Color backgroundColour = Color.getHSBColor(0.6f, 0, .9f);

@@ -48,11 +48,13 @@ public class WorkoutHistoryPage extends JPanel implements WorkoutHistoryPageInte
         private final DefaultListModel<Workout> listModel;
 
         public WorkoutHistoryPage() {
+                // setting layout
                 setBackground(Utilities.backgroundColour);
                 setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
 
                 add(Box.createRigidArea(Utilities.buttonGap));
 
+                // back buttom
                 topBar = new JPanel();
                 topBar.setBackground(this.getBackground());
                 topBar.setLayout(new BoxLayout(topBar, BoxLayout.X_AXIS));
@@ -72,6 +74,7 @@ public class WorkoutHistoryPage extends JPanel implements WorkoutHistoryPageInte
 
                 add(Box.createRigidArea(Utilities.buttonGap));
 
+                // panel for user interaction
                 bottomPanel = new JPanel();
                 bottomPanel.setBackground(this.getBackground());
 
@@ -82,6 +85,8 @@ public class WorkoutHistoryPage extends JPanel implements WorkoutHistoryPageInte
                 previousWorkouts.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
                 previousWorkouts.setAlignmentX(LEFT_ALIGNMENT);
 
+                // scrollpane to allow user to scroll once workout information becomes too much
+                // also for if an exercise is too long
                 scrollPane = new JScrollPane(previousWorkouts);
                 scrollPane.setPreferredSize(new Dimension(250, 150));
                 bottomPanel.add(scrollPane);

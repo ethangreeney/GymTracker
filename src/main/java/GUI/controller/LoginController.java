@@ -10,9 +10,15 @@ import GUI.view.LoginPageInterface;
 public class LoginController {
 
     public LoginController(DatabaseManager model, ApplicationController controller, LoginPageInterface view) {
+
+        // add action listeners to the buttons of the view
+
         view.addLoginListener(e -> {
             String user = view.getUsername();
             String pass = view.getPassword();
+
+            // create and populate the user object to be saved to the DB
+
             User currentUser = model.getUser(user, pass);
 
             if (currentUser == null) {

@@ -20,6 +20,8 @@ public class GoalController {
         this.controller = controller;
         this.view = view;
 
+        // add action listeners on the view buttons
+
         this.view.addBackListener(e -> this.controller.showHomePage(this.controller.getCurrentUser()));
         this.view.addNewGoalListener(e -> addNewGoal());
         this.view.addCompleteGoalListener(e -> completeSelectedGoal());

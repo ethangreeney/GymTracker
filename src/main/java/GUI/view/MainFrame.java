@@ -22,12 +22,15 @@ public class MainFrame extends JFrame {
     public static final int FRAME_WIDTH = 600;
     public static final int FRAME_HEIGHT = 500;
 
+    // main frame for program
     public MainFrame() {
+        // setting constants for the program
         setTitle("GymTracker");
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setSize(FRAME_WIDTH, FRAME_HEIGHT);
         setLocationRelativeTo(null);
 
+        // setting cardLayout so a page type program can be used
         this.cardLayout = new CardLayout();
         this.cardPanelContainer = new JPanel(cardLayout);
 

@@ -2,6 +2,7 @@ package GUI.view;
 
 import java.awt.event.ActionListener;
 
+//Registerpage interface for model use
 public interface RegisterPageInterface {
 
     void addRegisterListener(ActionListener e);

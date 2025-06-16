@@ -5,6 +5,8 @@ import java.util.List;
 
 public class Exercise {
 
+    // Exercise object class, has get methods and set methods
+
     private final String name;
     private final List<SetInfo> sets;
 

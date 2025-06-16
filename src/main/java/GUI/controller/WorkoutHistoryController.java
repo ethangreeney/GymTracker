@@ -13,7 +13,7 @@ public class WorkoutHistoryController {
 
         view.addBackListener(e -> controller.showHomePage(controller.getCurrentUser()));
         view.previousWorkoutsListener(e -> {
-
+            // get the list of workouts that the user is selecting from in the GUI
             @SuppressWarnings("unchecked")
             JList<Workout> sourceList = (JList<Workout>) e.getSource();
 

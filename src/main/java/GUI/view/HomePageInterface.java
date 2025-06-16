@@ -4,6 +4,7 @@ import java.awt.event.ActionListener;
 
 import GUI.model.User;
 
+//home page interface for model use
 public interface HomePageInterface {
 
     void setWelcomeMessage(User user);

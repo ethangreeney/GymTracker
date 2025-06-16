@@ -33,6 +33,8 @@ public class ApplicationController {
     private DatabaseManager dbManager;
     private User currentUser;
 
+    // Store the view objects a class member for later use in other methods
+
     HomePage homeView;
     RegisterPage registerView;
     LoginPage loginView;
@@ -49,6 +51,8 @@ public class ApplicationController {
         setupDatabase();
 
         this.mainFrame = new MainFrame();
+
+        // Create scenes. Scenes are a model, view, and controller group
 
         workoutView = new WorkoutPage();
         workoutController = new WorkoutController(dbManager, this, workoutView);
@@ -74,6 +78,8 @@ public class ApplicationController {
         goalView = new GoalPage();
         new GoalController(dbManager, this, goalView);
 
+        // Add all of the views to the main JFrame
+
         mainFrame.addPanel(welcomeView, MainFrame.WELCOME_PAGE);
         mainFrame.addPanel(loginView, MainFrame.LOGIN_PAGE);
         mainFrame.addPanel(homeView, MainFrame.HOME_PAGE);
@@ -89,6 +95,7 @@ public class ApplicationController {
     }
 
     private void setupDatabase() {
+        // establish connection with database
         try {
             String dbURL = "jdbc:derby:gymDB;create=true";
             Connection dbConnection = DriverManager.getConnection(dbURL);
@@ -124,6 +131,8 @@ public class ApplicationController {
     }
 
     public void showGoalPage() {
+
+        // assign the views in thier interface to limit their public API's
 
         GoalPageInterface view = goalView;
 
