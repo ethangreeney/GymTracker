@@ -14,14 +14,24 @@ public class UserInfoController {
 
             User currentUser = controller.getCurrentUser();
 
-            currentUser.setName(view.getNewName());
+            String newName = view.getNewName().trim();
+            String newWeight = view.getNewWeight().trim();
+            String newHeight = view.getNewHeight().trim();
+            String newAge = view.getNewAge().trim();
+
+            if (newName.isEmpty() || newWeight.isEmpty() || newHeight.isEmpty() || newAge.isEmpty()) {
+                view.invalidUpdateInfo("Fields cannot be empty");
+                return;
+            }
+
+            currentUser.setName(newName);
 
             try {
-                currentUser.setWeight(Integer.parseInt(view.getNewWeight()));
-                currentUser.setHeight(Integer.parseInt(view.getNewHeight()));
-                currentUser.setAge(Integer.parseInt(view.getNewAge()));
+                currentUser.setWeight(Integer.parseInt(newWeight));
+                currentUser.setHeight(Integer.parseInt(newHeight));
+                currentUser.setAge(Integer.parseInt(newAge));
             } catch (NumberFormatException exception) {
-                view.invalidUpdateInfo("Name, Age, or Height");
+                view.invalidUpdateInfo("Age, Height, and Weight must be valid numbers");
                 return;
             }
 
