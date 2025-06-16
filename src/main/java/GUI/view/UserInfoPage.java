@@ -113,7 +113,7 @@ public class UserInfoPage extends JPanel implements UserInfoPageInferface {
 
         add(displayPanel);
 
-        displayPanel.setVisible(false);
+        displayPanel.setVisible(true);
 
         editPanel = new JPanel();
         editPanel.setBackground(this.getBackground());
@@ -168,7 +168,7 @@ public class UserInfoPage extends JPanel implements UserInfoPageInferface {
         confirm = new JButton("Confirm Changes");
         confirm.setAlignmentX(CENTER_ALIGNMENT);
         editPanel.add(confirm);
-
+        editPanel.setVisible(false);
         add(editPanel);
 
     }
