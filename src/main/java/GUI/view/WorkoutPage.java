@@ -250,10 +250,12 @@ public class WorkoutPage extends JPanel implements WorkoutPageInterface {
         thirdNext.addActionListener(e);
     }
 
+    @Override
     public void addFinishWorkoutListener(ActionListener e) {
         finishWorkout.addActionListener(e);
     }
 
+    @Override
     public void showFinishWorkout() {
         finishWorkout.setVisible(true);
     }
