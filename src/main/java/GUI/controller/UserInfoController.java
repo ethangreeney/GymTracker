@@ -1,6 +1,7 @@
 package GUI.controller;
 
 import GUI.model.DatabaseManager;
+import GUI.model.User;
 import GUI.view.UserInfoPageInferface;
 
 public class UserInfoController {
@@ -11,17 +12,22 @@ public class UserInfoController {
         view.addEditListener(e -> view.toEditPanel());
         view.addConfirmListener(e -> {
 
-            try {
-                controller.getCurrentUser().setName(view.getNewName());
-                controller.getCurrentUser().setWeight(Integer.parseInt(view.getNewWeight()));
-                controller.getCurrentUser().setHeight(Integer.parseInt(view.getNewWeight()));
-                controller.getCurrentUser().setAge(Integer.parseInt(view.getNewWeight()));
-            } catch (NumberFormatException exception) {
+            User currentUser = controller.getCurrentUser();
 
+            currentUser.setName(view.getNewName());
+
+            try {
+                currentUser.setWeight(Integer.parseInt(view.getNewWeight()));
+                currentUser.setHeight(Integer.parseInt(view.getNewHeight()));
+                currentUser.setAge(Integer.parseInt(view.getNewAge()));
+            } catch (NumberFormatException exception) {
+                view.invalidUpdateInfo("Name, Age, or Height");
+                return;
             }
 
-            controller.showUserInfoPage();
-
+            model.updateUser(currentUser);
+            view.updateUserInfo(currentUser);
+            view.toDisplayPanel();
         });
     }
 

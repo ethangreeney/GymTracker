@@ -26,8 +26,6 @@ public interface UserInfoPageInferface {
 
     void updateUserInfo(User user);
 
-    void updateBMI(Double bmi);
-
     void invalidUpdateInfo(String s);
 
 }

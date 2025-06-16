@@ -116,12 +116,8 @@ public class ApplicationController {
 
         UserInfoPageInferface view = userInfoView;
 
-        double userBmi = currentUser.getWeight()
-                / ((double) (currentUser.getHeight() / 100) * (double) (currentUser.getHeight() / 100));
-
-        view.updateBMI(userBmi);
-
         view.updateUserInfo(currentUser);
+        view.toDisplayPanel();
 
         mainFrame.showPanel(MainFrame.USER_INFO_PAGE);
     }
