@@ -155,7 +155,7 @@ public class UserInfoPage extends JPanel implements UserInfoPageInterface {
         age.setAlignmentX(CENTER_ALIGNMENT);
         editPanel.add(age);
 
-        heightLabelEdit = new JLabel("Height: ");
+        heightLabelEdit = new JLabel("Height (CM): ");
         heightLabelEdit.setAlignmentX(CENTER_ALIGNMENT);
         editPanel.add(heightLabelEdit);
 
@@ -166,7 +166,7 @@ public class UserInfoPage extends JPanel implements UserInfoPageInterface {
         height.setAlignmentX(CENTER_ALIGNMENT);
         editPanel.add(height);
 
-        weightLabelEdit = new JLabel("Weight: ");
+        weightLabelEdit = new JLabel("Weight (KG): ");
         weightLabelEdit.setAlignmentX(CENTER_ALIGNMENT);
         editPanel.add(weightLabelEdit);
 
