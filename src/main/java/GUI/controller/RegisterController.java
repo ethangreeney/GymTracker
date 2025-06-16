@@ -36,7 +36,15 @@ public class RegisterController {
 
         view.addConfirmListener(e -> {
 
-            currentUser.setName(view.getInfoName());
+            String name = view.getInfoName();
+
+            if (name.trim().equals("")) {
+                view.invalidUserInfo("Name");
+                return;
+            } else {
+                currentUser.setName(view.getInfoName());
+            }
+
             try {
                 currentUser.setAge(Integer.parseInt(view.getInfoAge()));
             } catch (NumberFormatException exception) {
