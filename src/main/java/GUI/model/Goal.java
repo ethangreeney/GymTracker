@@ -35,4 +35,16 @@ public class Goal {
 
         return goalString.toString();
     }
+
+    public String getGoalDescription() {
+        return this.goalDescription;
+    }
+
+    public Date getEndDate() {
+        return this.endDate;
+    }
+
+    public Date getStartDate() {
+        return this.startDate;
+    }
 }
