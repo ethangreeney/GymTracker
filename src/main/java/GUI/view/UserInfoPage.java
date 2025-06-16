@@ -249,8 +249,8 @@ public class UserInfoPage extends JPanel implements UserInfoPageInterface {
     public void updateUserInfo(User user) {
         nameLabel.setText("Name: " + user.getName());
         ageLabel.setText("Age: " + String.valueOf(user.getAge()));
-        heightLabel.setText("Height: " + String.valueOf(user.getHeight()));
-        weightLabel.setText("Weight: " + String.valueOf(user.getWeight()));
+        heightLabel.setText("Height: " + String.valueOf(user.getHeight()) + " CM");
+        weightLabel.setText("Weight: " + String.valueOf(user.getWeight()) + " KG");
         BMILabel.setText("BMI: " + String.valueOf(Math.round(user.getBMI() * 10) / 10f));
     }
 
