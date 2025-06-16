@@ -2,11 +2,11 @@ package GUI.controller;
 
 import GUI.model.DatabaseManager;
 import GUI.model.User;
-import GUI.view.UserInfoPageInferface;
+import GUI.view.UserInfoPageInterface;
 
 public class UserInfoController {
 
-    public UserInfoController(DatabaseManager model, ApplicationController controller, UserInfoPageInferface view) {
+    public UserInfoController(DatabaseManager model, ApplicationController controller, UserInfoPageInterface view) {
 
         view.addBackListener(e -> controller.showHomePage(controller.getCurrentUser()));
         view.addEditListener(e -> view.toEditPanel());

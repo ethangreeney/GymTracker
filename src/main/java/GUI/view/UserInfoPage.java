@@ -15,7 +15,7 @@ import javax.swing.SwingConstants;
 
 import GUI.model.User;
 
-public class UserInfoPage extends JPanel implements UserInfoPageInferface {
+public class UserInfoPage extends JPanel implements UserInfoPageInterface {
     private final String asciiArt = """
 
             ██╗   ██╗███████╗███████╗██████╗     ██╗███╗   ██╗███████╗ ██████╗

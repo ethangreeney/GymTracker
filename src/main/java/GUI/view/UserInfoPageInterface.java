@@ -5,7 +5,7 @@ import java.awt.event.ActionListener;
 import GUI.model.User;
 
 //userinfo interface for model use
-public interface UserInfoPageInferface {
+public interface UserInfoPageInterface {
 
     void addBackListener(ActionListener e);
 
