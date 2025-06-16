@@ -16,6 +16,7 @@ import GUI.view.MainFrame;
 import GUI.view.RegisterPage;
 import GUI.view.RegisterPageInterface;
 import GUI.view.UserInfoPage;
+import GUI.view.UserInfoPageInferface;
 import GUI.view.WelcomePage;
 import GUI.view.WorkoutHistoryPage;
 import GUI.view.WorkoutHistoryPageInterface;
@@ -112,6 +113,11 @@ public class ApplicationController {
     }
 
     public void showUserInfoPage() {
+
+        UserInfoPageInferface view = userInfoView;
+
+        view.updateUserInfo(currentUser);
+
         mainFrame.showPanel(MainFrame.USER_INFO_PAGE);
     }
 
