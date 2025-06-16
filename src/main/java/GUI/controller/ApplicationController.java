@@ -132,7 +132,7 @@ public class ApplicationController {
 
     public void showGoalPage() {
 
-        // assign the views in thier interface to limit their public API's
+        // assign the views in thier interface to limit their public APIs
 
         GoalPageInterface view = goalView;
 

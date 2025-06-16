@@ -38,7 +38,7 @@ public class WorkoutController {
 
         view.addSecondNextListener(e -> {
 
-            // ensure that exercise choise is not just white space
+            // ensure that exercise choice is not just white space
 
             String exerciseName = view.getExerciseChoice().trim();
 

@@ -40,7 +40,7 @@ public class LoginPage extends JPanel implements LoginPageInterface {
             """;
 
     public LoginPage() {
-        // layouts etting
+        // layouts setting
         setBackground(Utilities.backgroundColour);
         setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
 

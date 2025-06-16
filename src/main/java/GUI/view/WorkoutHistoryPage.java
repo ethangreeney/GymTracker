@@ -54,7 +54,7 @@ public class WorkoutHistoryPage extends JPanel implements WorkoutHistoryPageInte
 
                 add(Box.createRigidArea(Utilities.buttonGap));
 
-                // back buttom
+                // back button
                 topBar = new JPanel();
                 topBar.setBackground(this.getBackground());
                 topBar.setLayout(new BoxLayout(topBar, BoxLayout.X_AXIS));
