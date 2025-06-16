@@ -1,186 +1,183 @@
-# Gym Tracker Application
+# Gym Tracker - Dual Interface Fitness Application
 
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT) <!-- Optional: Add a license badge if applicable -->
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![Java Version](https://img.shields.io/badge/Java-21-blue.svg)](https://www.oracle.com/java/technologies/javase/jdk21-archive-downloads.html)
+[![Build Tool](https://img.shields.io/badge/Build-Maven-critical.svg)](https://maven.apache.org/)
 
-A robust, console-based application built with Java for tracking workouts, exercises, and personal fitness progress.
+A comprehensive Java application for tracking workouts, managing fitness goals, and monitoring personal progress, available in both a modern Graphical User Interface (GUI) and a classic Command-Line Interface (CLI).
 
-## Overview
+---
 
-Gym Tracker provides a straightforward command-line interface (CUI) for users to meticulously log their gym sessions, monitor progress over time, and manage fitness goals. User data, including workout history and personal details, is persistently stored in JSON format, ensuring your information is saved between sessions.
+## 📖 Table of Contents
+*   [Overview](#-overview)
+*   [Core Features](#-core-features)
+*   [Application Architecture](#-application-architecture)
+    *   [GUI (Graphical User Interface)](#gui-graphical-user-interface)
+    *   [CLI (Command-Line Interface)](#cli-command-line-interface)
+*   [Technology Stack](#-technology-stack)
+*   [Getting Started](#-getting-started)
+    *   [Prerequisites](#prerequisites)
+    *   [Installation & Running](#installation--running)
+*   [Usage Guide](#-usage-guide)
+*   [Contributors](#-contributors)
+*   [Future Enhancements](#-future-enhancements)
 
-## Core Features
+---
 
-*   **User Authentication & Management:**
-    *   Secure user registration and login.
-    *   Create and manage user profiles including name, age, weight, and height.
-    *   View and update profile information anytime.
-*   **Workout Logging:**
-    *   Record detailed workout sessions with custom names.
-    *   Log exercises performed within a workout, including sets, repetitions, and weight used for each set.
-    *   Select exercises from a predefined library or add custom exercises.
-*   **History & Progress:**
-    *   Access a complete history of all past workout sessions.
-    *   Review detailed logs including dates, exercises, sets, reps, and weights.
-*   **Goal Management:**
-    *   Set personal fitness goals with descriptions.
-    *   Mark goals as completed and track start/end dates.
-*   **User Metrics:**
-    *   Automatic Body Mass Index (BMI) calculation and classification based on user profile height and weight.
-*   **Data Persistence:**
-    *   All user profiles, workout history, and goals are saved to a JSON file (`userInfo.json`) upon logout or shutdown.
-    *   Data is automatically loaded when the application starts.
+## 🌟 Overview
 
-## Application Structure
+Gym Tracker is a versatile fitness application designed to cater to different user preferences by offering two distinct interfaces:
+1.  **A rich Graphical User Interface (GUI)** built with Java Swing, providing a visually intuitive experience with robust database persistence.
+2.  **A fast Command-Line Interface (CLI)** for users who prefer a terminal-based workflow, with data saved locally in JSON format.
 
-The application utilizes a Page-based navigation pattern managed by a `PageManager`, ensuring a clean separation of concerns between the UI logic and data management. Key components include:
+Both versions allow users to meticulously log gym sessions, monitor progress over time, and manage fitness goals, ensuring a complete fitness tracking solution.
 
-*   **`Page` Interface:** Defines the contract for all displayable screens (`display`, `handleInput`).
-*   **`PageManager`:** Handles navigation between different `Page` implementations.
-*   **`UserManager`:** Manages user loading, saving (using Gson), registration, and login logic.
-*   **Model Classes (`User`, `Workout`, `Exercise`, `SetInfo`, `Goal`):** Encapsulate the application's data.
-*   **`GymApplication`:** Main entry point, handles global scanner and shutdown hook for data saving.
+---
+
+## 💪 Core Features
+
+*   **Dual Interfaces:** Choose between a feature-rich GUI or a lightweight CLI.
+*   **User Authentication:** Secure user registration and login for both versions.
+*   **Profile Management:** Create and manage user profiles, including name, age, weight, and height.
+*   **Workout Logging:** Record detailed workout sessions with custom names. Log individual exercises, including sets, repetitions, and weight.
+*   **Exercise Library:** Select from a predefined list of common exercises or add your own custom exercises.
+*   **Comprehensive History:** Access a complete, chronologically sorted history of all past workout sessions with detailed views.
+*   **Goal Management:** Set personal fitness goals, track their creation date, and mark them as complete.
+*   **User Metrics:** Automatically calculates and classifies your Body Mass Index (BMI) based on your profile information.
+*   **Persistent Storage:**
+    *   The **GUI** version uses an embedded **Apache Derby SQL database** for robust, relational data storage.
+    *   The **CLI** version uses **JSON files** for simple, portable data persistence.
+
+---
+
+## 🏗️ Application Architecture
+
+The project is organized into two main packages, `GUI` and `CLI`, each providing a complete, standalone user experience with different underlying technologies.
+
+### GUI (Graphical User Interface)
+
+The GUI version is built using **Java Swing** and follows a **Model-View-Controller (MVC)** design pattern for a clean separation of concerns.
+
+*   **Model:** Contains the data logic. A `DatabaseManager` handles all JDBC communication with the Apache Derby database. Data entities like `User`, `Workout`, and `Goal` are defined in this layer.
+*   **View:** Comprises all Swing components (`JPanel`, `JFrame`, etc.) that form the user interface. It implements interfaces (`LoginPageInterface`, `HomePageInterface`) to decouple from the controller.
+*   **Controller:** Acts as the bridge between the Model and the View. It handles user input, processes data by calling the `DatabaseManager`, and updates the View. The `ApplicationController` is the main coordinator that manages page navigation.
 
 ```mermaid
-classDiagram
-    direction LR // Optional: Makes diagram flow left-to-right
+graph TD
+    subgraph Controller
+        ApplicationController
+        LoginController
+        WorkoutController
+    end
 
-    GymApplication --> PageManager
-    GymApplication --> UserManager
-    GymApplication --> Scanner
+    subgraph View
+        MainFrame
+        LoginPage -- implements --> LoginPageInterface
+        WorkoutPage -- implements --> WorkoutPageInterface
+    end
 
-    PageManager ..> Page : uses
-    UserManager ..> User : manages
-    UserManager ..> Gson : uses
-    User ..> Workout : has-a
-    User ..> Goal : has-a
-    Workout ..> Exercise : has-a
-    Exercise ..> SetInfo : has-a
+    subgraph Model
+        DatabaseManager -- interacts with --> ApacheDerbyDB[(Apache Derby DB)]
+        User
+        Workout
+        Goal
+    end
 
-    class Page {
-        <<Interface>>
-        +display() void
-        +handleInput() void
-    }
+    ApplicationController --> MainFrame
+    ApplicationController --> DatabaseManager
+    ApplicationController --> LoginController
+    ApplicationController --> WorkoutController
 
-    Page <|-- Welcome
-    Page <|-- Login
-    Page <|-- Register
-    Page <|-- Home
-    Page <|-- WorkoutPage
-    Page <|-- WorkoutHistory
-    Page <|-- UserInfo
-    Page <|-- GoalsPage 
-    Page <|-- Shutdown
+    LoginController --> LoginPageInterface
+    WorkoutController --> WorkoutPageInterface
 
-    class User {
-        -username: String
-        -password: String // Note: Stored Plaintext (Security Risk)
-        -name: String
-        -height: int
-        -age: int
-        -weight: int
-        -exercisesList: List~String~ // List of available exercise names
-        -workoutHistory: List~Workout~
-        -userGoals: List~Goal~
-        +addWorkout(Workout)
-        +addGoal(String)
-        +getUserGoals() List~Goal~
-        +getWorkoutHistory() List~Workout~
-        // ... other getters/setters
-    }
-
-    class PageManager {
-         +navigate(Class~? extends Page~) void
-    }
-
-    class Workout {
-        -name: String
-        // -workoutDate: Date // Consider adding for better history
-        -exerciseInfo: List~Exercise~
-        +addExercise(Exercise)
-        // ... getters
-    }
-
-    class Exercise {
-        -name: String
-        -sets: List~SetInfo~
-        +addSet(int, int)
-        // ... getters
-    }
-
-    class SetInfo {
-        -weight: int
-        -reps: int
-        // ... getters/setters
-    }
-     class Goal { // Corrected Name
-        -goalDescription: String
-        -startDate: Date
-        -endDate: Date
-        +completeGoal() void
-        // ... constructor/getters
-    }
+    LoginController --> DatabaseManager
+    WorkoutController --> DatabaseManager
 ```
-*(**Note:** The diagram reflects the core structure. Password storage is currently plaintext, which is a security risk and should be improved with hashing in a production environment.)*
 
-## Getting Started
+### CLI (Command-Line Interface)
+The CLI version provides a fast, terminal-based experience using a page-based navigation pattern.
+
+*   **`Page` Interface:** Defines the contract for all displayable screens (`display`, `handleInput`). Implementations like `HomePage`, `LoginPage`, and `WorkoutPage` handle the logic for each screen.
+*   **`PageManager`:** Manages navigation between different `Page` implementations.
+*   **`UserManager`:** Handles all user-related logic, including loading from and saving to a `userInfo.json` file using the **Gson** library.
+*   **Model Classes:** Simple Plain Old Java Objects (POJOs) like `User`, `Workout`, and `Goal` encapsulate the application's data.
+
+> **⚠️ Security Warning:** In the CLI version, passwords are currently stored in plaintext within the JSON file. This is a security risk and should be improved with hashing in a production environment.
+
+---
+
+## 🛠️ Technology Stack
+*   **Language:** Java 21
+*   **Build Tool:** Apache Maven
+*   **GUI:**
+    *   **Framework:** Java Swing
+    *   **Database:** Apache Derby (Embedded SQL Database)
+    *   **Driver:** JDBC
+*   **CLI:**
+    *   **Library:** Gson (for JSON serialization)
+
+---
+
+## 🚀 Getting Started
+
+Follow these instructions to get a copy of the project up and running on your local machine.
 
 ### Prerequisites
-
 *   Java Development Kit (JDK) 21 or newer
-*   Apache Maven (for building)
+*   Apache Maven
 
 ### Installation & Running
-
 1.  **Clone the repository:**
     ```bash
-    https://github.com/ethangreeney/GymTracker.git
-    cd gym-tracker
+    git clone https://github.com/ethangreeney/GymTracker.git
+    cd GymTracker
     ```
 
 2.  **Build the project using Maven:**
-    This compiles the code and packages it into an executable JAR file.
+    This command compiles the source code and packages it into an executable JAR file.
     ```bash
     mvn clean package
     ```
 
 3.  **Run the application:**
-    Execute the JAR file created in the `target` directory. The exact JAR filename might vary slightly based on your `pom.xml`.
-    ```bash
-    java -jar target/GymApplication-1.0-SNAPSHOT.jar
-    ```
+    You can run either the GUI or the CLI version. The necessary JAR file will be located in the `target` directory.
 
-## Usage Guide
+    *   **To run the GUI Application:**
+        ```bash
+        java -cp target/GymApplication-1.0-SNAPSHOT.jar GUI.controller.ApplicationController
+        ```
 
-1.  Launch the application using the command above.
-2.  Follow the on-screen prompts:
-    *   Choose `Register` to create a new account.
-    *   Choose `Login` if you have existing credentials.
-3.  Once logged in, use the Home menu to navigate:
-    *   `Start Workout`: Log a new gym session.
-    *   `View Workout History`: Review past workouts.
-    *   `Set and View Goals`: Manage your fitness goals.
-    *   `User Info`: View/update your profile and check BMI.
-    *   `Save Info and Log Out`: Persist all changes and exit gracefully.
+    *   **To run the CLI Application:**
+        ```bash
+        java -cp target/GymApplication-1.0-SNAPSHOT.jar CLI.GymApplication
+        ```
 
-## Technologies Used
+---
 
-*   **Language:** Java 21
-*   **Build Tool:** Apache Maven
-*   **Libraries:**
-    *   Gson: For easy JSON serialization/deserialization of user data.
+## 📋 Usage Guide
 
-## Contributors
+1.  Launch either the GUI or CLI application using the commands above.
+2.  On the first screen, choose to **Register** a new account or **Login** with existing credentials.
+3.  Once logged in, the Home screen provides the main navigation:
+    *   **Start Workout:** Log a new gym session, including exercises, sets, reps, and weights.
+    *   **View Workout History:** Review a detailed list of all your past workouts.
+    *   **Set and View Goals:** Create new fitness goals and view the status of existing ones.
+    *   **User Info:** View or update your profile (name, age, height, weight) and see your calculated BMI.
+    *   **Logout:** Save all changes and exit the application gracefully.
 
+---
+
+## 👥 Contributors
 *   Ethan Greene
 *   Daniel Huang
 
-## Future Enhancements
+---
 
-*   **Password Hashing:** Implement secure password storage (e.g., using bcrypt).
-*   **GUI:** Develop a graphical user interface using JavaFX or Swing.
-*   **Advanced Reporting:** Generate workout summaries or progress charts.
-*   **Exercise Details:** Add options to categorize exercises (muscle group, type) or add descriptions/instructions.
-*   **Workout Templates:** Allow users to create and reuse workout routines.
-*   **Data Export:** Add functionality to export workout history (e.g., to CSV).
-*   **Unit Testing:** Enhance code quality and robustness with comprehensive unit tests.
+## 🔮 Future Enhancements
+*   **Password Hashing:** Implement secure password storage (e.g., using bcrypt) for both versions.
+*   **Shared Model:** Refactor the project to use a common data model for both the GUI and CLI.
+*   **Advanced Reporting:** Generate visual charts and summaries of workout progress.
+*   **Workout Templates:** Allow users to create and reuse predefined workout routines.
+*   **Data Export:** Add functionality to export workout history to formats like CSV or PDF.
+*   **Unit & Integration Testing:** Increase code coverage and robustness with a comprehensive test suite.
