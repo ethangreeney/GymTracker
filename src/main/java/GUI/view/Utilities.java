@@ -12,7 +12,7 @@ public class Utilities {
     public static Dimension buttonGap = new Dimension(0, 10);
 
     public static String toHtmlFormat(String s) {
-        StringBuilder sb = new StringBuilder("<html><pre><font face='Monospaced'>");
+        StringBuilder sb = new StringBuilder("<html><pre><font face='Courier New'>");
         sb.append(s).append("</font></pre></html>");
 
         return sb.toString();
