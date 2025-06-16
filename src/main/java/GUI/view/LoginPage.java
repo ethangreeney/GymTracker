@@ -140,6 +140,7 @@ public class LoginPage extends JPanel implements LoginPageInterface {
         loginFailed.setText("");
     }
 
+    @Override
     public void addBackListener(ActionListener e) {
         back.addActionListener(e);
     }
