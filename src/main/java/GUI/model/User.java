@@ -93,4 +93,8 @@ public class User {
         this.weight = weight;
     }
 
+    public double getBMI() {
+        return weight / (((double) height / 100) * ((double) height / 100));
+    }
+
 }

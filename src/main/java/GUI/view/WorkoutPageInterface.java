@@ -3,8 +3,6 @@ package GUI.view;
 import java.awt.event.ActionListener;
 import java.util.List;
 
-import GUI.model.Workout;
-
 public interface WorkoutPageInterface {
 
     String getWorkoutName();

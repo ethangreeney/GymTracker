@@ -1,16 +1,22 @@
 package GUI.view;
 
-import javax.swing.*;
-
-import GUI.model.User;
-
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Font;
 import java.awt.event.ActionListener;
 
+import javax.swing.Box;
+import javax.swing.BoxLayout;
+import javax.swing.JButton;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.JTextField;
+import javax.swing.SwingConstants;
+
+import GUI.model.User;
+
 public class UserInfoPage extends JPanel implements UserInfoPageInferface {
-    private String asciiArt = """
+    private final String asciiArt = """
 
             ██╗   ██╗███████╗███████╗██████╗     ██╗███╗   ██╗███████╗ ██████╗
             ██║   ██║██╔════╝██╔════╝██╔══██╗    ██║████╗  ██║██╔════╝██╔═══██╗
@@ -20,34 +26,33 @@ public class UserInfoPage extends JPanel implements UserInfoPageInferface {
              ╚═════╝ ╚══════╝╚══════╝╚═╝  ╚═╝    ╚═╝╚═╝  ╚═══╝╚═╝      ╚═════╝
             """;
 
-    private JLabel userInformation;
-    private JLabel warningText;
-    private JPanel topBar;
-    private JButton back;
-    private JButton edit;
-    private JButton confirm;
+    private final JLabel userInformation;
+    private final JLabel warningText;
+    private final JPanel topBar;
+    private final JButton back;
+    private final JButton edit;
+    private final JButton confirm;
 
-    private JLabel nameLabel;
-    private JLabel ageLabel;
-    private JLabel heightLabel;
-    private JLabel weightLabel;
-    private JLabel BMILabel;
+    private final JLabel nameLabel;
+    private final JLabel ageLabel;
+    private final JLabel heightLabel;
+    private final JLabel weightLabel;
+    private final JLabel BMILabel;
 
-    private JPanel displayPanel;
+    private final JPanel displayPanel;
 
-    private JLabel nameLabelEdit;
-    private JLabel ageLabelEdit;
-    private JLabel heightLabelEdit;
-    private JLabel weightLabelEdit;
+    private final JLabel nameLabelEdit;
+    private final JLabel ageLabelEdit;
+    private final JLabel heightLabelEdit;
+    private final JLabel weightLabelEdit;
 
-    private JTextField name;
-    private JTextField age;
-    private JTextField height;
-    private JTextField weight;
+    private final JTextField name;
+    private final JTextField age;
+    private final JTextField height;
+    private final JTextField weight;
 
-    private JPanel editPanel;
+    private final JPanel editPanel;
 
-    private Dimension labelSize = new Dimension(210, 30);
     private final Dimension textFieldSize = new Dimension(215, 35);
 
     public UserInfoPage() {
@@ -238,14 +243,11 @@ public class UserInfoPage extends JPanel implements UserInfoPageInferface {
 
     @Override
     public void updateUserInfo(User user) {
-        nameLabel.setText(user.getName());
-        ageLabel.setText(String.valueOf(user.getAge()));
-        heightLabel.setText(String.valueOf(user.getHeight()));
-        weightLabel.setText(String.valueOf(user.getWeight()));
-    }
-
-    public void updateBMI(Double bmi) {
-        BMILabel.setText(String.valueOf(bmi));
+        nameLabel.setText("Name: " + user.getName());
+        ageLabel.setText("Age: " + String.valueOf(user.getAge()));
+        heightLabel.setText("Height: " + String.valueOf(user.getHeight()));
+        weightLabel.setText("Weight: " + String.valueOf(user.getWeight()));
+        BMILabel.setText("BMI: " + String.valueOf(Math.round(user.getBMI() * 10) / 10));
     }
 
     @Override

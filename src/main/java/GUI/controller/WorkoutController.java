@@ -88,6 +88,8 @@ public class WorkoutController {
 
     public void reset() {
         currentWorkout = new Workout();
+        currentExercise = null;
+        numberOfsets = 0;
     }
 
 }

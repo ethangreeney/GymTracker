@@ -117,6 +117,7 @@ public class ApplicationController {
         UserInfoPageInferface view = userInfoView;
 
         view.updateUserInfo(currentUser);
+        view.toDisplayPanel();
 
         mainFrame.showPanel(MainFrame.USER_INFO_PAGE);
     }
