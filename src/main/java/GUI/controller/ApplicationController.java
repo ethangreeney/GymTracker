@@ -50,6 +50,9 @@ public class ApplicationController {
 
         this.mainFrame = new MainFrame();
 
+        workoutView = new WorkoutPage();
+        workoutController = new WorkoutController(dbManager, this, workoutView);
+
         welcomeView = new WelcomePage();
         new WelcomeController(dbManager, this, welcomeView);
 
@@ -61,9 +64,6 @@ public class ApplicationController {
 
         homeView = new HomePage();
         new HomeController(dbManager, this, homeView);
-
-        workoutView = new WorkoutPage();
-        workoutController = new WorkoutController(dbManager, this, workoutView);
 
         workoutHistoryView = new WorkoutHistoryPage();
         new WorkoutHistoryController(dbManager, this, workoutHistoryView);

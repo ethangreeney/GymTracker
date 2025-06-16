@@ -2,7 +2,6 @@ package GUI.view;
 
 import java.awt.Color;
 import java.awt.Dimension;
-import java.awt.Desktop.Action;
 import java.awt.event.ActionListener;
 
 import javax.swing.Box;
@@ -263,6 +262,7 @@ public class RegisterPage extends JPanel implements RegisterPageInterface {
         duplicate.setVisible(true);
     }
 
+    @Override
     public void addBackListener(ActionListener e) {
         back.addActionListener(e);
     }
