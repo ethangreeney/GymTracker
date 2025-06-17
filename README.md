@@ -1,5 +1,6 @@
 # Gym Tracker - Dual Interface Fitness Application
 
+[![Latest Release](https://img.shields.io/github/v/release/ethangreeney/GymTracker?label=Latest%20Release&color=success)](https://github.com/ethangreeney/GymTracker/releases/latest)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![Java Version](https://img.shields.io/badge/Java-21-blue.svg)](https://www.oracle.com/java/technologies/javase/jdk21-archive-downloads.html)
 [![Build Tool](https://img.shields.io/badge/Build-Maven-critical.svg)](https://maven.apache.org/)
@@ -79,6 +80,8 @@ The CLI version provides a fast, terminal-based experience using a page-based na
 
 ## 🚀 Getting Started
 
+If you want to build the project from the source code, follow these steps.
+
 1.  **Clone the repository:**
     ```bash
     git clone https://github.com/ethangreeney/GymTracker.git
@@ -98,6 +101,24 @@ The CLI version provides a fast, terminal-based experience using a page-based na
     *   **CLI Version:**
         ```bash
         java -cp target/GymApplication-1.0-SNAPSHOT.jar CLI.GymApplication
+        ```
+
+---
+
+## 📦 Download the Latest Release
+
+If you prefer to run the application without building it from source, you can download the latest pre-compiled `.jar` file from the Releases page.
+
+1.  **Go to the [Latest Release page](https://github.com/ethangreeney/GymTracker/releases/latest).**
+2.  **Download the `GymApplication-1.0-SNAPSHOT.jar` file** from the "Assets" section.
+3.  **Run the application** from your terminal by navigating to the download directory:
+    *   **GUI Version:**
+        ```bash
+        java -cp GymApplication-1.0-SNAPSHOT.jar GUI.controller.ApplicationController
+        ```
+    *   **CLI Version:**
+        ```bash
+        java -cp GymApplication-1.0-SNAPSHOT.jar CLI.GymApplication
         ```
 
 ---
