@@ -1,4 +1,4 @@
-# This workflow will build, test, and save the final .jar file.
+# This workflow will build, test, and save the final, runnable .jar file.
 
 name: Java CI with Maven
 
@@ -33,12 +33,9 @@ jobs:
     - name: Build with Maven
       run: mvn -B clean package --file pom.xml
 
-    # --- ADD THIS NEW STEP ---
     - name: Upload artifact
       uses: actions/upload-artifact@v4
       with:
-        # The name of the artifact to be uploaded. This will be the name of the .zip file.
         name: GymTracker-Jar
-        # The path to the file(s) to upload.
-        # This will find the .jar file inside the target directory.
-        path: target/*.jar
+        # --- IMPROVEMENT: Point directly to the final fat JAR ---
+        path: target/GymApplication-1.0-SNAPSHOT.jar
