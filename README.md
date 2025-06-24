@@ -134,4 +134,4 @@ If you prefer to run the application without building it from source, you can do
 
 ## 👥 Contributors
 *   [Ethan Greene](https://github.com/ethangreeney)
-*   [Daniel Huang](https://github.com/danhuang-dev)
+*   [Daniel Huang](https://github.com/katonCODE)
